@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.runtime/
+.env*
+!.env.example
+backups/
+artifacts/
+test-results/
+playwright-report/
+*.log
+*.tsbuildinfo
+# Histórico local do agente e ferramentas temporárias
+CONTINUACAO.md
+.agents/
+.codex/
+.tools/
+a/

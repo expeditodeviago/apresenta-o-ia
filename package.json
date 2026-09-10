@@ -1,0 +1,44 @@
+{
+  "name": "lousa-ia-apresentacao",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=24.15.0 <25" },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test:e2e": "node scripts/run-e2e.mjs",
+    "start": "node --env-file-if-exists=.env server/index.ts",
+    "test:unit": "node --test tests/engine.test.ts tests/server.test.ts"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@radix-ui/react-slider": "^1.4.7",
+    "@radix-ui/react-tooltip": "^1.2.16",
+    "@types/qrcode": "^1.5.6",
+    "@xyflow/react": "^12.11.6",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.2.0",
+    "gpt-tokenizer": "^4.0.0",
+    "lucide-react": "^1.41.0",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.6.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}

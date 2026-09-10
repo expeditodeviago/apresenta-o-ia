@@ -1,0 +1,25 @@
+# Requer um serviço PAGO para manter o disco persistente.
+# Revise os custos no Render antes de confirmar a criação.
+services:
+  - type: web
+    name: synapse-apresentacao
+    runtime: node
+    plan: 0.5c-512mb
+    numInstances: 1
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: off
+    envVars:
+      - key: NODE_VERSION
+        value: 24.15.0
+      - key: NODE_ENV
+        value: production
+      - key: SYNAPSE_ADMIN_KEY
+        generateValue: true
+      - key: SYNAPSE_DATA_DIR
+        value: /var/data/synapse
+    disk:
+      name: synapse-sessions
+      mountPath: /var/data
+      sizeGB: 1
