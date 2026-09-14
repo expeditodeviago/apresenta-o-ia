@@ -29,7 +29,7 @@ test('Servidor: autorização, notas privadas, pareamento único, duplicação, 
     const password = 'Teste-privado-2026';
     assert.equal((await request(session + '/password', 'POST', { password })).status, 403);
     assert.equal((await request(session + '/password', 'POST', { password }, phone.secret)).status, 403);
-    assert.equal((await request(session + '/password', 'POST', { password: 'curta' }, secret)).status, 400);
+    assert.equal((await request(session + '/password', 'POST', { password: '1234' }, secret)).status, 400);
     assert.equal((await request(session + '/password', 'POST', { password }, secret)).status, 200);
     assert.equal((await request(session + '/notes', 'GET', undefined, phone.secret)).status, 403);
     assert.equal((await request(session + '/login', 'POST', { password: 'incorreta' })).status, 403);
@@ -71,7 +71,8 @@ test('Hospedagem reconhece a origem HTTPS e exige chave administrativa mesmo por
   const dir = await mkdtemp(path.join(tmpdir(), 'synapse-hosted-'));
   const port = 45200 + Math.floor(Math.random() * 500), base = 'http://127.0.0.1:' + port;
   const publicBase = 'https://synapse-test.example', admin = 'test-only-admin-' + Date.now();
-  const child = spawn(process.execPath, ['server/index.ts'], { env: { ...process.env, PORT: String(port), SYNAPSE_DATA_DIR: dir, PUBLIC_BASE_URL: '', RENDER_EXTERNAL_URL: publicBase, SYNAPSE_ADMIN_KEY: admin }, stdio: 'ignore', windowsHide: true });
+  const initialPassword = 'abcde';
+  const child = spawn(process.execPath, ['server/index.ts'], { env: { ...process.env, PORT: String(port), SYNAPSE_DATA_DIR: dir, PUBLIC_BASE_URL: '', RENDER_EXTERNAL_URL: publicBase, SYNAPSE_ADMIN_KEY: admin, SYNAPSE_CONTROL_PASSWORD: initialPassword }, stdio: 'ignore', windowsHide: true });
   try {
     let ready = false;
     for (let i = 0; i < 80; i++) { try { if ((await fetch(base + '/api/health')).ok) { ready = true; break; } } catch {} await new Promise(resolve => setTimeout(resolve, 50)); }
@@ -82,6 +83,10 @@ test('Hospedagem reconhece a origem HTTPS e exige chave administrativa mesmo por
     assert.equal((await post('/api/sessions', {})).status, 403);
     const response = await post('/api/sessions', {}, admin); assert.equal(response.status, 201);
     const session = await response.json();
+    assert.equal(info.defaultPasswordConfigured, true);
+    assert.equal(JSON.stringify(info).includes(initialPassword), false);
+    assert.equal((await post('/api/sessions/' + session.id + '/login', { password: initialPassword })).status, 200);
+    assert.equal((await readFile(path.join(dir, 'sessions.json'), 'utf8')).includes(initialPassword), false);
     const paired = await post('/api/sessions/' + session.id + '/pair', {}, session.secret); assert.equal(paired.status, 200);
     const pairing = await paired.json(); assert.deepEqual(pairing.addresses, [publicBase]);
     assert.equal((await post('/api/pair', { pair: pairing.code }, undefined, 'https://wrong.example')).status, 403);

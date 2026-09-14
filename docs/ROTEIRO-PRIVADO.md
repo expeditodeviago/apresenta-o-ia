@@ -20,9 +20,9 @@ Uma máquina precisa tentar tudo para encontrar uma boa resposta?
 
 ### 2. Um exemplo
 
-Uma senha com quatro posições e dez símbolos já admite 10.000 sequências.
+Você escolhe quatro números para uma senha. Parece pouco… até contar todas as possibilidades.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Neste exemplo, o que gera mais sequências: dobrar as opções ou dobrar o comprimento?
 
@@ -34,21 +34,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Compare 20⁴ com 10⁸: dobre só as opções ou só as posições da senha inicial.
 
-### 6. A matemática
+### 6. Por que acontece?
 
 20⁴ = 160.000; 10⁸ = 100 milhões. Neste exemplo, dobrar as posições gera 625 vezes mais sequências que dobrar as opções.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Decisão, busca, representação e coordenação aparecem em sistemas de IA. Limite: As experiências são algoritmos didáticos locais. Nenhum modelo externo está respondendo ao vivo.
+Escolher uma rota, organizar tarefas e completar uma frase: a IA precisa lidar com muitas possibilidades. Limite: As experiências são algoritmos didáticos locais. Nenhum modelo externo está respondendo ao vivo.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Começamos com escolhas simples. O número de possibilidades pode surpreender.
+Você não precisa saber programar para participar. Basta dar um palpite e observar.
 
 **Limite / erro comum:** As experiências são algoritmos didáticos locais. Nenhum modelo externo está respondendo ao vivo.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -66,9 +66,9 @@ Quantas possibilidades cabem em três escolhas?
 
 ### 2. Um exemplo
 
-Escolher uma peça para cada posição: roupas, símbolos de senha ou tokens.
+Monte uma fileira de três peças: em cada lugar, escolha amarela, azul ou vermelha.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Com 3 opções e 3 posições, quantas sequências existem?
 
@@ -80,21 +80,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Mantenha as opções e acrescente uma posição. O total soma ou multiplica?
 
-### 6. A matemática
+### 6. Por que acontece?
 
-V opções em cada uma de n posições: Vⁿ sequências, com repetição e ordem relevante.
+Cada novo lugar multiplica as possibilidades. Com 3 cores e 3 lugares: 3 × 3 × 3 = 27.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Um vocabulário finito permite construir muitas sequências de tokens. Limite: Um LLM não enumera todas as frases. Sequências ordenadas com repetição não são combinações sem ordem.
+A IA também monta sequências, escolhendo pequenos pedaços de texto, chamados tokens. Limite: Um LLM não enumera todas as frases. Sequências ordenadas com repetição não são combinações sem ordem.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Muitas possibilidades exigem uma estratégia de busca.
+Se existem tantas opções, como encontrar uma boa escolha sem tentar tudo?
 
 **Limite / erro comum:** Um LLM não enumera todas as frases. Sequências ordenadas com repetição não são combinações sem ordem.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: retire a repetição e compare Vⁿ com V!/(V−n)!. Depois retire a importância da ordem.
 
@@ -112,11 +112,11 @@ Encontrar uma saída é o mesmo que encontrar a menor rota?
 
 ### 2. Um exemplo
 
-O mesmo labirinto aparece como corredores e como grafo de posições.
+Você está num lugar desconhecido. Explora um corredor até o fim ou olha primeiro todas as saídas próximas?
 
-### 3. Sua previsão
+### 3. Seu palpite
 
-Qual estratégia chega à saída pelo menor número de arestas?
+Qual estratégia encontra a saída com menos passos?
 
 ### 4. Experimente
 
@@ -126,21 +126,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Troque largura por profundidade, mantendo o labirinto.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-BFS explora por camadas. DFS aprofunda um ramo. Backtracking desfaz escolhas quando necessário.
+Olhar por camadas encontra a rota com menos passos neste labirinto. Seguir um corredor até o fim pode dar uma volta maior.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Busca em espaços de estados aparece em planejamento e resolução de problemas. Limite: BFS minimiza arestas em grafos não ponderados ou com pesos iguais. Não descreve literalmente o raciocínio de um LLM.
+Um robô que procura uma saída e um sistema que planeja tarefas precisam explorar caminhos possíveis. Limite: BFS minimiza arestas em grafos não ponderados ou com pesos iguais. Não descreve literalmente o raciocínio de um LLM.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-O caminho depende tanto da estrutura quanto das regras.
+Um bom caminho ajuda. Agora imagine que há uma porta que só abre com a regra certa.
 
 **Limite / erro comum:** BFS minimiza arestas em grafos não ponderados ou com pesos iguais. Não descreve literalmente o raciocínio de um LLM.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -158,9 +158,9 @@ Uma regra aparentemente segura pode abrir a porta errada?
 
 ### 2. Um exemplo
 
-A porta exige crachá E autorização, sem bloqueio de segurança.
+Para entrar no evento, você precisa de ingresso E documento. O que muda se a placa disser OU?
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Se usarmos OU no lugar de E, quem passa a entrar?
 
@@ -172,21 +172,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Ative só o crachá. Compare E com OU e revele a tabela-verdade.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-(C ∧ A) ∧ ¬B exige as duas credenciais e ausência de bloqueio.
+Com E, precisa ter os dois. Com OU, basta um. Uma palavra muda quem consegue entrar.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Condições lógicas controlam permissões e ações de ferramentas em sistemas de IA. Limite: Uma regra formal correta ainda depende de dados corretos e de requisitos bem definidos.
+Antes de uma IA acessar um arquivo ou executar uma tarefa, o sistema deve conferir se ela tem permissão. Limite: Uma regra formal correta ainda depende de dados corretos e de requisitos bem definidos.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Regras também descrevem relações entre elementos.
+As palavras conectam regras. E as referências conectam ideias.
 
 **Limite / erro comum:** Uma regra formal correta ainda depende de dados corretos e de requisitos bem definidos.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -204,9 +204,9 @@ Se um documento aponta para outro, a relação vale nos dois sentidos?
 
 ### 2. Um exemplo
 
-Uma biblioteca de seis documentos conectados por referências.
+Você vê uma receita, descobre um ingrediente e chega a outra receita. Uma ideia abre caminho para outra.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Existe um caminho de A até F? E de F até A?
 
@@ -218,21 +218,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Transforme a rede em simétrica ou remova uma conexão.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Arestas diretas e caminhos são coisas diferentes. Simetria exige o par inverso.
+Um link é uma ligação direta. Um caminho passa por várias ligações. Seguir alguém não significa que essa pessoa segue você.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Grafos de conhecimento e recomendações usam relações para localizar informações. Limite: Existir um caminho não prova que uma recomendação é boa ou que um fato é verdadeiro.
+Mapas de conhecimento ligam assuntos, documentos e fontes. É a ideia que vamos reencontrar no Obsidian, no final. Limite: Existir um caminho não prova que uma recomendação é boa ou que um fato é verdadeiro.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Na próxima etapa, conexões viram decisões de um jogo.
+Quando você enxerga conexões, começa a perceber as consequências de cada escolha.
 
 **Limite / erro comum:** Existir um caminho não prova que uma recomendação é boa ou que um fato é verdadeiro.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -252,7 +252,7 @@ Pegar o máximo agora sempre é a melhor jogada?
 
 Há 7 peças. Cada jogador retira 1, 2 ou 3. Quem tira a última vence.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Qual retirada deixa o adversário sem uma vitória garantida?
 
@@ -262,23 +262,23 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 ### 5. E se mudar?
 
-Compare aleatório reproduzível, guloso e minimax com a mesma quantidade inicial.
+Compare jogar ao acaso, pegar o máximo e pensar na resposta do adversário.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Estados múltiplos de 4 são perdedores para quem joga, se o adversário responder de forma ótima.
+Deixe 4 peças para o adversário. Depois, tire o que falta para as duas retiradas somarem 4. Pense uma jogada à frente.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Busca adversarial avalia consequências e respostas possíveis. Limite: São algoritmos programados, não modelos de IA competindo. A conclusão vale para as regras deste jogo.
+Em jogos e planejamento, um sistema pode comparar o que acontece depois de cada decisão. Limite: São algoritmos programados, não modelos de IA competindo. A conclusão vale para as regras deste jogo.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-O resto de uma divisão pode esconder a estratégia.
+A estratégia esconde um padrão que se repete. Como os números de um relógio.
 
 **Limite / erro comum:** São algoritmos programados, não modelos de IA competindo. A conclusão vale para as regras deste jogo.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -296,9 +296,9 @@ Um relógio marca 2. Que posição terá após 14 horas?
 
 ### 2. Um exemplo
 
-Cada volta completa retorna à mesma classe de restos.
+São 2 horas. Você espera 14 horas. O ponteiro dá uma volta e ainda anda mais um pouco.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 O resultado é 2, 4 ou 14?
 
@@ -310,21 +310,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Mude o tamanho do relógio e observe a mesma soma.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-(2 + 14) mod 12 = 4. Posições equivalentes têm o mesmo resto.
+Uma volta completa não muda a posição do ponteiro. De 2, avançamos 14 e chegamos ao 4.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-RoPE usa rotações para incorporar posições em pares de componentes de queries e keys. Limite: RoPE usa múltiplas frequências e vetores; não é apenas posição módulo n. O relógio é uma ponte didática.
+Na frase “o cachorro mordeu o homem”, a ordem importa. Modelos de linguagem usam informações de posição para distinguir essa ordem. Limite: RoPE usa múltiplas frequências e vetores; não é apenas posição módulo n. O relógio é uma ponte didática.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Posições organizam sequências; dependências organizam trabalho.
+A ordem das palavras muda uma frase. A ordem das tarefas muda um trabalho.
 
 **Limite / erro comum:** RoPE usa múltiplas frequências e vetores; não é apenas posição módulo n. O relógio é uma ponte didática.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -342,11 +342,11 @@ Quais tarefas podem acontecer juntas sem atropelar uma dependência?
 
 ### 2. Um exemplo
 
-Pesquisar → verificar e redigir → revisar.
+Num trabalho em grupo, dá para conferir fontes e escrever juntos. Mas a revisão final precisa esperar o texto.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
-O que acontece se pesquisar também depender de revisar?
+E se o primeiro passo tiver de esperar pelo último?
 
 ### 4. Experimente
 
@@ -356,21 +356,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Insira o ciclo e depois remova a dependência problemática.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Uma ordenação topológica existe em DAGs. A alcançabilidade define uma ordem estrita, e sua versão reflexiva é uma ordem parcial.
+Algumas tarefas podem acontecer juntas. Se uma espera pela outra em círculo, ninguém começa.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Fluxos de agentes e pipelines organizam tarefas por dependências. Limite: As arestas são dependências diretas; a relação de ordem inclui caminhos transitivos. Agentes aqui são simulados.
+Um assistente de IA pode dividir um pedido em pesquisar, escrever e revisar. O fluxo organiza quem espera por quem. Limite: As arestas são dependências diretas; a relação de ordem inclui caminhos transitivos. Agentes aqui são simulados.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Mesmo um fluxo bem ordenado encontra limites de recursos.
+Mesmo com tudo organizado, ainda precisamos de espaço para guardar o que encontramos.
 
 **Limite / erro comum:** As arestas são dependências diretas; a relação de ordem inclui caminhos transitivos. Agentes aqui são simulados.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: discuta fechamento transitivo, redução transitiva e mais de uma ordenação topológica.
 
@@ -388,11 +388,11 @@ Mesmo um fluxo bem ordenado encontra limites de recursos.
 
 ### 2. Um exemplo
 
-Cada objeto é colocado em exatamente uma gaveta.
+Cinco amigos deixam seus celulares em quatro gavetas. Alguma gaveta terá que receber dois.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
-Qual é o primeiro número de objetos que garante alguma colisão?
+Com quatro gavetas, quantos objetos tornam a repetição inevitável?
 
 ### 4. Experimente
 
@@ -402,25 +402,25 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Compare uma distribuição manual com h(x) = x mod g.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Se n > g, pelo menos uma gaveta recebe dois objetos. Em geral, alguma recebe ao menos ⌈n/g⌉.
+Cinco objetos, quatro gavetas: pelo menos dois ficam juntos. Não depende de sorte; é falta de espaço.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Mais entradas possíveis do que hashes disponíveis tornam colisões inevitáveis. Limite: n ≤ g não impede colisões; apenas deixa de garanti-las. Colisão de hash não significa igualdade das entradas.
+Computadores usam códigos curtos para organizar dados. Dois dados diferentes podem acabar com o mesmo código. Limite: n ≤ g não impede colisões; apenas deixa de garanti-las. Colisão de hash não significa igualdade das entradas.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Limites determinísticos são diferentes de incerteza probabilística.
+Aqui o resultado era inevitável. Mas e quando só sabemos o que é mais provável?
 
 **Limite / erro comum:** n ≤ g não impede colisões; apenas deixa de garanti-las. Colisão de hash não significa igualdade das entradas.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
-## 72–80 min · O painel das probabilidades
+## 72–80 min · Por que a resposta muda?
 
 **Conceito:** Distribuição e amostragem
 
@@ -434,11 +434,11 @@ O resultado mais provável precisa aparecer em toda tentativa?
 
 ### 2. Um exemplo
 
-Quatro tokens possuem pesos que somam 100% após normalização.
+Complete “Hoje eu quero…”: dormir, viajar ou estudar? Há várias continuações.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
-Em 100 amostras, as frequências serão exatamente iguais às probabilidades?
+Se uma opção é a favorita, ela precisa aparecer sempre?
 
 ### 4. Experimente
 
@@ -448,21 +448,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Aumente a temperatura e repita a amostragem com a mesma semente.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Softmax com temperatura redistribui o peso. Frequências observadas variam por amostragem.
+A favorita pode não sair. A temperatura muda o espaço dado às outras opções.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-A geração pode amostrar o próximo token de uma distribuição discreta. Limite: Probabilidade de um token não é probabilidade de uma afirmação ser verdadeira. Os logits são ilustrativos.
+Ao gerar texto, uma IA pode escolher entre continuações possíveis. Soar provável não garante estar certo. Limite: Probabilidade de um token não é probabilidade de uma afirmação ser verdadeira. Os logits são ilustrativos.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Uma escolha também pode ser um evento que muda um estado.
+Escolher uma resposta é uma parte. Saber quando enviá-la é outra.
 
 **Limite / erro comum:** Probabilidade de um token não é probabilidade de uma afirmação ser verdadeira. Os logits são ilustrativos.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -480,11 +480,11 @@ Um assistente pode entregar uma resposta antes de validar a solicitação?
 
 ### 2. Um exemplo
 
-Receber → validar → responder → concluir; erros podem exigir revisão.
+Um pedido de comida passa por recebido, confirmado, em preparo e entregue. Não faz sentido entregar antes de preparar.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
-O que deve acontecer se “enviar” chegar no estado inicial?
+O assistente deve responder antes de conferir o pedido?
 
 ### 4. Experimente
 
@@ -494,21 +494,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Provoque uma transição inválida e compare com o fluxo correto.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Uma função de transição associa estado e evento a um próximo estado permitido.
+Cada etapa libera certas ações. Se a ação chega na hora errada, o fluxo deve recusá-la.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Máquinas de estados controlam fluxos de atendimento e ferramentas. Limite: Isso descreve o controle do software, não toda a computação de um modelo de linguagem.
+Um atendimento pode usar IA para conversar e regras para organizar as etapas de cada pedido. Limite: Isso descreve o controle do software, não toda a computação de um modelo de linguagem.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Mais estados possíveis podem tornar a exploração cara.
+Quanto mais caminhos e etapas existem, mais difícil fica verificar todas as possibilidades.
 
 **Limite / erro comum:** Isso descreve o controle do software, não toda a computação de um modelo de linguagem.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -526,9 +526,9 @@ Se funciona com 8 elementos, também funciona com 40?
 
 ### 2. Um exemplo
 
-Compare n, n², 2ⁿ e n! para o mesmo tamanho de entrada.
+Organizar 3 pessoas numa fila é fácil. E testar todas as ordens possíveis de uma turma inteira?
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Qual família ultrapassa primeiro um milhão de possibilidades?
 
@@ -540,21 +540,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Dobre n e compare a mudança em cada família.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-As curvas têm taxas de crescimento diferentes. Contar estados não é medir tempo de execução.
+Acrescentar uma pessoa pode multiplicar muito o trabalho. Por isso, “tentar tudo” logo deixa de ser uma boa ideia.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Busca, planejamento e otimização precisam limitar ou explorar melhor seus espaços. Limite: Medições são locais e pequenas. Tempos maiores usam uma taxa hipotética, não um benchmark de IA.
+Sistemas de IA precisam escolher onde gastar tempo: quais caminhos explorar e quando parar. Limite: Medições são locais e pequenas. Tempos maiores usam uma taxa hipotética, não um benchmark de IA.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Agora combinamos busca, regras e recursos em uma missão.
+Vamos juntar tudo: uma equipe, um pedido e alguns obstáculos para resolver.
 
 **Limite / erro comum:** Medições são locais e pequenas. Tempos maiores usam uma taxa hipotética, não um benchmark de IA.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -572,9 +572,9 @@ Sua equipe consegue entregar uma resposta verificada com recursos limitados?
 
 ### 2. Um exemplo
 
-Um pedido precisa de autorização, fonte alcançável, tarefas sem ciclo e espaço para evidências.
+Sua equipe precisa responder a um pedido. Há permissão? A fonte está acessível? As tarefas podem começar? As evidências cabem?
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Qual condição vai bloquear a primeira tentativa?
 
@@ -586,21 +586,21 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Corrija um bloqueio por vez e execute novamente.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-A missão só conclui quando lógica, caminho, dependências e capacidade são satisfeitos.
+A missão funciona quando as quatro partes se encaixam: permissão, fonte, ordem das tarefas e espaço.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Sistemas de IA confiáveis combinam vários mecanismos verificáveis ao redor do modelo. Limite: A missão é um sistema didático determinístico; não garante qualidade semântica de respostas reais.
+Uma boa ferramenta de IA depende também de boas fontes, regras claras e conferência dos resultados. Limite: A missão é um sistema didático determinístico; não garante qualidade semântica de respostas reais.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-A inteligência do sistema também está na organização ao redor dele.
+As peças funcionaram juntas. Agora vamos ver o tamanho da rede que elas formam.
 
 **Limite / erro comum:** A missão é um sistema didático determinístico; não garante qualidade semântica de respostas reais.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
@@ -616,13 +616,13 @@ Comece com os bloqueios padrão. Execute: a primeira verificação para na autor
 
 ### 1. A pergunta
 
-Qual decisão você defenderia agora?
+Depois de experimentar, qual decisão você tomaria?
 
 ### 2. Um exemplo
 
 Seis situações curtas. A turma vota levantando a mão.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
 Escolha A, B ou C antes de revelar cada explicação.
 
@@ -634,25 +634,25 @@ Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre qu
 
 Peça a alguém que votou diferente para defender a alternativa.
 
-### 6. A matemática
+### 6. Por que acontece?
 
 A resposta importa; o motivo que a sustenta importa mais.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
 Reconhecer limites e contraexemplos ajuda a avaliar sistemas de IA. Limite: Não usamos aparência de texto para alegar autoria humana ou artificial.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-A matemática torna decisões discutíveis, testáveis e corrigíveis.
+Entender uma ideia dá a você poder para questionar, conferir e escolher melhor.
 
 **Limite / erro comum:** Não usamos aparência de texto para alegar autoria humana ou artificial.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.
 
-## 114–120 min · As peças agora se conectam
+## 114–120 min · Uma ideia acende muitas outras
 
 **Conceito:** Da abstração ao sistema
 
@@ -662,38 +662,38 @@ A matemática torna decisões discutíveis, testáveis e corrigíveis.
 
 ### 1. A pergunta
 
-Qual conceito mudou sua forma de olhar para a IA?
+Diga: “Vocês viram as peças separadas. Agora quero mostrar o que acontece quando elas se conectam.” Mostre apenas os primeiros pontos e faça uma pausa.
 
 ### 2. Um exemplo
 
-Escolhas → busca → regras → relações → estratégias → posições → dependências → limites → amostragem → estados.
+Toque em Conectar as ideias. Relacione dois temas que a turma acabou de experimentar.
 
-### 3. Sua previsão
+### 3. Seu palpite
 
-Qual desses conceitos você usaria primeiro em seu próximo projeto?
+Diga: “Cada uma dessas ideias abre outras perguntas.” Toque em Revelar a rede inteira. Deixe a turma observar em silêncio por alguns segundos.
 
 ### 4. Experimente
 
-Faça uma alteração por vez. Antes de executar, peça uma previsão. Mostre quais elementos mudaram e quais ficaram iguais.
+Toque em Fazer a rede acender. Explique: “O cérebro aqui é uma metáfora. Cada ponto é uma nota; cada linha conecta ideias, como no Obsidian.”
 
 ### 5. E se mudar?
 
-Escolha um problema da turma e identifique duas conexões matemáticas.
+Escolha uma pergunta da turma entre as três disponíveis. Siga as áreas destacadas e leia a explicação em linguagem simples. O trajeto é uma ilustração didática.
 
-### 6. A matemática
+### 6. Por que acontece?
 
-Não há uma única matemática da IA. Há mecanismos distintos com hipóteses e limites.
+Explore Aprendizado para distinguir este mapa de uma rede neural: na rede real, unidades fazem cálculos e pesos são ajustados durante o treinamento.
 
-### 7. Na inteligência artificial
+### 7. Onde a IA entra
 
-Engenharia de software combina modelos, algoritmos, dados e verificação. Limite: O mapeamento com a ementa do professor ainda precisa ser validado.
+Mostre Levar esta rede para o Obsidian. O arquivo contém notas de verdade, ligadas entre si. No Obsidian, abra a pasta como cofre e depois a visão de grafo.
 
-### 8. A conexão seguinte
+### 8. A próxima ideia
 
-Pergunte. Modele. Preveja. Teste. Explique.
+Encerre: “A próxima conexão pode ser sua. Qual pergunta você acrescentaria aqui?” Abra para perguntas.
 
 **Limite / erro comum:** O mapeamento com a ementa do professor ainda precisa ser validado.
 
-**Se faltar tempo:** Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.
+**Se faltar tempo:** Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.
 
 **Aprofundamento:** Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.

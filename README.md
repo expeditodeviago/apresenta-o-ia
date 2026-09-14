@@ -24,7 +24,7 @@ O botão **Apresentar** ativa o modo palco e solicita tela cheia. **Modo palco**
 ### Entrar com senha
 
 1. No computador, abra **Conectar celular** (ou `/setup` na hospedagem e crie uma sessão com a chave administrativa).
-2. Em **Acesso com senha**, defina uma senha de 10 a 128 caracteres e clique em **Salvar senha do controle**.
+2. Em **Acesso com senha**, defina uma senha de 5 a 128 caracteres e clique em **Salvar senha do controle**.
 3. Use **Copiar link para entrar com senha** e abra esse link no celular. Digite a senha para liberar comandos e notas privadas.
 4. Abra a tela pública pelo link da preparação e teste **Próximo módulo** no celular.
 
@@ -69,6 +69,7 @@ Atalhos não interferem quando um campo, botão ou diálogo tem foco. Clique em 
 
 ## Material do apresentador
 
+- [Encerramento surpresa e cofre do Obsidian](docs/FINAL-OBSIDIAN.md): rede interativa com 493 notas e 984 ligações, revelada pelo celular. O botão no último módulo permite baixar o cofre.
 - [Roteiro privado de 120 minutos](docs/ROTEIRO-PRIVADO.md)
 - [Mapeamento matemático e limites](docs/MAPEAMENTO.md)
 - [Checklist de palco, rede e hospedagem](docs/PALCO.md)

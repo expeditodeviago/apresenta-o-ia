@@ -10,12 +10,12 @@ O arquivo [render.yaml](../render.yaml) configura o serviço, build, Node 24, ch
 
 1. Entre em [dashboard.render.com](https://dashboard.render.com) e conecte sua conta GitHub.
 2. Clique em **New → Blueprint** e selecione `expeditodeviago/apresenta-o-ia`, branch `main`.
-3. Use `render.yaml`, na raiz, como configuração. Revise o serviço e os custos mostrados e confirme a criação. O Render usa esse arquivo para criar a infraestrutura. [Como usar Blueprints](https://render.com/docs/infrastructure-as-code).
+3. Use `render.yaml`, na raiz, como configuração. Informe a senha do celular em `SYNAPSE_CONTROL_PASSWORD`, solicitada durante a criação. Revise o serviço e os custos mostrados e confirme a criação. O Render usa esse arquivo para criar a infraestrutura. [Como usar Blueprints](https://render.com/docs/infrastructure-as-code).
 4. Aguarde o build e o status **Live**. O endereço será o domínio HTTPS `onrender.com` mostrado no serviço; copie o endereço real do painel.
 5. Em **Environment**, localize `SYNAPSE_ADMIN_KEY` e copie o valor gerado para uso privado. O YAML pede que o Render gere o segredo, sem incluí-lo no Git. [Variáveis e segredos em Blueprints](https://render.com/docs/blueprint-spec#generating-random-secrets).
 6. No computador do apresentador, abra `https://SEU-ENDERECO.onrender.com/setup`. Cole a chave administrativa, clique em **Criar sessão** e mantenha essa aba aberta.
 7. Clique em **Abrir tela pública desta sessão**. É essa janela que vai para o projetor. A abertura normal do site, sem sessão, não cria uma sessão administrativa automaticamente.
-8. Na preparação, confira se o endereço do celular começa com o domínio HTTPS do serviço. Em **Acesso com senha**, defina uma senha de pelo menos 10 caracteres e clique em **Salvar senha do controle**.
+8. Na preparação, confira se o endereço do celular começa com o domínio HTTPS do serviço. Se configurou `SYNAPSE_CONTROL_PASSWORD`, novas sessões já usam essa senha. Para trocar apenas a senha da sessão, use **Acesso com senha → Salvar senha do controle**.
 9. Clique em **Copiar link para entrar com senha**, abra esse link no celular e digite a senha. A senha não vai no link. QR e código temporário continuam disponíveis como alternativas.
 10. Avance um módulo pelo celular, altere um parâmetro e confira a projeção. Depois abra as notas no celular e confirme que elas continuam privadas.
 
@@ -58,6 +58,7 @@ Configure as variáveis:
 | `NODE_ENV` | `production` |
 | `SYNAPSE_DATA_DIR` | `/var/data/synapse` |
 | `SYNAPSE_ADMIN_KEY` | Um segredo longo e aleatório, criado no painel |
+| `SYNAPSE_CONTROL_PASSWORD` | A senha escolhida para o celular; informe no painel, sem colocar no código |
 | `PUBLIC_BASE_URL` | Opcional no Render; necessário ao usar domínio próprio |
 
 O projeto também fixa a versão em `.node-version` e `package.json`. [Configurar Node no Render](https://render.com/docs/node-version). Não use variáveis com prefixo `VITE_` para a chave: elas são destinadas ao código do navegador.

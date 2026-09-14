@@ -45,6 +45,15 @@ try {
       await inspect('prediction-' + module + '-' + size.width, module === 1);
       await command({ type: 'stage', value: 3 });
       await inspect('experiment-' + module + '-' + size.width, true);
+      if (module === 14) {
+        for (const stage of [0, 1, 2, 4, 6, 7]) {
+          await command({ type: 'stage', value: stage });
+          await inspect('network-stage-' + stage + '-' + size.width, stage === 2 || stage === 4);
+        }
+        await command({ type: 'set', key: 'networkFocus', value: 12 });
+        await inspect('network-detail-' + size.width, true);
+        await command({ type: 'set', key: 'networkFocus', value: 0 });
+      }
       if (module < 13) {
         await command({ type: 'stage', value: 5 });
         await inspect('reveal-' + module + '-' + size.width, module === 3);
@@ -71,6 +80,15 @@ try {
   await phone.getByRole('heading', { name: 'Fala sugerida', exact: true }).waitFor();
   await phone.screenshot({ path: 'artifacts/control-notes-mobile.png' });
   const mobileOverflow = await phone.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+  await command({ type: 'module', value: 14 });
+  await phone.getByRole('button', { name: 'Comandos', exact: true }).click();
+  await phone.getByRole('button', { name: 'Revelar a rede inteira', exact: true }).click();
+  await phone.screenshot({ path: 'artifacts/network-remote-mobile.png', fullPage: true });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await command({ type: 'stage', value: 3 });
+  // Wait for the intentional 1.6-second reveal, then inspect the animated canvas.
+  await page.evaluate(() => new Promise(resolve => { const end = performance.now() + 1800; const frame = () => performance.now() >= end ? resolve() : requestAnimationFrame(frame); requestAnimationFrame(frame); }));
+  await inspect('network-animated-1280', true);
   await writeFile('artifacts/visual-report.json', JSON.stringify({ errors, mobileOverflow, layouts }, null, 2));
   console.log(JSON.stringify({ errors, mobileOverflow, overflow: layouts.filter(row => row.pageOverflow > 1 || row.mainOverflow > 1), clipped: layouts.filter(row => row.boardBottom > row.dockTop + 2), checked: layouts.length }, null, 2));
 } finally {

@@ -28,7 +28,7 @@ test('Senha definida na preparação libera o celular e revogação impede novo 
   await start(page);
   const id = new URL(page.url()).searchParams.get('session')!;
   await page.goto('/setup?session=' + id);
-  await page.getByLabel('Definir senha do controle', { exact: true }).fill('Ensaio-privado-2026');
+  await page.getByLabel('Definir senha do controle', { exact: true }).fill('teste');
   await page.getByRole('button', { name: 'Salvar senha do controle', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('Senha salva');
   const projection = await page.context().newPage();
@@ -40,7 +40,7 @@ test('Senha definida na preparação libera o celular e revogação impede novo 
     await phone.getByLabel('Senha do controle', { exact: true }).fill('incorreta');
     await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
     await expect(phone.getByRole('alert')).toContainText('Senha inválida');
-    await phone.getByLabel('Senha do controle', { exact: true }).fill('Ensaio-privado-2026');
+    await phone.getByLabel('Senha do controle', { exact: true }).fill('teste');
     await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
     await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
     await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
@@ -51,7 +51,7 @@ test('Senha definida na preparação libera o celular e revogação impede novo 
     await expect(phone.getByText('Controle revogado. Faça um novo pareamento.')).toBeVisible();
     await expect(projection.locator('[data-module="1"]')).toBeVisible();
     await phone.getByRole('button', { name: 'Voltar para entrar com senha' }).click();
-    await phone.getByLabel('Senha do controle', { exact: true }).fill('Ensaio-privado-2026');
+    await phone.getByLabel('Senha do controle', { exact: true }).fill('teste');
     await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
     await expect(phone.getByRole('alert')).toContainText('Senha inválida');
     await page.getByLabel('Definir senha do controle', { exact: true }).fill('Nova-senha-privada-2026');
@@ -62,6 +62,37 @@ test('Senha definida na preparação libera o celular e revogação impede novo 
     await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
     await expect(phone.getByRole('heading', { name: 'Fábrica', exact: true })).toBeVisible();
     await expect(projection.locator('[data-module="1"]')).toBeVisible();
+  } finally { await context.close(); }
+});
+
+test('Encerramento revela a rede pelo celular, explora perguntas e conserva a cena após recarregar', async ({ page, browser }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await start(page); const { phone, context } = await phoneFor(page, browser);
+  try {
+    await chooseModule(page, 14);
+    await expect(page.locator('.knowledge-finale')).toHaveAttribute('data-network-count', '13');
+    await phone.getByRole('button', { name: 'Conectar as ideias', exact: true }).click();
+    await expect(page.locator('.knowledge-finale')).toHaveAttribute('data-network-count', '109');
+    await phone.getByRole('button', { name: 'Revelar a rede inteira', exact: true }).click();
+    await expect(page.locator('.knowledge-finale')).toHaveAttribute('data-network-count', '493');
+    await phone.getByRole('button', { name: 'Fazer a rede acender', exact: true }).click();
+    await expect(page.getByRole('link', { name: 'Levar esta rede para o Obsidian' })).toBeVisible();
+    await phone.getByRole('button', { name: 'Por que a IA pode errar?', exact: true }).click();
+    await expect(page.locator('.knowledge-answer')).toContainText('conferir as fontes');
+    await phone.getByLabel('Explorar um tema').selectOption('9');
+    await expect(page.locator('.knowledge-note h2')).toHaveText('Probabilidade');
+    await page.reload();
+    await expect(page.locator('.knowledge-finale')).toHaveAttribute('data-network-stage', '4');
+    await expect(page.locator('.knowledge-note h2')).toHaveText('Probabilidade');
+    await page.getByRole('button', { name: 'Voltar à rede inteira', exact: true }).click();
+    await expect(page.locator('.knowledge-note')).toHaveCount(0);
+    await page.getByRole('button', { name: 'Ampliar a rede' }).click();
+    await expect(page.locator('.knowledge-zoom')).toContainText('120%');
+    await page.getByRole('button', { name: 'Centralizar a rede' }).click();
+    await expect(page.locator('.knowledge-zoom')).toContainText('100%');
+    const download = page.waitForEvent('download');
+    await page.getByRole('link', { name: 'Levar esta rede para o Obsidian' }).click();
+    const file = await download; expect(file.suggestedFilename()).toBe('SYNAPSE-Obsidian.zip'); expect(await file.failure()).toBeNull();
   } finally { await context.close(); }
 });
 

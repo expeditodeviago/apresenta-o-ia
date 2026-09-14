@@ -12,6 +12,8 @@ import { getNotes } from './notes.ts';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT || 4173);
 const PUBLIC_BASE = (process.env.PUBLIC_BASE_URL || process.env.RENDER_EXTERNAL_URL || '').replace(/\/$/, '');
+const DEFAULT_CONTROL_PASSWORD = process.env.SYNAPSE_CONTROL_PASSWORD || '';
+if (DEFAULT_CONTROL_PASSWORD && (DEFAULT_CONTROL_PASSWORD.trim().length < 5 || DEFAULT_CONTROL_PASSWORD.length > 128)) throw Error('A senha inicial do controle deve ter de 5 a 128 caracteres.');
 if (PUBLIC_BASE && !process.env.SYNAPSE_ADMIN_KEY) throw Error('Configure SYNAPSE_ADMIN_KEY antes de iniciar a hospedagem pública.');
 const DATA = path.resolve(process.env.SYNAPSE_DATA_DIR || path.join(ROOT, '.runtime'));
 const TTL = 12 * 60 * 60 * 1000;
@@ -64,7 +66,7 @@ const server = http.createServer(async (req, res) => {
     if (route.startsWith('/api/')) {
       if (req.method !== 'GET' && !allowMutation(req)) return json(res, 403, { error: 'Origem ou formato não autorizado.' });
       if (route === '/api/health') return json(res, 200, { ok: true });
-      if (route === '/api/info') return json(res, 200, { addresses: local(req) ? urls() : [], local: local(req) && !PUBLIC_BASE, publicBase: PUBLIC_BASE || null });
+      if (route === '/api/info') return json(res, 200, { addresses: local(req) ? urls() : [], local: local(req) && !PUBLIC_BASE, publicBase: PUBLIC_BASE || null, defaultPasswordConfigured: Boolean(DEFAULT_CONTROL_PASSWORD) });
       if (route === '/api/sessions' && req.method === 'POST') {
         if (limited('admin:' + req.socket.remoteAddress, 20)) return json(res, 429, { error: 'Muitas tentativas. Aguarde um minuto.' });
         const admin = req.headers.authorization?.replace(/^Bearer /, '') ?? '';
@@ -73,6 +75,7 @@ const server = http.createServer(async (req, res) => {
         if (sessions.size >= 30) return json(res, 429, { error: 'Limite de sessões ativas.' });
         const secret = token(), id = randomBytes(16).toString('hex');
         const session: Session = { id, secretHash: hash(secret), expires: Date.now() + TTL, state: initialState(), seen: [], controllers: [] };
+        if (DEFAULT_CONTROL_PASSWORD) { const salt = randomBytes(16).toString('hex'); session.password = { salt, digest: await passwordDigest(DEFAULT_CONTROL_PASSWORD, salt) }; }
         sessions.set(id, session); await persist(); return json(res, 201, { id, secret, expires: session.expires });
       }
       if (route === '/api/pair' && req.method === 'POST') {
@@ -111,7 +114,7 @@ const server = http.createServer(async (req, res) => {
       if (action === 'password' && req.method === 'POST') {
         if (!equals(hash(req.headers.authorization?.replace(/^Bearer /, '') ?? ''), session.secretHash)) return json(res, 403, { error: 'Somente o computador criador pode definir a senha.' });
         const input = await body(req);
-        if (typeof input.password !== 'string' || input.password.trim().length < 10 || input.password.length > 128) return json(res, 400, { error: 'Use uma senha de 10 a 128 caracteres.' });
+        if (typeof input.password !== 'string' || input.password.trim().length < 5 || input.password.length > 128) return json(res, 400, { error: 'Use uma senha de 5 a 128 caracteres.' });
         const salt = randomBytes(16).toString('hex');
         session.password = { salt, digest: await passwordDigest(input.password, salt) };
         session.controllers = [];

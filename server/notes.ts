@@ -1,4 +1,4 @@
-import { LESSONS, STAGES } from '../shared/curriculum.ts';
+import { LESSONS, STAGES, FORMAL_LESSONS } from '../shared/curriculum.ts';
 
 export function getNotes(module: number, stage: number) {
   const l = LESSONS[module];
@@ -21,10 +21,19 @@ export function getNotes(module: number, stage: number) {
     14: 'Aceite conexões bem justificadas. Reforce que cada modelo matemático tem hipóteses e não descreve sozinho toda a IA.',
   };
   return {
-    heading: l.title, stage: STAGES[stage], speech: steps[stage], math: l.reveal,
+    heading: l.title, stage: STAGES[stage], speech: module === 14 ? [
+      'Diga: “Vocês viram as peças separadas. Agora quero mostrar o que acontece quando elas se conectam.” Mostre apenas os primeiros pontos e faça uma pausa.',
+      'Toque em Conectar as ideias. Relacione dois temas que a turma acabou de experimentar.',
+      'Diga: “Cada uma dessas ideias abre outras perguntas.” Toque em Revelar a rede inteira. Deixe a turma observar em silêncio por alguns segundos.',
+      'Toque em Fazer a rede acender. Explique: “O cérebro aqui é uma metáfora. Cada ponto é uma nota; cada linha conecta ideias, como no Obsidian.”',
+      'Escolha uma pergunta da turma entre as três disponíveis. Siga as áreas destacadas e leia a explicação em linguagem simples. O trajeto é uma ilustração didática.',
+      'Explore Aprendizado para distinguir este mapa de uma rede neural: na rede real, unidades fazem cálculos e pesos são ajustados durante o treinamento.',
+      'Mostre Levar esta rede para o Obsidian. O arquivo contém notas de verdade, ligadas entre si. No Obsidian, abra a pasta como cofre e depois a visão de grafo.',
+      'Encerre: “A próxima conexão pode ser sua. Qual pergunta você acrescentaria aqui?” Abra para perguntas.',
+    ][stage] : steps[stage], math: FORMAL_LESSONS[module].math + ': ' + FORMAL_LESSONS[module].reveal,
     question: l.prediction, expected: answers[module], commonMistake: l.limit,
     transition: l.conclusion, nextAction: steps[Math.min(7, stage + 1)],
-    shortcut: 'Se a turma já previu corretamente, faça uma execução e avance para a revelação. Não pule as hipóteses nem o limite da analogia.',
+    shortcut: 'Comece pelo exemplo do dia a dia e peça um palpite. Só diga o nome técnico depois que a turma entender a ideia. Se já acertaram, faça uma execução e avance.',
     deepening: module === 1 ? 'Extra: retire a repetição e compare Vⁿ com V!/(V−n)!. Depois retire a importância da ordem.' : module === 7 ? 'Extra: discuta fechamento transitivo, redução transitiva e mais de uma ordenação topológica.' : 'Extra: peça um contraexemplo em que a conclusão deixa de valer quando uma hipótese muda.',
     pacing: module > 0 && module < 13 ? '45s pergunta + 45s exemplo + 1min previsão + 2min simulação + 1min variação + 1min revelação + 1min aplicação + 30s ponte = 8min.' : module === 0 ? '2min abertura + 2min hipótese + 2min comparação + 2min acordo com a turma = 8min.' : module === 13 ? '1min introdução + 6 rodadas de 90s = 10min.' : '2min síntese + 4min perguntas = 6min.',
   };

@@ -17,6 +17,8 @@ services:
         value: production
       - key: SYNAPSE_ADMIN_KEY
         generateValue: true
+      - key: SYNAPSE_CONTROL_PASSWORD
+        sync: false
       - key: SYNAPSE_DATA_DIR
         value: /var/data/synapse
     disk:
