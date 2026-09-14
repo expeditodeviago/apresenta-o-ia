@@ -21,7 +21,20 @@ O botão **Apresentar** ativa o modo palco e solicita tela cheia. **Modo palco**
 
 ## Parear o celular
 
-1. Conecte computador e celular à mesma rede Wi-Fi.
+### Entrar com senha
+
+1. No computador, abra **Conectar celular** (ou `/setup` na hospedagem e crie uma sessão com a chave administrativa).
+2. Em **Acesso com senha**, defina uma senha de 10 a 128 caracteres e clique em **Salvar senha do controle**.
+3. Use **Copiar link para entrar com senha** e abra esse link no celular. Digite a senha para liberar comandos e notas privadas.
+4. Abra a tela pública pelo link da preparação e teste **Próximo módulo** no celular.
+
+Na hospedagem, o computador e o celular podem estar em redes diferentes: Wi-Fi e 4G/5G, por exemplo. Ambos devem abrir o mesmo site HTTPS. No modo local, os dois precisam alcançar o servidor pela mesma rede.
+
+A senha fica ativa durante a sessão (até 12 horas). Só o computador criador pode defini-la ou trocá-la. A troca desconecta os controles anteriores; **Revogar controles remotos** também desativa a senha. A senha não aparece no link e é armazenada no servidor apenas como derivação scrypt com salt aleatório. Há limite de tentativas de entrada. A chave administrativa da hospedagem é separada da senha do celular.
+
+### Alternativa: QR ou código temporário
+
+1. No modo local, conecte computador e celular à mesma rede. Online, ambos só precisam ter internet.
 2. No computador, abra **Conectar celular**. A preparação aparece em outra janela.
 3. Escolha o endereço da rede Wi-Fi anunciado pelo servidor. O IP pode mudar. Evite adaptadores VPN e endereços localhost.
 4. Primeiro abra no celular o endereço do controle mostrado na preparação. Depois gere o QR temporário e leia com o celular. Se a câmera não abrir o link, digite o código de 10 caracteres na página `/control`. Ele expira em 120 segundos e só pode ser usado uma vez.

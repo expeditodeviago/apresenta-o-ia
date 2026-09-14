@@ -4,6 +4,8 @@ O repositório é [expeditodeviago/apresenta-o-ia](https://github.com/expeditode
 
 ## Caminho preparado: Render
 
+Atalho: [abrir a configuração deste projeto no Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fexpeditodeviago%2Fapresenta-o-ia). Entre na sua conta e revise os recursos antes de criar. Esse link abre a configuração; não é o endereço da apresentação publicada.
+
 O arquivo [render.yaml](../render.yaml) configura o serviço, build, Node 24, chave administrativa e disco de sessões. O serviço e o disco são pagos; confira o total no painel antes de confirmar. Discos persistentes exigem um serviço pago e preservam os arquivos entre reinícios. [Documentação dos discos](https://render.com/docs/disks).
 
 1. Entre em [dashboard.render.com](https://dashboard.render.com) e conecte sua conta GitHub.
@@ -13,13 +15,24 @@ O arquivo [render.yaml](../render.yaml) configura o serviço, build, Node 24, ch
 5. Em **Environment**, localize `SYNAPSE_ADMIN_KEY` e copie o valor gerado para uso privado. O YAML pede que o Render gere o segredo, sem incluí-lo no Git. [Variáveis e segredos em Blueprints](https://render.com/docs/blueprint-spec#generating-random-secrets).
 6. No computador do apresentador, abra `https://SEU-ENDERECO.onrender.com/setup`. Cole a chave administrativa, clique em **Criar sessão** e mantenha essa aba aberta.
 7. Clique em **Abrir tela pública desta sessão**. É essa janela que vai para o projetor. A abertura normal do site, sem sessão, não cria uma sessão administrativa automaticamente.
-8. Na preparação, confira se o endereço do celular começa com o domínio HTTPS do serviço. Clique em **Gerar pareamento temporário** e leia o QR com o telefone.
-9. Como alternativa ao QR, abra `https://SEU-ENDERECO.onrender.com/control` no celular e digite o código temporário exibido no computador.
+8. Na preparação, confira se o endereço do celular começa com o domínio HTTPS do serviço. Em **Acesso com senha**, defina uma senha de pelo menos 10 caracteres e clique em **Salvar senha do controle**.
+9. Clique em **Copiar link para entrar com senha**, abra esse link no celular e digite a senha. A senha não vai no link. QR e código temporário continuam disponíveis como alternativas.
 10. Avance um módulo pelo celular, altere um parâmetro e confira a projeção. Depois abra as notas no celular e confirme que elas continuam privadas.
 
 O app reconhece `RENDER_EXTERNAL_URL`, fornecido pelo Render, e usa esse endereço no pareamento. Para um domínio personalizado, defina `PUBLIC_BASE_URL` com a origem HTTPS exata e reinicie o serviço. [Variáveis padrão do Render](https://render.com/docs/environment-variables).
 
 Com a hospedagem online, computador e celular podem usar redes diferentes, inclusive Wi-Fi e 4G/5G. Ambos precisam alcançar o mesmo endereço HTTPS do serviço.
+
+A senha do celular é diferente da chave administrativa e vale durante a sessão de até 12 horas. Trocar a senha desconecta os controles anteriores. **Revogar controles remotos** desativa a senha e os pareamentos existentes.
+
+## Ensaio antes de apresentar
+
+- Abra a projeção no computador e o link com senha no celular usando **dados móveis**, com o Wi-Fi do telefone desligado. Isso verifica que o controle funciona pela internet.
+- Teste uma senha errada (deve bloquear), a senha correta, avanço de módulo, Auto-Play, pausa e notas privadas.
+- Com as abas abertas, interrompa brevemente a conexão do celular e volte. Confira a reconexão antes de continuar.
+- Se a internet cair durante a fala, mantenha a projeção aberta e use os controles do computador. Não recarregue a página durante a queda: o projeto não instala uma cópia offline do site.
+
+O controle envia comandos e recebe o estado da apresentação; não transmite vídeo. A latência depende da internet e da região do servidor e precisa ser medida no local. No plano gratuito do Render, a instância para após 15 minutos sem tráfego e pode levar cerca de um minuto para voltar; planos pagos não param por inatividade. [Limites do Render Free](https://render.com/docs/free), [FAQ do Render](https://render.com/docs/faq).
 
 ## Se preferir configurar manualmente
 

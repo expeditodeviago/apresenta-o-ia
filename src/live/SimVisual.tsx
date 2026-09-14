@@ -4,6 +4,7 @@ import type { Command, Sim } from '../../shared/engine';
 import { MAZE, START, GOAL, probabilities, logic, topologicalLayers, minimax, growth, missionChecks, TRANSITIONS } from '../../shared/engine';
 import { LESSONS, QUIZ } from '../../shared/curriculum';
 import { OpeningScene, FinaleScene } from './ShowScenes';
+import { LegoBrick, LegoChoices } from './LegoBrick';
 
 const COLORS = ['#f3c56c', '#7dd6e5', '#bbabed', '#7edbbd', '#f297aa', '#cbd5e1'];
 const format = (number: number | bigint) => number.toLocaleString('pt-BR');
@@ -17,7 +18,17 @@ export function SimVisual({ module, sim, send, stage = 0 }: { module: number; si
   if (module === 1) {
     const options = Number(v.options), length = Number(v.length), total = options ** length;
     const sequences = Array.from({ length: Math.min(total, 64) }, (_, i) => Array.from({ length }, (_, j) => Math.floor(i / options ** (length - j - 1)) % options));
-    return <div className="factory-visual"><div className="formula-strip"><span>{options} opções</span><X size={18} /><span>{length} posições</span><ArrowRight size={20} /><strong key={total} className="count-arrive">{format(total)}<small>sequências possíveis</small></strong></div><div className="sequence-grid">{sequences.map((sequence, i) => <div className="sequence" key={length + "-" + i} style={{ animationDelay: Math.min(i * 9, 300) + "ms" }}>{sequence.map((value, j) => <span key={j} style={{ background: COLORS[value] }}>{String.fromCharCode(65 + value)}</span>)}</div>)}</div><p className="visual-caption">{total <= 64 ? 'Todas as possibilidades, com ordem e repetição.' : '64 exemplos de ' + format(total) + ' sequências. O restante está agregado no total.'}</p><div className="math-reveal">{options}<sup>{length}</sup> = {Array(length).fill(options).join(' × ')} = {format(total)}</div></div>;
+    return <div className="factory-visual">
+      <div className="brick-workshop">
+        <div className="brick-palette"><span className="brick-label">01 / ESCOLHA UMA PEÇA</span><LegoChoices options={options} /><p>{options} tipos disponíveis. Pode repetir.</p></div>
+        <ArrowRight className="workshop-arrow" size={23} aria-hidden="true" />
+        <div className="brick-assembly"><span className="brick-label">02 / PREENCHA CADA POSIÇÃO</span><div className="brick-baseplate">{Array.from({ length }, (_, j) => <div className="brick-slot" key={j}><LegoBrick value={j % options} /><span>{j + 1}ª</span></div>)}</div><p>Uma sequência de exemplo. A ordem importa.</p></div>
+      </div>
+      <div className="formula-strip factory-total"><span>{options} escolhas em cada uma<br />de {length} {length === 1 ? 'posição' : 'posições'}</span><ArrowRight size={20} aria-hidden="true" /><strong key={total} className="count-arrive">{format(total)}<small>sequências possíveis</small></strong></div>
+      <div className="sequence-gallery"><div className="sequence-gallery-heading"><span>O UNIVERSO DE MONTAGENS</span><span>{total <= 64 ? total + ' de ' + total : '64 de ' + format(total)}</span></div><div className="sequence-grid" style={{ '--sequence-length': length } as React.CSSProperties} tabIndex={0} role="region" aria-label="Galeria de sequências de peças">{sequences.map((sequence, i) => <div className="sequence" key={length + '-' + i} style={{ animationDelay: Math.min(i * 9, 300) + 'ms' }} role="img" aria-label={'Sequência ' + sequence.map(value => String.fromCharCode(65 + value)).join(', ')}><small aria-hidden="true">{String(i + 1).padStart(2, '0')}</small><div aria-hidden="true">{sequence.map((value, j) => <LegoBrick key={j} value={value} />)}</div></div>)}</div></div>
+      <p className="visual-caption">{total <= 64 ? 'Todas as sequências estão na galeria.' : 'A galeria mostra 64 exemplos; o total inclui todas as sequências.'} {length > 1 ? 'A–B e B–A contam como montagens diferentes.' : 'Com uma posição, cada tipo de peça é uma sequência.'}</p>
+      <div className="math-reveal factory-equation"><span>{options}<sup>{length}</sup> = {Array(length).fill(options).join(' × ')} = {format(total)}</span><small>Cada nova posição multiplica o total por {options}.</small></div>
+    </div>;
   }
   if (module === 2) {
     const frontier = sim.frontier.map(path => path[path.length - 1]);

@@ -24,6 +24,47 @@ async function phoneFor(page: Page, browser: Browser) {
   return { phone, context, id };
 }
 
+test('Senha definida na preparação libera o celular e revogação impede novo acesso', async ({ page, browser }) => {
+  await start(page);
+  const id = new URL(page.url()).searchParams.get('session')!;
+  await page.goto('/setup?session=' + id);
+  await page.getByLabel('Definir senha do controle', { exact: true }).fill('Ensaio-privado-2026');
+  await page.getByRole('button', { name: 'Salvar senha do controle', exact: true }).click();
+  await expect(page.getByRole('status')).toContainText('Senha salva');
+  const projection = await page.context().newPage();
+  await projection.goto('/?session=' + id);
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  try {
+    const phone = await context.newPage();
+    await phone.goto('http://localhost:4184/control?session=' + id);
+    await phone.getByLabel('Senha do controle', { exact: true }).fill('incorreta');
+    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
+    await expect(phone.getByRole('alert')).toContainText('Senha inválida');
+    await phone.getByLabel('Senha do controle', { exact: true }).fill('Ensaio-privado-2026');
+    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
+    await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
+    await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
+    await expect(projection.locator('[data-module="1"]')).toBeVisible();
+    await page.getByRole('button', { name: 'Revogar controles remotos', exact: true }).click();
+    await expect(page.getByRole('status')).toContainText('acesso por senha foi desativado');
+    await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
+    await expect(phone.getByText('Controle revogado. Faça um novo pareamento.')).toBeVisible();
+    await expect(projection.locator('[data-module="1"]')).toBeVisible();
+    await phone.getByRole('button', { name: 'Voltar para entrar com senha' }).click();
+    await phone.getByLabel('Senha do controle', { exact: true }).fill('Ensaio-privado-2026');
+    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
+    await expect(phone.getByRole('alert')).toContainText('Senha inválida');
+    await page.getByLabel('Definir senha do controle', { exact: true }).fill('Nova-senha-privada-2026');
+    await page.getByRole('button', { name: 'Salvar senha do controle', exact: true }).click();
+    await expect(page.getByRole('status')).toContainText('Senha salva');
+    await phone.getByLabel('Senha do controle', { exact: true }).fill('Nova-senha-privada-2026');
+    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
+    await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
+    await expect(phone.getByRole('heading', { name: 'Fábrica', exact: true })).toBeVisible();
+    await expect(projection.locator('[data-module="1"]')).toBeVisible();
+  } finally { await context.close(); }
+});
+
 test('Navegação pelos 12 módulos, abertura, desafio e síntese sem erros', async ({ page }) => {
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
   await start(page);
@@ -113,7 +154,7 @@ test('QR usa endereço de rede; link público em outra sessão não revela notas
   await expect(page.locator('img[alt*="QR"]')).toHaveCount(0);
   const stranger = await browser.newContext(); const tab = await stranger.newPage();
   await tab.goto('http://localhost:4184/control?session=' + new URL(page.url()).searchParams.get('session'));
-  await expect(tab.getByRole('heading', { name: 'Este controle precisa ser pareado.' })).toBeVisible();
+  await expect(tab.getByRole('heading', { name: 'Entre com a senha do controle.' })).toBeVisible();
   await expect(tab.getByText('Fala sugerida', { exact: true })).toHaveCount(0);
   await stranger.close();
 });
