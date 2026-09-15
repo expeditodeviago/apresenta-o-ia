@@ -56,9 +56,9 @@ O computador criador pode revogar os controles nessa mesma janela. A sessão val
 | → / PageDown | Próxima etapa |
 | ← / PageUp | Etapa anterior |
 | Shift + → / ← | Próximo módulo / módulo anterior |
-| Espaço | Um passo da simulação; revelar/avançar no quiz |
+| Espaço | Próxima etapa de IA; um passo na matemática; revelar/avançar no quiz |
 | A | Iniciar/pausar Auto-Play |
-| V | Revelar/ocultar explicação |
+| V | Revelar/ocultar explicação na matemática ou no quiz |
 | R | Reiniciar experimento atual |
 | M | Visão geral |
 | F | Alternar modo palco |
@@ -76,7 +76,7 @@ Atalhos não interferem quando um campo, botão ou diálogo tem foco. Clique em 
 
 Atualize os documentos gerados após mudar o currículo: `node scripts/export-notes.ts`. Os arquivos em `docs/` ficam fora do diretório servido ao público.
 
-Em **Notas privadas**, a fala, a demonstração e a resposta esperada ficam abertas. Os demais tópicos podem ser expandidos para estudo e consulta. As notas acompanham a rodada do quiz, o exemplo selecionado e a troca entre explicação de IA e matemática. O arquivo do guia também pode ser lido com o servidor desligado.
+Em **Notas privadas**, a fala, a demonstração e a resposta esperada ficam abertas. Os demais tópicos podem ser expandidos para estudo e consulta. As notas acompanham a rodada do quiz, o exemplo selecionado e a troca entre explicação de IA e matemática. As perguntas matemáticas, alternativas e gabaritos acompanham os parâmetros atuais. Entrar em matemática pela primeira vez abre a primeira etapa; ao alternar os roteiros, cada um retoma a sua própria etapa. O quiz tem seis perguntas, com navegação e notas sincronizadas. O arquivo do guia também pode ser lido com o servidor desligado.
 
 ## Conexão e persistência
 

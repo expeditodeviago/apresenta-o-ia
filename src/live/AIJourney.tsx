@@ -89,7 +89,7 @@ export function AIExampleControls({ module, sim, send }: { module: number; sim: 
 }
 
 export function AIJourney({ module, sim, stage, reduced, send }: { module: number; sim: Sim; stage: number; reduced: boolean; send: Send }) {
-  const c = AI_CHAPTERS[module], variant = Number(sim.values.aiVariant || 0), lines = storyLines(module);
+  const c = AI_CHAPTERS[module], variant = Number(sim.values.aiVariant || 0), lines = storyLines(module, variant);
   const illustrations = [null, <Tokens variant={variant} />, <Meaning variant={variant} />, <Training variant={variant} />, <NeuralFlow expanded={Boolean(variant)} />, <Attention variant={variant} />, <ContextScene variant={variant} />, <Generation variant={variant} />, <Memory variant={variant} />, <Temperature variant={variant} />, <FactCheck variant={variant} />, <ToolsScene variant={variant} />, <Pipeline variant={variant} />];
   return <section className="ai-journey" aria-label="Como a IA funciona">
     <div className="ai-story-copy"><span className="ai-chapter-label">{c.label}</span><h1>{c.title}</h1><p className="ai-story-intro">{c.intro}</p><div className="ai-story-detail" aria-live="polite" key={stage}><span>{['A IDEIA', 'POR DENTRO', 'PENSE COM A GENTE', 'O QUE ACONTECE', 'EXPERIMENTE', 'A DESCOBERTA', 'LEVE ESTA IDEIA', 'SUA VEZ'][stage]}</span><p>{lines[stage]}</p></div><div className="ai-story-pagination" aria-label="Etapas da explicação">{lines.map((_, i) => <button key={i} aria-label={'Etapa ' + (i + 1) + ' da explicação'} aria-current={stage === i ? 'step' : undefined} onClick={() => send({ type: 'stage', value: i })}><span /></button>)}<small>{String(stage + 1).padStart(2, '0')} / 08</small></div></div>

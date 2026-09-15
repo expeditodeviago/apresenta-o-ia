@@ -47,7 +47,7 @@ export const BRIDGES: [number, number, string][] = [
 for (const [a, b] of BRIDGES) connect('grupo-' + a, 'grupo-' + b);
 
 export const NETWORK_QUESTIONS = [
-  { title: 'Por que a IA pode errar?', groups: [1, 6, 9, 12, 4], answer: 'Ela calcula possibilidades a partir do que aprendeu. Uma continuação pode soar ótima e ainda estar errada. Por isso, precisamos conferir as fontes.' },
-  { title: 'Como a IA ajuda no dia a dia?', groups: [2, 5, 7, 10, 12], answer: 'Um pedido pode virar pesquisa, comparação e rascunho. As ferramentas executam etapas; você define o objetivo e avalia o resultado.' },
-  { title: 'Por que mais informação não basta?', groups: [1, 4, 8, 11, 12], answer: 'Além de reunir dados, é preciso encontrar o que importa, respeitar limites e verificar a qualidade. Conectar bem faz diferença.' },
+  { title: 'Por que a IA pode errar?', groups: [3, 6, 9, 10, 11], answer: 'Ela calcula possibilidades a partir do que aprendeu. Uma continuação pode soar ótima e ainda estar errada. Por isso, precisamos conferir as fontes.' },
+  { title: 'Como a IA ajuda no dia a dia?', groups: [6, 7, 10, 11, 12], answer: 'Um pedido pode virar pesquisa, comparação e rascunho. As ferramentas executam etapas; você define o objetivo e avalia o resultado.' },
+  { title: 'Por que mais informação não basta?', groups: [6, 8, 10, 11, 12], answer: 'Além de reunir dados, é preciso encontrar o que importa, respeitar limites e verificar a qualidade. Conectar bem faz diferença.' },
 ];

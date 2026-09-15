@@ -17,7 +17,7 @@ for (const node of KNOWLEDGE_NODES) {
     `Este cofre contém **${KNOWLEDGE_NODES.length} notas** e **${KNOWLEDGE_EDGES.length} ligações distintas**, organizadas em 12 temas.`,
     '', '## Abra a rede', '',
     'Abra esta pasta como cofre no Obsidian e clique em **Abrir visão de grafo** na barra lateral. Use a roda do mouse para aproximar e arraste para explorar. Clique em um ponto para abrir a nota.',
-    '', 'Nas configurações do grafo, use **Animar** para revelar as notas ao longo do tempo. Desative a exibição de tags e anexos se quiser mostrar apenas as notas. Para colorir temas, crie grupos usando a busca `path:01-Escolhas`, por exemplo.',
+    '', 'Nas configurações do grafo, use **Animar** para revelar as notas ao longo do tempo. Desative a exibição de tags e anexos se quiser mostrar apenas as notas. Para colorir temas, crie grupos usando a busca `path:01-Tokens`, por exemplo.',
     '', '## Uma distinção que ajuda', '',
     'Este é um grafo de conhecimento: notas e links escolhidos para estudar. Uma rede neural real faz cálculos com unidades, camadas e pesos ajustados no treinamento. O formato visual deste cofre é uma metáfora, e não uma reprodução dos parâmetros ou dos pensamentos de um modelo.',
     '', 'As perguntas que aparecem na apresentação iluminam percursos previamente preparados. Você pode acrescentar outras notas e links para construir seus próprios percursos.',

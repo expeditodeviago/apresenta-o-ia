@@ -1,3 +1,4 @@
+import { AI_CHAPTERS } from '../shared/aiJourney.ts';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { LESSONS, FORMAL_LESSONS, QUIZ } from '../shared/curriculum.ts';
 import { NOTE_SECTIONS } from '../shared/noteSections.ts';
@@ -60,6 +61,6 @@ for (const lesson of FORMAL_LESSONS.slice(1, 13)) {
 }
 lines.push('## Referências para estudo', '', getNotes(1, 0).sources, '');
 await writeFile('docs/ROTEIRO-PRIVADO.md', lines.join('\n'), 'utf8');
-const mapping = ['# Mapeamento dos experimentos', '', 'Mapeamento descritivo do conteúdo implementado. A ementa do professor não foi fornecida; aderência curricular ainda precisa ser validada.', '', '| Módulo | Conteúdo matemático | Conexão com IA | Limite da analogia |', '| --- | --- | --- | --- |', ...LESSONS.slice(1, 13).map(l => '| ' + l.id + '. ' + l.short + ' | ' + FORMAL_LESSONS[l.id].math + ' | ' + l.application + ' | ' + l.limit + ' |')];
+const mapping = ['# Mapeamento dos experimentos', '', 'Mapeamento descritivo do conteúdo implementado. A ementa do professor não foi fornecida; aderência curricular ainda precisa ser validada.', '', '| Módulo | Conteúdo matemático | Conexão com IA | Limite da analogia |', '| --- | --- | --- | --- |', ...LESSONS.slice(1, 13).map(l => '| ' + l.id + '. ' + l.short + ' | ' + FORMAL_LESSONS[l.id].math + ' | ' + AI_CHAPTERS[l.id].mathBridge + ' | ' + FORMAL_LESSONS[l.id].limit + ' |')];
 await writeFile('docs/MAPEAMENTO.md', mapping.join('\n') + '\n', 'utf8');
 console.log('Guia privado atualizado: abertura, 12 capítulos, 6 perguntas, encerramento e 12 aprofundamentos matemáticos.');

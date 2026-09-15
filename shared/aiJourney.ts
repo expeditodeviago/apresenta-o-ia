@@ -56,9 +56,15 @@ export const AI_CHAPTERS: Record<number, AIChapter> = {
     takeaway: 'Entender o caminho ajuda você a usar, questionar e conferir melhor.', limit: 'Este fluxo resume um assistente de linguagem. Outros tipos de IA podem funcionar de formas diferentes.', variants: ['Explicar uma ideia', 'Responder com uma fonte'], mathBridge: 'A missão original reúne regras, conexões, dependências e capacidade como aprofundamento opcional.' },
 };
 
-export function storyLines(id: number) {
+export function aiQuestion(id: number, variant = 0) {
+  if (variant === 1 && id === 2) return 'Por que a palavra “banco” aparece em duas regiões deste mapa?';
+  if (variant === 1 && id === 11) return 'Para calcular 347 × 28, qual ferramenta pode fornecer o resultado?';
+  return AI_CHAPTERS[id].question;
+}
+
+export function storyLines(id: number, variant = 0) {
   const c = AI_CHAPTERS[id];
-  return [c.intro, c.steps[0], c.question, c.steps[1], 'Troque o exemplo e observe o que muda.', c.steps[2], c.takeaway, 'Antes de avançar: como você explicaria essa ideia para outra pessoa?'];
+  return [c.intro, c.steps[0], aiQuestion(id, variant), c.steps[1], 'Troque o exemplo e observe o que muda.', c.steps[2], c.takeaway, 'Antes de avançar: como você explicaria essa ideia para outra pessoa?'];
 }
 
 export const AI_AUDIENCE_COPY = Object.fromEntries(Object.entries(AI_CHAPTERS).map(([id, c]) => [id, {

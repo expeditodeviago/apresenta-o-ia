@@ -1,11 +1,13 @@
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 ﻿import { chromium } from '@playwright/test';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 
 await mkdir('artifacts', { recursive: true });
 const base = 'http://localhost:4185';
-const server = spawn(process.execPath, ['server/index.ts'], { env: { ...process.env, PORT: '4185', SYNAPSE_DATA_DIR: '.runtime/visual-' + Date.now() }, stdio: 'ignore', windowsHide: true });
+const server = spawn(process.execPath, ['server/index.ts'], { env: { ...process.env, PORT: '4185', SYNAPSE_DATA_DIR: await mkdtemp(path.join(tmpdir(), 'synapse-visual-')) }, stdio: 'ignore', windowsHide: true });
 let browser;
 try {
   for (let i = 0; i < 80; i++) { try { if ((await fetch(base + '/api/health')).ok) break; } catch {} await new Promise(resolve => setTimeout(resolve, 50)); }
@@ -20,7 +22,7 @@ try {
       const session = new URL(location.href).searchParams.get('session');
       const secret = sessionStorage.getItem('synapse-owner-' + session);
       const response = await fetch('/api/sessions/' + session + '/command', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + secret }, body: JSON.stringify({ id: crypto.randomUUID(), command }) });
-      if (!response.ok) throw Error('Inspection command rejected');
+      if (!response.ok) throw Error('Inspection command rejected (' + response.status + '): ' + await response.text());
     }, command);
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   };
@@ -60,7 +62,10 @@ try {
         await command({ type: 'storyVariant', value: 1 });
         await inspect('ai-alternative-' + module + '-' + size.width, true);
         await command({ type: 'mathMode', value: true });
-        await inspect('math-' + module + '-' + size.width);
+        for (let stage = 0; stage < 8; stage++) {
+          await command({ type: 'stage', value: stage });
+          await inspect('math-' + module + '-stage-' + stage + '-' + size.width, stage === 2 && [1, 5, 12].includes(module));
+        }
         await command({ type: 'mathMode', value: false });
       }
     }

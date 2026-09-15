@@ -1,4 +1,4 @@
-﻿export type Sim = { values: Record<string, number | string | boolean>; tick: number; counts: number[]; log: string[]; edges: string[]; bins: number[]; visited: string[]; path: string[]; frontier: string[][]; done: boolean; selected: number | null; revealed: boolean; seed: number; status: string };
+﻿export type Sim = { predictionSelected?: number | null; routeStages?: { ai?: number; math?: number }; values: Record<string, number | string | boolean>; tick: number; counts: number[]; log: string[]; edges: string[]; bins: number[]; visited: string[]; path: string[]; frontier: string[][]; done: boolean; selected: number | null; revealed: boolean; seed: number; status: string };
 export type State = { version: number; module: number; stage: number; stageMode?: boolean; mathMode?: boolean; storyPlaying?: boolean; sims: Record<number, Sim>; autoplay: boolean; nextTickAt: number; running: boolean; elapsed: number; moduleElapsed: number; clockAt: number; pointer: { x: number; y: number; until: number } | null; volume: number; reduced: boolean };
 export type Command = { type: string; key?: string; value?: any };
 export const MAZE = ['.......', '.#####.', '.#...#.', '.#.#.#.', '.#.#.#.', '.#...#.', '.......'];
@@ -54,6 +54,7 @@ export function missionChecks(sim: Sim) { return [{ label: 'Permissão', passed:
 const numeric: Record<string, [number, number]> = { options: [2, 6], length: [1, 6], stones: [1, 15], modulus: [3, 16], position: [0, 30], offset: [0, 40], drawers: [2, 8], objects: [1, 16], temperature: [.1, 2], n: [1, 40], capacity: [1, 6], networkFocus: [0, 12], networkQuestion: [0, 2] };
 const options: Record<string, string[]> = { algorithm: ['bfs', 'dfs', 'backtracking'], operator: ['and', 'or'], source: ['A', 'B', 'C', 'D', 'E', 'F'], target: ['A', 'B', 'C', 'D', 'E', 'F'], strategy: ['random', 'greedy', 'minimax'], family: ['linear', 'quadratic', 'exponential', 'factorial'] };
 function perform(sim: Sim, module: number, action: string, value?: any) {
+  sim.predictionSelected = null;
   if (module === 1) { sim.tick++; sim.values.length = Math.min(6, Number(sim.values.length) + 1); if (Number(sim.values.length) === 6) sim.done = true; }
   else if (module === 2) searchStep(sim);
   else if (module === 3) { const row = sim.tick % 8; sim.values.badge = Boolean(row & 4); sim.values.permission = Boolean(row & 2); sim.values.blocked = Boolean(row & 1); sim.revealed = true; sim.tick++; if (sim.tick >= 8) sim.done = true; }
@@ -80,19 +81,30 @@ export function reduce(state: State, command: Command, now = Date.now()): State 
     case 'advance':
     case 'stage': s.storyPlaying = false; s.stage = command.type === 'advance' ? Math.max(0, Math.min(7, s.stage + Math.sign(Number(command.value) || 0))) : Math.min(7, Math.max(0, Math.floor(Number(command.value) || 0))); s.autoplay = false; if (s.stage === 5) sim.revealed = true; if (s.stage < 3) sim.revealed = false; break;
     case 'clock': s.running = Boolean(command.value); break;
-    case 'autoplay': s.autoplay = Boolean(command.value); s.nextTickAt = now + 1100; if (s.autoplay && sim.done) { s.sims[module] = createSim(module); if (module !== 5) s.sims[module].values = { ...sim.values }; } break;
-    case 'reset': s.storyPlaying = false; s.sims[module] = createSim(module); s.autoplay = false; break;
-    case 'set': { const key = command.key!; if (numeric[key]) { const [min, max] = numeric[key]; const n = Number(command.value); if (!Number.isFinite(n)) throw Error('Valor inválido'); sim.values[key] = Math.max(min, Math.min(max, key === 'temperature' ? n : Math.round(n))); } else if (options[key]?.includes(command.value)) sim.values[key] = command.value; else if (typeof sim.values[key] === 'boolean' && typeof command.value === 'boolean') sim.values[key] = command.value; else throw Error('Parâmetro inválido'); if (module === 5 && key === 'strategy') { s.autoplay = false; break; } sim.tick = 0; sim.done = false; sim.visited = []; sim.path = []; sim.frontier = [[START]]; sim.bins = []; sim.counts = [0, 0, 0, 0]; sim.seed = 42; sim.log = []; sim.status = 'inicial'; s.autoplay = false; break; }
-    case 'edge': { const edge = String(command.value); const valid = module === 7 ? /^[PVER]>[PVER]$/ : /^[A-F]>[A-F]$/; if (!valid.test(edge) || edge[0] === edge[2]) throw Error('Aresta inválida'); sim.edges = sim.edges.includes(edge) ? sim.edges.filter(e => e !== edge) : [...sim.edges, edge]; sim.tick = 0; sim.visited = []; sim.path = []; sim.done = false; s.autoplay = false; break; }
+    case 'autoplay': s.autoplay = Boolean(command.value); s.nextTickAt = now + 1100; if (s.autoplay && sim.done) { s.sims[module] = createSim(module); s.sims[module].routeStages = sim.routeStages; s.sims[module].values.aiVariant = sim.values.aiVariant || 0; if (module !== 5) s.sims[module].values = { ...sim.values }; } break;
+    case 'reset': s.storyPlaying = false; s.sims[module] = createSim(module); s.sims[module].routeStages = sim.routeStages; if (s.mathMode) s.sims[module].values.aiVariant = sim.values.aiVariant || 0; else if (module > 0 && module < 13) s.stage = 0; s.autoplay = false; break;
+    case 'set': { const key = command.key!; if (numeric[key]) { const [min, max] = numeric[key]; const n = Number(command.value); if (!Number.isFinite(n)) throw Error('Valor inválido'); sim.values[key] = Math.max(min, Math.min(max, key === 'temperature' ? n : Math.round(n))); } else if (options[key]?.includes(command.value)) sim.values[key] = command.value; else if (typeof sim.values[key] === 'boolean' && typeof command.value === 'boolean') sim.values[key] = command.value; else throw Error('Parâmetro inválido'); if (module === 5 && key === 'strategy') { s.autoplay = false; break; } sim.predictionSelected = null; sim.selected = null; sim.revealed = false; sim.tick = 0; sim.done = false; sim.visited = []; sim.path = []; sim.frontier = [[START]]; sim.bins = []; sim.counts = [0, 0, 0, 0]; sim.seed = 42; sim.log = []; sim.status = 'inicial'; s.autoplay = false; break; }
+    case 'edge': { const edge = String(command.value); const valid = module === 7 ? /^[PVER]>[PVER]$/ : /^[A-F]>[A-F]$/; if (!valid.test(edge) || edge[0] === edge[2]) throw Error('Aresta inválida'); sim.edges = sim.edges.includes(edge) ? sim.edges.filter(e => e !== edge) : [...sim.edges, edge]; sim.predictionSelected = null; sim.selected = null; sim.revealed = false; sim.tick = 0; sim.visited = []; sim.path = []; sim.done = false; s.autoplay = false; break; }
     case 'action': if (module === 12 && command.key === 'launch') { sim.revealed = false; sim.tick = 0; sim.done = false; sim.visited = []; sim.status = 'Verificando as condições da missão…'; s.autoplay = true; s.nextTickAt = now + 650; } else if (module === 13) { if (!sim.revealed) sim.revealed = true; else if (sim.tick < 5) { sim.tick++; sim.revealed = false; sim.selected = null; } } else if (module === 0 || module === 14) s.stage = Math.min(7, s.stage + 1); else perform(sim, module, command.key ?? 'step', command.value); break;
     case 'storyAutoplay': s.storyPlaying = Boolean(command.value); s.autoplay = false; s.nextTickAt = now + 8000; break;
-    case 'mathMode': s.storyPlaying = false; s.mathMode = Boolean(command.value); s.autoplay = false; break;
+    case 'mathMode': {
+      if (module < 1 || module > 12) break;
+      const next = Boolean(command.value);
+      if (next !== Boolean(s.mathMode)) {
+        sim.routeStages ??= {};
+        sim.routeStages[s.mathMode ? 'math' : 'ai'] = s.stage;
+        s.stage = sim.routeStages[next ? 'math' : 'ai'] ?? 0;
+        sim.predictionSelected = null; sim.selected = null; sim.revealed = next && s.stage === 5;
+      }
+      s.storyPlaying = false; s.mathMode = next; s.autoplay = false; break;
+    }
     case 'storyVariant': if (![0, 1].includes(command.value)) throw Error('Exemplo inválido'); sim.values.aiVariant = command.value; break;
     case 'storyReplay': sim.values.aiReplay = Number(sim.values.aiReplay || 0) + 1; break;
     case 'stageMode': s.stageMode = Boolean(command.value); break;
     case 'reveal': sim.revealed = !sim.revealed; break;
-    case 'answer': if (Number.isInteger(command.value) && command.value >= 0 && command.value < 3 && !sim.revealed) sim.selected = command.value; break;
-    case 'quiz': sim.tick = Math.min(5, Math.max(0, Math.floor(Number(command.value) || 0))); sim.selected = null; sim.revealed = false; break;
+    case 'answer': if (Number.isInteger(command.value) && command.value >= 0 && command.value < (module === 12 ? 5 : module === 5 ? Math.min(Number(sim.values.stones), 3) + 1 : 3) && !sim.revealed) { if (module > 0 && module < 13) sim.predictionSelected = command.value; else sim.selected = command.value; } break;
+    case 'quizAdvance':
+    case 'quiz': sim.tick = Math.min(5, Math.max(0, command.type === 'quizAdvance' ? sim.tick + Math.sign(Number(command.value) || 0) : Math.floor(Number(command.value) || 0))); sim.predictionSelected = null; sim.selected = null; sim.revealed = false; break;
     case 'pointer': { const { x, y } = command.value ?? {}; if (!Number.isFinite(x) || !Number.isFinite(y)) throw Error('Ponteiro inválido'); s.pointer = { x: Math.max(0, Math.min(1, x)), y: Math.max(0, Math.min(1, y)), until: now + 3500 }; break; }
     case 'volume': s.volume = Math.max(0, Math.min(1, Number(command.value) || 0)); break;
     case 'reduced': s.reduced = Boolean(command.value); break;

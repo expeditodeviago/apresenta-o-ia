@@ -152,3 +152,9 @@
   .stage-mode:has(.math-route-banner) .live-visual { padding-top: 4px; padding-bottom: 4px; }
   .stage-mode:has(.math-route-banner) .experiment-caption { display: none; }
 }
+
+/* Keep the full question and all choices above the dock on projection screens. */
+.stage-prompt p { min-width: 0; overflow-wrap: anywhere; }
+.stage-mode .probability-visual .formula-strip strong { font-size: clamp(36px, 3vw, 56px); }
+
+@media (min-width: 761px) { .stage-mode .prediction-panel h3 { margin-top: 12px; margin-bottom: 20px; } }

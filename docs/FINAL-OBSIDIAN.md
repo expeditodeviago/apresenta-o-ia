@@ -1,6 +1,6 @@
 # O encerramento surpresa
 
-A estrutura da apresentação continua a mesma: 12 experimentos, desafio da turma e encerramento, com 120 minutos no total. As explicações projetadas começam com exemplos cotidianos; as definições formais continuam nas notas privadas.
+A estrutura da apresentação continua a mesma: 12 capítulos de IA com matemática opcional, desafio da turma e encerramento, com 120 minutos no total. As explicações projetadas começam com exemplos cotidianos; as definições formais continuam nas notas privadas.
 
 ## Revele uma parte de cada vez
 
@@ -10,8 +10,8 @@ No último módulo, use o controle do celular ou os botões da projeção:
 2. **Conectar as ideias**: “Uma ideia ajuda a entender outra.” Aparecem 109 pontos.
 3. **Revelar a rede inteira**: “Agora olha o tamanho do que elas formam juntas.” A rede chega a **493 notas e 984 ligações**. Deixe a turma olhar antes de falar.
 4. **Fazer a rede acender**: luzes percorrem as conexões. Peça à turma para escolher uma das perguntas.
-5. **Por que a IA pode errar?**: o mapa destaca escolhas, posição, probabilidade, aprendizado e conhecimento. Explique que uma continuação plausível ainda precisa ser conferida.
-6. Explore **Aprendizado** para explicar, em poucas palavras, que redes neurais aprendem ajustando pesos. O botão de download entrega o mapa à turma.
+5. **Por que a IA pode errar?**: o mapa destaca treinamento, contexto, probabilidade, erros e ferramentas. Explique que uma continuação plausível ainda precisa ser conferida.
+6. Explore **Treinamento** para explicar, em poucas palavras, que redes neurais aprendem ajustando pesos. O botão de download entrega o mapa à turma.
 
 Use cerca de dois minutos para a revelação e reserve os quatro restantes para perguntas. Para reiniciar a cena, volte a **Mostrar as primeiras ideias**. Zoom e arrasto ajustam a visualização só no dispositivo em uso; tema e pergunta selecionados são sincronizados com a projeção.
 
@@ -26,7 +26,7 @@ O cofre está na pasta `artifacts/SYNAPSE-Obsidian`. A apresentação também of
 3. Abra a nota **COMECE-AQUI** e depois a **visão de grafo** na barra lateral.
 4. No painel do grafo, use **Animar** para revelar a rede. Aproxime com a roda do mouse e clique em uma nota para ler.
 
-As notas estão divididas em 12 pastas. É possível atribuir cores usando grupos, com buscas como `path:01-Escolhas`. Todas as ligações apontam para notas existentes; o cofre não exige plugins da comunidade.
+As notas estão divididas em 12 pastas. É possível atribuir cores usando grupos, com buscas como `path:01-Tokens`. Todas as ligações apontam para notas existentes; o cofre não exige plugins da comunidade.
 
 O grafo nativo do Obsidian organiza os pontos de acordo com suas forças e configurações. A composição e as luzes da apresentação são uma visualização própria do mesmo conjunto de notas e links.
 

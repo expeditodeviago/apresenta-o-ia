@@ -1,3 +1,6 @@
+import { aiQuestion, storyLines } from '../shared/aiJourney.ts';
+import { mathPrediction } from '../shared/mathContent.ts';
+import { getNotes } from '../server/notes.ts';
 ﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import { LESSONS, STAGE_SECONDS } from '../shared/curriculum.ts';
@@ -141,4 +144,76 @@ test('A jornada de IA avança sem executar a matemática e cancela reprodução 
   state = reduce(state, { type: 'tick' }, 17000);
   assert.equal(state.stage, 7);
   assert.equal(state.storyPlaying, false);
+});
+
+
+test('Trocar entre IA e matemática restaura a etapa de cada roteiro sem misturar respostas', () => {
+  let state = reduce(initialState(), { type: 'module', value: 5 });
+  state = reduce(state, { type: 'stage', value: 6 });
+  state = reduce(state, { type: 'mathMode', value: true });
+  assert.equal(state.stage, 0);
+  state = reduce(state, { type: 'stage', value: 3 });
+  state = reduce(state, { type: 'mathMode', value: false });
+  assert.equal(state.stage, 6);
+  state = reduce(JSON.parse(JSON.stringify(state)), { type: 'mathMode', value: true });
+  assert.equal(state.stage, 3);
+  assert.equal(currentSim(state).revealed, false);
+});
+
+
+test('Perguntas matemáticas mantêm alternativas e respostas válidas ao mudar os parâmetros', () => {
+  for (let module = 1; module <= 12; module++) {
+    const sim = createSim(module), q = mathPrediction(module, sim);
+    assert.ok(q.options[q.answer]);
+    assert.equal(new Set(q.options).size, q.options.length);
+    assert.ok(getNotes(module, 2, true, { sim }).question.includes(q.question));
+  }
+  for (let choices = 2; choices <= 6; choices++) for (let length = 1; length <= 6; length++) {
+    const sim = createSim(1); Object.assign(sim.values, { options: choices, length });
+    const q = mathPrediction(1, sim); assert.equal(q.options[q.answer], (choices ** length).toLocaleString('pt-BR') + ' sequências');
+  }
+  for (let stones = 0; stones <= 15; stones++) {
+    const sim = createSim(5); sim.values.stones = stones;
+    const q = mathPrediction(5, sim);
+    assert.equal(q.options[q.answer], stones === 0 ? 'A partida já terminou' : stones % 4 === 0 ? 'Nenhuma retirada garante vitória' : 'Retirar ' + stones % 4);
+  }
+  for (let modulus = 3; modulus <= 16; modulus++) for (let position = 0; position <= 30; position++) {
+    const sim = createSim(6); Object.assign(sim.values, { modulus, position, offset: 40 });
+    const q = mathPrediction(6, sim); assert.equal(q.options[q.answer], String((position + 40) % modulus));
+    assert.equal(new Set(q.options).size, 3);
+  }
+  for (const status of ['inicial', 'recebido', 'validado', 'revisao', 'respondido', 'finalizado']) {
+    const sim = createSim(10); sim.status = status;
+    assert.equal(mathPrediction(10, sim).answer, status === 'validado' ? 0 : 1);
+  }
+  for (let bits = 0; bits < 16; bits++) {
+    const sim = createSim(12); Object.assign(sim.values, { authorized: Boolean(bits & 1), sourceAvailable: Boolean(bits & 2), cyclic: !(bits & 4), capacity: bits & 8 ? 3 : 2 });
+    const first = [1, 2, 4, 8].findIndex(bit => !(bits & bit));
+    assert.equal(mathPrediction(12, sim).answer, first < 0 ? 4 : first);
+  }
+});
+
+
+test('Perguntas da IA acompanham o exemplo escolhido e o quiz avança relativamente', () => {
+  assert.match(aiQuestion(2, 1), /banco/);
+  assert.match(aiQuestion(11, 1), /347 × 28/);
+  for (let module = 1; module <= 12; module++) for (let variant = 0; variant < 2; variant++) {
+    assert.equal(storyLines(module, variant)[2], getNotes(module, 2, false, { variant }).question);
+  }
+  let state = reduce(initialState(), { type: 'module', value: 13 });
+  for (let i = 0; i < 3; i++) state = reduce(state, { type: 'quizAdvance', value: 1 });
+  assert.equal(currentSim(state).tick, 3);
+  state = reduce(state, { type: 'quizAdvance', value: -1 });
+  assert.equal(currentSim(state).tick, 2);
+});
+
+
+test('Uma amostra ou jogada não reaproveita o voto de uma pergunta anterior', () => {
+  let state = reduce(initialState(), { type: 'module', value: 9 });
+  state = reduce(state, { type: 'mathMode', value: true });
+  state = reduce(state, { type: 'answer', value: 1 });
+  assert.equal(currentSim(state).predictionSelected, 1);
+  state = reduce(state, { type: 'action', key: 'sample100' });
+  assert.equal(currentSim(state).predictionSelected, null);
+  assert.notEqual(currentSim(state).selected, null);
 });

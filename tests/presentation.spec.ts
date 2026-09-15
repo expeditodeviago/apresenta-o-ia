@@ -341,3 +341,76 @@ test('Abertura anima o caminho e os 12 capítulos oferecem comparações visuais
     await expect(page.locator('.ai-example-controls button').nth(1)).toHaveAttribute('aria-pressed', 'true');
   }
 });
+
+
+test('Revisão dos 12 experimentos: perguntas, alternativas, títulos e notas concordam', async ({ page, browser }) => {
+  test.setTimeout(90000);
+  await start(page);
+  const { phone, context } = await phoneFor(page, browser);
+  const expected = [
+    ['sequências', '27 sequências'], ['labirinto', 'Olhar por perto, em camadas (BFS)'],
+    ['trocar E por OU', 'Quem tem apenas uma das duas credenciais'], ['Na rede atual', 'Em apenas um sentido'],
+    ['Restam 7 peças', 'Retirar 3'], ['relógio de 12 posições', '4'],
+    ['dependências atuais', 'Sim, respeitando os grupos de dependências'], ['4 gavetas', '5 objetos'],
+    ['100 escolhas', 'Não, a amostragem pode produzir diferenças'], ['estado “inicial”', 'Recusar o evento e manter o estado atual'],
+    ['um milhão', 'n!'], ['execução da missão', 'Permissão'],
+  ];
+  try {
+    for (let module = 1; module <= 12; module++) {
+      await chooseModule(page, module);
+      await expect(page.locator('.prediction-panel')).toHaveCount(0);
+      await expect(page.locator('.dock-reveal')).toHaveCount(0);
+      await page.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
+      await expect(page.locator('.prediction-panel h3')).toContainText(expected[module - 1][0]);
+      await expect(page.locator('.prediction-options')).toContainText(expected[module - 1][1]);
+      const question = await page.locator('.prediction-panel h3').innerText();
+      await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
+      await expect(phone.locator('[data-note="question"]')).toContainText(question);
+      await expect(phone.locator('[data-note="expected"]')).toContainText(expected[module - 1][1]);
+      await expect(phone.locator('.notes-intro')).toContainText(await page.locator('.live-lesson-heading h1').innerText());
+      await page.getByRole('button', { name: 'Voltar à explicação de IA', exact: true }).click();
+      await expect(phone.locator('.notes-intro')).toContainText(await page.locator('.ai-story-copy h1').innerText());
+    }
+  } finally { await context.close(); }
+});
+
+test('Valores alterados e sessão recarregada mantêm o palpite e o gabarito correspondentes', async ({ page, browser }) => {
+  await start(page); await chooseModule(page, 5);
+  const { phone, context } = await phoneFor(page, browser);
+  try {
+    await page.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
+    await page.getByRole('button', { name: 'Testar a hipótese', exact: true }).click();
+    await page.getByRole('button', { name: 'Retirar 3', exact: true }).click();
+    await page.getByRole('navigation', { name: 'Etapas do módulo' }).getByRole('button').nth(2).click();
+    await expect(page.locator('.prediction-panel h3')).toContainText('Restam 4 peças');
+    await page.locator('.prediction-options button').last().click();
+    await expect(page.locator('.prediction-options button').last()).toHaveAttribute('aria-pressed', 'true');
+    await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
+    await expect(phone.locator('[data-note="expected"]')).toContainText('D — Nenhuma retirada garante vitória');
+    await page.reload();
+    await expect(page.locator('.prediction-panel h3')).toContainText('Restam 4 peças');
+    await expect(page.locator('.prediction-options button').last()).toHaveAttribute('aria-pressed', 'true');
+    await page.getByRole('button', { name: 'Voltar à explicação de IA', exact: true }).click();
+    await expect(page.locator('.attention-scene')).toBeVisible();
+    await expect(page.locator('.prediction-panel')).toHaveCount(0);
+  } finally { await context.close(); }
+});
+
+test('As seis rodadas do quiz sincronizam pergunta, alternativas, navegação e notas', async ({ page, browser }) => {
+  test.setTimeout(30000);
+  await start(page); await chooseModule(page, 13);
+  const { phone, context } = await phoneFor(page, browser);
+  try {
+    await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
+    for (let round = 0; round < 6; round++) {
+      const question = await page.locator('.final-quiz h3').innerText();
+      await expect(phone.locator('[data-note="question"]')).toContainText(question);
+      await expect(phone.locator('.control-stage')).toContainText('PERGUNTA ' + (round + 1) + ' / 6');
+      await page.getByRole('button', { name: 'Revelar resposta', exact: true }).click();
+      const correct = await page.locator('.quiz-options .correct strong').innerText();
+      await expect(phone.locator('[data-note="expected"]')).toContainText(correct);
+      if (round < 5) await page.getByRole('button', { name: 'Próxima etapa', exact: true }).click();
+    }
+    await expect(page.getByRole('button', { name: 'Próxima etapa', exact: true })).toBeDisabled();
+  } finally { await context.close(); }
+});

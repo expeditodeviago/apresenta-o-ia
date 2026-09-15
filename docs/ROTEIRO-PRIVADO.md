@@ -221,6 +221,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Uma palavra sempre vira um único token?”
 “Uma palavra sempre vira uma única peça? Guardem um palpite: sim ou não.” Espere alguns segundos. Se ninguém responder, diga: “E se a caixa não tiver a palavra inteira, mas tiver pedaços que a formam?” A resposta é não; use a troca de exemplo para mostrar o motivo.
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -338,6 +339,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: ““Gato” deveria ficar mais perto de “cachorro” ou de “avião”?”
 “Numa busca sobre animais domésticos, gato deveria ficar mais relacionado com cachorro ou avião? Por quê?” Espere uma justificativa. Se alguém responder avião porque transporta animais, diga: “É uma relação possível. Proximidade depende do contexto e do objetivo; nosso desenho destaca apenas uma relação.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -456,6 +458,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “O que muda quando o modelo erra uma previsão?”
 “Depois do erro, o que muda: a pergunta ou os números do modelo?” Espere. Responda: “Durante o treinamento, ajustamos parâmetros, também chamados de pesos. O objetivo é melhorar o comportamento em muitos exemplos, e não apenas guardar esta frase como uma resposta fixa.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -573,6 +576,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Cada bolinha da rede guarda uma palavra ou uma lembrança?”
 “Cada bolinha guarda uma palavra ou lembrança inteira?” Ouça o palpite e responda: “Esse desenho não funciona como uma pasta com uma frase em cada ponto. As informações aprendidas podem estar distribuídas por muitos parâmetros, que participam juntos de muitos cálculos.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -690,6 +694,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Na frase sobre um banco, o que ajuda a saber de qual banco estamos falando?”
 “Se eu trocar para ‘fazer um depósito’, vocês manteriam a interpretação de assento?” Espere a resposta e peça o motivo. Se houver silêncio: “Onde normalmente fazemos um depósito de dinheiro?” Conclua que uma palavra recebe interpretação dentro da situação, não isoladamente.
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -808,6 +813,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: ““Explique gravidade” é o mesmo pedido para uma criança e para um engenheiro?”
 “Que diferença vocês esperam: uma lei física nova ou um jeito diferente de explicar?” Ouça a turma. “A descrição precisa ser adaptada ao público, mantendo o compromisso com a correção. Simplificar não é inventar outra regra da natureza.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -926,6 +932,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Ele precisa escolher a frase inteira de uma só vez?”
 “O sistema precisa escolher toda a frase de uma só vez?” Espere. “Neste tipo de geração, não. Ele pode construir uma sequência por escolhas encadeadas. Mas cada escolha vem de muitos cálculos: prever uma peça seguinte não significa fazer apenas uma busca simples por uma palavra.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -1044,6 +1051,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Uma conversa antiga estará sempre disponível para o modelo?”
 “Se chegam mais dois papéis e a mesa comporta quatro, todos cabem sem mudar nada?” Espere. “Precisamos selecionar, reorganizar ou resumir. A tela usa cartões para representar essa limitação. Um modelo real conta tokens, não folhas.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -1162,6 +1170,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “A opção mais provável precisa aparecer sempre?”
 “A opção com a barra maior precisa aparecer em todas as tentativas?” Espere. “Não, se estamos sorteando conforme as chances. O resultado mais provável só seria obrigatório se adotássemos uma regra que sempre escolhesse a favorita.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -1280,6 +1289,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Uma resposta muito convincente é prova de que aconteceu?”
 “O que vocês precisariam ver antes de repetir essa informação como fato?” Se disserem “uma fonte”, pergunte: “Qual trecho dessa fonte confirma o vencedor e o prêmio?” Se houver silêncio, ofereça o exemplo de uma lista oficial de resultados — que não existe neste caso fictício.
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -1398,6 +1408,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Se a IA precisa de um dado atual, de onde ele pode vir?”
 “Se o assistente precisa de um dado atual, basta escrever uma frase mais confiante?” Espere. “Não. Ele pode precisar consultar uma fonte externa, se uma ferramenta estiver disponível e autorizada. Sem isso, devemos reconhecer a informação que está faltando.”
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -1516,6 +1527,7 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 3. Pense com a gente
 
+Pergunta na projeção: “Em que parte desse caminho você conferiria as informações?”
 “Em que parte vocês fariam uma conferência?” Aceite mais de uma resposta. Exemplos: na entrada, verificar se o documento é o correto; na ferramenta, se trouxe o trecho certo; na saída, se a explicação corresponde ao trecho. Não existe apenas um ponto útil de verificação.
 
 **Próxima ação:** Use “Próxima etapa” para “O que acontece”. Leia a fala da nova etapa antes de avançar outra vez. Os botões para trocar exemplos ficam em Comandos; a seção Demonstração explica o que observar.
@@ -1569,7 +1581,7 @@ O quiz verifica distinções, não vocabulário decorado: token versus palavra; 
 3. Use “Revelar” ou “Um passo” no controle.
 4. Leia a justificativa nas notas e mostre por que as outras alternativas não servem.
 5. Para passar à próxima pergunta, use “Próxima rodada” ou “Um passo” depois da revelação. O botão “Próximo módulo” sai do quiz.
-6. As notas acompanham a pergunta do quiz, independentemente do contador geral de oito etapas.
+6. A navegação mostra seis perguntas, e as notas acompanham a rodada selecionada.
 
 Total: 10min. Use 1min para explicar a dinâmica e cerca de 90s por pergunta: 20s leitura, 20s votação, 40s justificativa e 10s para avançar. Se a discussão crescer, use o roteiro curto sem pular a explicação da resposta.
 
@@ -1796,6 +1808,7 @@ Abra o aprofundamento em Comandos e siga os valores iniciais descritos. Volte à
 2. Peça o palpite antes de revelar: 9, 27 ou 81?
 3. Mostre 3 × 3 × 3 = 27.
 4. Mantenha 3 opções e aumente o comprimento para 4: aparecem 81 possibilidades. A galeria pode mostrar só uma parte, enquanto o total conta todas.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -1815,11 +1828,14 @@ Repetição: poder usar a mesma opção em várias posições.
 
 ### Pergunta à turma
 
-Com 3 opções e 3 posições, quantas sequências existem?
+Com 3 opções em cada uma de 3 posições, quantas sequências existem?
+Alternativas: A: 9 sequências; B: 27 sequências; C: 81 sequências
 
 ### Resposta esperada e como explicar
 
-27 para 3 opções em 3 posições. Ao acrescentar uma posição, o total multiplica por 3 e chega a 81. Quem responder 9 contou apenas duas etapas.
+Para a pergunta e os ajustes atuais: B — 27 sequências. 3 × 3 × 3 = 27. Cada posição multiplica o total por 3; a ordem importa e pode repetir.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): 27 para 3 opções em 3 posições. Ao acrescentar uma posição, o total multiplica por 3 e chega a 81. Quem responder 9 contou apenas duas etapas.
 
 ### Se a turma perguntar
 
@@ -1850,12 +1866,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
+
 “Uma lanchonete oferece 3 pães e 2 recheios. Para cada pão, posso escolher qualquer recheio. Com o primeiro pão, tenho 2 lanches; com o segundo, mais 2; com o terceiro, mais 2. Total: 3 × 2 = 6. No painel, cada posição funciona como uma etapa dessa escolha.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 O princípio multiplicativo conta escolhas feitas em etapas. Se cada uma das 3 opções iniciais permite 3 opções na segunda etapa, temos 3 × 3 pares. Uma terceira etapa com 3 opções por par produz 27 sequências. O experimento permite repetir uma opção e considera a ordem: vermelho-azul e azul-vermelho são sequências diferentes. Sem essas condições, a conta pode mudar.
@@ -1869,11 +1889,16 @@ Repetição: poder usar a mesma opção em várias posições.
 
 #### 3. Seu palpite
 
-“Antes de executar: Com 3 opções e 3 posições, quantas sequências existem?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: 27 para 3 opções em 3 posições. Ao acrescentar uma posição, o total multiplica por 3 e chega a 81. Quem responder 9 contou apenas duas etapas.
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
+
+“Antes de executar: Com 3 opções em cada uma de 3 posições, quantas sequências existem?
+Alternativas: A: 9 sequências; B: 27 sequências; C: 81 sequências” Espere um palpite e peça o motivo. Depois explique: B — 27 sequências. 3 × 3 × 3 = 27. Cada posição multiplica o total por 3; a ordem importa e pode repetir.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Abra “Explorar a matemática” e “Reiniciar experimento”. Ajuste “Opções por posição” para 3 e “Comprimento da sequência” para 3.
@@ -1886,6 +1911,8 @@ Ao terminar, diga: 27 para 3 opções em 3 posições. Ao acrescentar uma posiç
 
 #### 5. E se mudar?
 
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 3³ = 3 × 3 × 3 = 27. Com uma posição extra: 3⁴ = 27 × 3 = 81. Não somamos 3: cada sequência antiga aceita 3 finais diferentes. Se tirássemos a repetição com 3 opções para 3 posições, seria 3 × 2 × 1 = 6. A interface atual mantém repetição; essa comparação é explicada oralmente.
 
@@ -1893,13 +1920,16 @@ Ao terminar, diga: 27 para 3 opções em 3 posições. Ao acrescentar uma posiç
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-3³ = 3 × 3 × 3 = 27. Com uma posição extra: 3⁴ = 27 × 3 = 81. Não somamos 3: cada sequência antiga aceita 3 finais diferentes. Se tirássemos a repetição com 3 opções para 3 posições, seria 3 × 2 × 1 = 6. A interface atual mantém repetição; essa comparação é explicada oralmente.
-Conclua: 27 para 3 opções em 3 posições. Ao acrescentar uma posição, o total multiplica por 3 e chega a 81. Quem responder 9 contou apenas duas etapas.
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
+
+“Para os ajustes atuais: 3 × 3 × 3 = 27. Cada posição multiplica o total por 3; a ordem importa e pode repetir.”
+Aprofundamento com os valores do exemplo de estudo: 3³ = 3 × 3 × 3 = 27. Com uma posição extra: 3⁴ = 27 × 3 = 81. Não somamos 3: cada sequência antiga aceita 3 finais diferentes. Se tirássemos a repetição com 3 opções para 3 posições, seria 3 × 2 × 1 = 6. A interface atual mantém repetição; essa comparação é explicada oralmente.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
 
 “Como isso se relaciona com a IA?”
 O experimento de sequências mostra como as combinações crescem; o modelo não enumera todas elas.
@@ -1909,6 +1939,8 @@ Um vocabulário finito permite construir muitas sequências de tokens.
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: 3 tipos de peças, 3 posições, com repetição e ordem relevante.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: 27 para 3 opções em 3 posições. Ao acrescentar uma posição, o total multiplica por 3 e chega a 81. Quem responder 9 contou apenas duas etapas.
@@ -1932,6 +1964,7 @@ Resposta de apoio: 27 para 3 opções em 3 posições. Ao acrescentar uma posiç
 2. Use “Explorar próximo lugar” repetidamente ou Auto-Play até a saída. O caminho mínimo deste labirinto tem 6 arestas.
 3. Reinicie, selecione “Seguir um corredor até o fim” e compare a ordem e o caminho.
 4. A opção “Seguir e voltar quando precisar” destaca o retorno. Compare o caminho final; passos de exploração não são a mesma contagem.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -1952,11 +1985,14 @@ Fronteira: lugares ainda aguardando exploração.
 
 ### Pergunta à turma
 
-Qual estratégia chega à saída pelo menor número de arestas?
+Qual estratégia garante a saída com menos passos neste labirinto?
+Alternativas: A: Olhar por perto, em camadas (BFS); B: Seguir um corredor até o fim (DFS); C: As duas sempre garantem o menor caminho
 
 ### Resposta esperada e como explicar
 
-BFS encontra o menor número de arestas neste labirinto: 6. Encontrar alguma saída e encontrar a saída pelo menor caminho são objetivos diferentes.
+Para a pergunta e os ajustes atuais: A — Olhar por perto, em camadas (BFS). BFS encontra uma rota de 6 arestas. DFS pode encontrar primeiro uma rota mais longa. Isso vale aqui porque cada passagem tem o mesmo custo.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): BFS encontra o menor número de arestas neste labirinto: 6. Encontrar alguma saída e encontrar a saída pelo menor caminho são objetivos diferentes.
 
 ### Se a turma perguntar
 
@@ -1987,12 +2023,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
+
 “Você perdeu uma chave num prédio. Pode verificar primeiro todos os lugares perto da entrada e depois os mais distantes. Ou pode seguir um corredor até o fim antes de voltar. As duas estratégias procuram; elas não examinam os lugares na mesma ordem.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Um grafo representa lugares como vértices e passagens como arestas. Busca em largura (BFS) explora por distância em número de arestas: primeiro vizinhos, depois vizinhos dos vizinhos. Busca em profundidade (DFS) segue um ramo antes de experimentar outros. Backtracking descreve voltar a uma decisão anterior quando um ramo não serve. O caminho encontrado depende da estratégia e da ordem em que os vizinhos são examinados.
@@ -2007,11 +2047,16 @@ Fronteira: lugares ainda aguardando exploração.
 
 #### 3. Seu palpite
 
-“Antes de executar: Qual estratégia chega à saída pelo menor número de arestas?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: BFS encontra o menor número de arestas neste labirinto: 6. Encontrar alguma saída e encontrar a saída pelo menor caminho são objetivos diferentes.
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
+
+“Antes de executar: Qual estratégia garante a saída com menos passos neste labirinto?
+Alternativas: A: Olhar por perto, em camadas (BFS); B: Seguir um corredor até o fim (DFS); C: As duas sempre garantem o menor caminho” Espere um palpite e peça o motivo. Depois explique: A — Olhar por perto, em camadas (BFS). BFS encontra uma rota de 6 arestas. DFS pode encontrar primeiro uma rota mais longa. Isso vale aqui porque cada passagem tem o mesmo custo.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie e selecione “Olhar primeiro os lugares próximos” em “Estratégia de busca”.
@@ -2024,6 +2069,8 @@ Ao terminar, diga: BFS encontra o menor número de arestas neste labirinto: 6. E
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 A saída está na mesma linha da entrada, seis deslocamentos à direita. Nenhuma rota com menos de seis movimentos alcança essa coluna. BFS encontra uma rota com seis arestas porque examina distâncias crescentes. DFS prioriza outro ramo neste labirinto e pode chegar por uma rota maior. BFS garante menor número de arestas para este grafo sem pesos; não garante menor tempo em ruas com tempos diferentes.
 
@@ -2031,13 +2078,16 @@ A saída está na mesma linha da entrada, seis deslocamentos à direita. Nenhuma
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-A saída está na mesma linha da entrada, seis deslocamentos à direita. Nenhuma rota com menos de seis movimentos alcança essa coluna. BFS encontra uma rota com seis arestas porque examina distâncias crescentes. DFS prioriza outro ramo neste labirinto e pode chegar por uma rota maior. BFS garante menor número de arestas para este grafo sem pesos; não garante menor tempo em ruas com tempos diferentes.
-Conclua: BFS encontra o menor número de arestas neste labirinto: 6. Encontrar alguma saída e encontrar a saída pelo menor caminho são objetivos diferentes.
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
+
+“Para os ajustes atuais: BFS encontra uma rota de 6 arestas. DFS pode encontrar primeiro uma rota mais longa. Isso vale aqui porque cada passagem tem o mesmo custo.”
+Aprofundamento com os valores do exemplo de estudo: A saída está na mesma linha da entrada, seis deslocamentos à direita. Nenhuma rota com menos de seis movimentos alcança essa coluna. BFS encontra uma rota com seis arestas porque examina distâncias crescentes. DFS prioriza outro ramo neste labirinto e pode chegar por uma rota maior. BFS garante menor número de arestas para este grafo sem pesos; não garante menor tempo em ruas com tempos diferentes.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
 
 “Como isso se relaciona com a IA?”
 O labirinto é um exemplo de busca em grafos. Não representa como um embedding é calculado.
@@ -2047,6 +2097,8 @@ Busca em espaços de estados aparece em planejamento e resolução de problemas.
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Compare as estratégias no mesmo labirinto, da entrada I até a saída S.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: BFS encontra o menor número de arestas neste labirinto: 6. Encontrar alguma saída e encontrar a saída pelo menor caminho são objetivos diferentes.
@@ -2071,6 +2123,7 @@ Resposta de apoio: BFS encontra o menor número de arestas neste labirinto: 6. E
 3. Troque “Conector da regra” para “OU (ao menos uma)”: a entrada passa a ser permitida.
 4. Marque “Bloqueio de segurança”: volta a negar, mesmo com OU.
 5. Explique cada alteração antes de fazer outra.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2090,11 +2143,14 @@ Tabela-verdade: lista de combinações de entradas e seus resultados.
 
 ### Pergunta à turma
 
-Se usarmos OU no lugar de E, quem passa a entrar?
+Sem bloqueio de segurança, quem passa a entrar ao trocar E por OU?
+Alternativas: A: Ninguém novo entra; B: Quem tem apenas uma das duas credenciais; C: Apenas quem está bloqueado
 
 ### Resposta esperada e como explicar
 
-Trocar E por OU permite a entrada de quem tem apenas uma das credenciais, desde que não esteja bloqueado. Bloqueio ativo sempre nega.
+Para a pergunta e os ajustes atuais: B — Quem tem apenas uma das duas credenciais. E exige crachá e autorização. OU permite só uma das credenciais. O bloqueio continua impedindo a entrada nos dois casos.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Trocar E por OU permite a entrada de quem tem apenas uma das credenciais, desde que não esteja bloqueado. Bloqueio ativo sempre nega.
 
 ### Se a turma perguntar
 
@@ -2125,12 +2181,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
+
 “Imagine a entrada de uma sala restrita. A pessoa precisa ter crachá e autorização para aquela sala. Possuir crachá de funcionário não significa estar autorizada em todas as salas. Se trocarmos E por OU, alguém só com crachá já poderia passar.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Uma proposição é uma afirmação tratada como verdadeira ou falsa. E exige as duas condições; OU aceita pelo menos uma; NÃO inverte uma condição. Aqui, o bloqueio sempre impede a entrada. A regra programada é diferente de aprender parâmetros: ela foi escolhida explicitamente pelo programador.
@@ -2144,11 +2204,16 @@ Tabela-verdade: lista de combinações de entradas e seus resultados.
 
 #### 3. Seu palpite
 
-“Antes de executar: Se usarmos OU no lugar de E, quem passa a entrar?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Trocar E por OU permite a entrada de quem tem apenas uma das credenciais, desde que não esteja bloqueado. Bloqueio ativo sempre nega.
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
+
+“Antes de executar: Sem bloqueio de segurança, quem passa a entrar ao trocar E por OU?
+Alternativas: A: Ninguém novo entra; B: Quem tem apenas uma das duas credenciais; C: Apenas quem está bloqueado” Espere um palpite e peça o motivo. Depois explique: B — Quem tem apenas uma das duas credenciais. E exige crachá e autorização. OU permite só uma das credenciais. O bloqueio continua impedindo a entrada nos dois casos.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie: “Crachá válido” marcado, “Autorização válida” desmarcada e “Bloqueio de segurança” desmarcado.
@@ -2162,6 +2227,8 @@ Ao terminar, diga: Trocar E por OU permite a entrada de quem tem apenas uma das 
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 Com C=1, A=0 e B=0: (1 E 0) E NÃO 0 = 0 E 1 = 0, então nega. Trocando E por OU: (1 OU 0) E NÃO 0 = 1 E 1 = 1, então permite. Se B=1, NÃO B=0 e o resultado final é 0 em ambos os casos.
 
@@ -2169,13 +2236,16 @@ Com C=1, A=0 e B=0: (1 E 0) E NÃO 0 = 0 E 1 = 0, então nega. Trocando E por OU
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-Com C=1, A=0 e B=0: (1 E 0) E NÃO 0 = 0 E 1 = 0, então nega. Trocando E por OU: (1 OU 0) E NÃO 0 = 1 E 1 = 1, então permite. Se B=1, NÃO B=0 e o resultado final é 0 em ambos os casos.
-Conclua: Trocar E por OU permite a entrada de quem tem apenas uma das credenciais, desde que não esteja bloqueado. Bloqueio ativo sempre nega.
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
+
+“Para os ajustes atuais: E exige crachá e autorização. OU permite só uma das credenciais. O bloqueio continua impedindo a entrada nos dois casos.”
+Aprofundamento com os valores do exemplo de estudo: Com C=1, A=0 e B=0: (1 E 0) E NÃO 0 = 0 E 1 = 0, então nega. Trocando E por OU: (1 OU 0) E NÃO 0 = 1 E 1 = 1, então permite. Se B=1, NÃO B=0 e o resultado final é 0 em ambos os casos.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
 
 “Como isso se relaciona com a IA?”
 O exercício de regras mostra decisões programadas. Aprender pesos é outro processo, diferente de escrever regras à mão.
@@ -2185,6 +2255,8 @@ Condições lógicas controlam permissões e ações de ferramentas em sistemas 
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Compare a mesma pessoa, com crachá e sem autorização, primeiro com E e depois com OU.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Trocar E por OU permite a entrada de quem tem apenas uma das credenciais, desde que não esteja bloqueado. Bloqueio ativo sempre nega.
@@ -2209,6 +2281,7 @@ Resposta de apoio: Trocar E por OU permite a entrada de quem tem apenas uma das 
 3. Troque origem para F e destino para A: não há caminho no conjunto inicial.
 4. Desmarque “Relação direcionada” e busque de novo: as arestas passam a permitir os dois sentidos.
 5. Se quiser, reinicie e ative a referência F→A para acrescentar uma volta explícita.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2228,11 +2301,14 @@ Relação direta: ligação de uma única aresta.
 
 ### Pergunta à turma
 
-Existe um caminho de A até F? E de F até A?
+Na rede atual, há caminho de A até F e de F até A?
+Alternativas: A: Nos dois sentidos; B: Em apenas um sentido; C: Em nenhum sentido
 
 ### Resposta esperada e como explicar
 
-A alcança F; F não alcança A inicialmente. Ao permitir os sentidos inversos, a volta passa a existir. Um caminho não exige uma ligação direta.
+Para a pergunta e os ajustes atuais: B — Em apenas um sentido. A → F: há caminho. F → A: não há caminho. Um caminho pode passar por várias ligações; não precisa ser uma aresta direta.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): A alcança F; F não alcança A inicialmente. Ao permitir os sentidos inversos, a volta passa a existir. Um caminho não exige uma ligação direta.
 
 ### Se a turma perguntar
 
@@ -2263,12 +2339,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
+
 “Uma rua de mão única permite ir da praça à escola, mas não voltar pelo mesmo trajeto. Talvez exista outra rota de volta; talvez não. Saber que há uma ligação num sentido não responde automaticamente à pergunta sobre o sentido inverso.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Um grafo direcionado representa relações com sentido. A→B não implica B→A. Um caminho encadeia ligações: A→B→D→F permite alcançar F sem uma ligação direta A→F. Ao tornar relações bidirecionais, mudamos os caminhos possíveis. Um mapa de relações não é automaticamente uma rede neural: neste experimento, as linhas são referências entre documentos, sem pesos treinados.
@@ -2282,11 +2362,16 @@ Relação direta: ligação de uma única aresta.
 
 #### 3. Seu palpite
 
-“Antes de executar: Existe um caminho de A até F? E de F até A?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: A alcança F; F não alcança A inicialmente. Ao permitir os sentidos inversos, a volta passa a existir. Um caminho não exige uma ligação direta.
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
+
+“Antes de executar: Na rede atual, há caminho de A até F e de F até A?
+Alternativas: A: Nos dois sentidos; B: Em apenas um sentido; C: Em nenhum sentido” Espere um palpite e peça o motivo. Depois explique: B — Em apenas um sentido. A → F: há caminho. F → A: não há caminho. Um caminho pode passar por várias ligações; não precisa ser uma aresta direta.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie com “Relação direcionada” marcada, origem A e destino F. Clique “Encontrar caminho”.
@@ -2300,6 +2385,8 @@ Ao terminar, diga: A alcança F; F não alcança A inicialmente. Ao permitir os 
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 No conjunto inicial, A aponta para B e C; B alcança D; C alcança E; D e E apontam para F. Assim, A alcança F em três arestas. F não tem saída inicial. Isso impede F de alcançar A no modo direcionado. Não confunda uma sequência de três relações com uma relação direta.
 
@@ -2307,13 +2394,16 @@ No conjunto inicial, A aponta para B e C; B alcança D; C alcança E; D e E apon
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-No conjunto inicial, A aponta para B e C; B alcança D; C alcança E; D e E apontam para F. Assim, A alcança F em três arestas. F não tem saída inicial. Isso impede F de alcançar A no modo direcionado. Não confunda uma sequência de três relações com uma relação direta.
-Conclua: A alcança F; F não alcança A inicialmente. Ao permitir os sentidos inversos, a volta passa a existir. Um caminho não exige uma ligação direta.
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
+
+“Para os ajustes atuais: A → F: há caminho. F → A: não há caminho. Um caminho pode passar por várias ligações; não precisa ser uma aresta direta.”
+Aprofundamento com os valores do exemplo de estudo: No conjunto inicial, A aponta para B e C; B alcança D; C alcança E; D e E apontam para F. Assim, A alcança F em três arestas. F não tem saída inicial. Isso impede F de alcançar A no modo direcionado. Não confunda uma sequência de três relações com uma relação direta.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
 
 “Como isso se relaciona com a IA?”
 Grafos ajudam a representar conexões, mas um mapa de notas não é uma rede neural treinada.
@@ -2323,6 +2413,8 @@ Grafos de conhecimento e recomendações usam relações para localizar informa�
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Origem A, destino F; ligações direcionadas. A pergunta usa as conexões atuais.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: A alcança F; F não alcança A inicialmente. Ao permitir os sentidos inversos, a volta passa a existir. Um caminho não exige uma ligação direta.
@@ -2346,6 +2438,7 @@ Resposta de apoio: A alcança F; F não alcança A inicialmente. Ao permitir os 
 2. Faça uma retirada manual do adversário, como “Retirar 1”; execute a estratégia para retirar as 3 finais.
 3. Reinicie, ajuste “Peças disponíveis” para 6 e compare a retirada ideal de 2 com “Pegar o máximo agora”, que retira 3.
 4. Para comparar do início, reinicie entre partidas. Trocar o algoritmo durante a partida não reinicia a vez.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2366,11 +2459,14 @@ Jogo ótimo: escolhas que preservam uma vitória quando ela é possível.
 
 ### Pergunta à turma
 
-Qual retirada deixa o adversário sem uma vitória garantida?
+Restam 7 peças. Qual escolha garante vitória contra um adversário que joga perfeitamente?
+Alternativas: A: Retirar 1; B: Retirar 2; C: Retirar 3; D: Nenhuma retirada garante vitória
 
 ### Resposta esperada e como explicar
 
-Com 7, retirar 3 deixa 4 ao adversário e permite vencer contra qualquer resposta permitida. Isso depende das regras: retirar 1 a 3 e vencer ao tirar a última.
+Para a pergunta e os ajustes atuais: C — Retirar 3. Retirar 3 deixa 4. Depois, responda para que as duas retiradas somem 4. Assim você preserva a vantagem.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Com 7, retirar 3 deixa 4 ao adversário e permite vencer contra qualquer resposta permitida. Isso depende das regras: retirar 1 a 3 e vencer ao tirar a última.
 
 ### Se a turma perguntar
 
@@ -2401,12 +2497,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
+
 “Temos 7 tampinhas. Eu tiro 3 e deixo 4. Se você tirar 1, tiro 3; se tirar 2, tiro 2; se tirar 3, tiro 1. Em todos esses casos eu pego a última. A resposta depende da sua retirada, mas completa sempre um total de 4.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 O jogo tem um número de peças e duas pessoas que retiram de 1 a 3 por turno. Quem tira a última vence. Uma estratégia avalia consequências: deixar 4 para o adversário permite responder à retirada dele e pegar o restante. Minimax considera respostas adversárias ao avaliar opções; neste jogo a análise equivale a distinguir estados vencedores e perdedores com jogo ótimo.
@@ -2421,11 +2521,16 @@ Jogo ótimo: escolhas que preservam uma vitória quando ela é possível.
 
 #### 3. Seu palpite
 
-“Antes de executar: Qual retirada deixa o adversário sem uma vitória garantida?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Com 7, retirar 3 deixa 4 ao adversário e permite vencer contra qualquer resposta permitida. Isso depende das regras: retirar 1 a 3 e vencer ao tirar a última.
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
+
+“Antes de executar: Restam 7 peças. Qual escolha garante vitória contra um adversário que joga perfeitamente?
+Alternativas: A: Retirar 1; B: Retirar 2; C: Retirar 3; D: Nenhuma retirada garante vitória” Espere um palpite e peça o motivo. Depois explique: C — Retirar 3. Retirar 3 deixa 4. Depois, responda para que as duas retiradas somem 4. Assim você preserva a vantagem.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie com 7 peças. Em “Algoritmo da próxima jogada”, selecione “Pensar na resposta do adversário” e execute. A estratégia retira 3.
@@ -2438,6 +2543,8 @@ Ao terminar, diga: Com 7, retirar 3 deixa 4 ao adversário e permite vencer cont
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 Com 4 peças para o adversário, qualquer retirada de 1, 2 ou 3 deixa 3, 2 ou 1 para você terminar. Com 8, a mesma resposta que completa 4 devolve 4. Por repetição, múltiplos de 4 são posições perdedoras para quem joga contra um adversário ótimo. Com 7, tire 3; com 6, tire 2; com 5, tire 1.
 
@@ -2445,13 +2552,16 @@ Com 4 peças para o adversário, qualquer retirada de 1, 2 ou 3 deixa 3, 2 ou 1 
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-Com 4 peças para o adversário, qualquer retirada de 1, 2 ou 3 deixa 3, 2 ou 1 para você terminar. Com 8, a mesma resposta que completa 4 devolve 4. Por repetição, múltiplos de 4 são posições perdedoras para quem joga contra um adversário ótimo. Com 7, tire 3; com 6, tire 2; com 5, tire 1.
-Conclua: Com 7, retirar 3 deixa 4 ao adversário e permite vencer contra qualquer resposta permitida. Isso depende das regras: retirar 1 a 3 e vencer ao tirar a última.
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
+
+“Para os ajustes atuais: Retirar 3 deixa 4. Depois, responda para que as duas retiradas somem 4. Assim você preserva a vantagem.”
+Aprofundamento com os valores do exemplo de estudo: Com 4 peças para o adversário, qualquer retirada de 1, 2 ou 3 deixa 3, 2 ou 1 para você terminar. Com 8, a mesma resposta que completa 4 devolve 4. Por repetição, múltiplos de 4 são posições perdedoras para quem joga contra um adversário ótimo. Com 7, tire 3; com 6, tire 2; com 5, tire 1.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
 
 “Como isso se relaciona com a IA?”
 Antecipar jogadas é um exemplo de planejamento; atenção não é uma partida de minimax.
@@ -2461,6 +2571,8 @@ Busca adversarial avalia consequências e respostas possíveis.
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Restam 7 peças. É permitido retirar de 1 a 3, sem ultrapassar o que resta. Quem retira a última vence.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Com 7, retirar 3 deixa 4 ao adversário e permite vencer contra qualquer resposta permitida. Isso depende das regras: retirar 1 a 3 e vencer ao tirar a última.
@@ -2484,6 +2596,7 @@ Resposta de apoio: Com 7, retirar 3 deixa 4 ao adversário e permite vencer cont
 2. Mostre posição final 4.
 3. Mantenha posição e deslocamento, mude o relógio para 10 posições: 16 mod 10 = 6.
 4. Explique que o zero representa o início de um ciclo no desenho, mesmo que relógios domésticos escrevam 12.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2503,11 +2616,14 @@ Frequência: ritmo de rotação; RoPE usa mais de um.
 
 ### Pergunta à turma
 
-O resultado é 2, 4 ou 14?
+Partindo de 2, avance 14 em um relógio de 12 posições. Onde termina?
+Alternativas: A: 3; B: 4; C: 5
 
 ### Resposta esperada e como explicar
 
-A posição final é 4. Some primeiro a posição inicial e o deslocamento. A volta completa elimina 12 passos, mas preserva o ponto de partida.
+Para a pergunta e os ajustes atuais: B — 4. (2 + 14) mod 12 = 4. As voltas completas não alteram a posição final.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): A posição final é 4. Some primeiro a posição inicial e o deslocamento. A volta completa elimina 12 passos, mas preserva o ponto de partida.
 
 ### Se a turma perguntar
 
@@ -2538,12 +2654,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
+
 “São 2 horas. Passaram 14 horas. Depois de 12, o ponteiro voltou ao 2. Ainda faltam 2 horas de deslocamento: chegamos ao 4. A resposta não é 2, porque o relógio não começou no zero.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 A operação módulo obtém o resto de uma divisão inteira. Num relógio com 12 posições, completar 12 passos devolve a posição anterior. Para calcular a posição final, somamos a posição inicial ao deslocamento e só depois tomamos o resto. Rotações também aparecem em representações de posição de alguns modelos, mas o relógio não implementa RoPE completo.
@@ -2557,11 +2677,16 @@ Frequência: ritmo de rotação; RoPE usa mais de um.
 
 #### 3. Seu palpite
 
-“Antes de executar: O resultado é 2, 4 ou 14?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: A posição final é 4. Some primeiro a posição inicial e o deslocamento. A volta completa elimina 12 passos, mas preserva o ponto de partida.
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
+
+“Antes de executar: Partindo de 2, avance 14 em um relógio de 12 posições. Onde termina?
+Alternativas: A: 3; B: 4; C: 5” Espere um palpite e peça o motivo. Depois explique: B — 4. (2 + 14) mod 12 = 4. As voltas completas não alteram a posição final.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Ajuste “Posições no relógio” para 12, “Posição inicial” para 2 e “Deslocamento” para 14.
@@ -2574,6 +2699,8 @@ Ao terminar, diga: A posição final é 4. Some primeiro a posição inicial e o
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 2 + 14 = 16. Retirando uma volta completa de 12, sobram 4. Escrevemos (2 + 14) mod 12 = 4. Calcular apenas 14 mod 12 = 2 dá o deslocamento restante, não a posição final. RoPE usa rotações em vetores com diferentes frequências; não reduz a posição de toda a sequência a um único resto.
 
@@ -2581,13 +2708,16 @@ Ao terminar, diga: A posição final é 4. Some primeiro a posição inicial e o
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-2 + 14 = 16. Retirando uma volta completa de 12, sobram 4. Escrevemos (2 + 14) mod 12 = 4. Calcular apenas 14 mod 12 = 2 dá o deslocamento restante, não a posição final. RoPE usa rotações em vetores com diferentes frequências; não reduz a posição de toda a sequência a um único resto.
-Conclua: A posição final é 4. Some primeiro a posição inicial e o deslocamento. A volta completa elimina 12 passos, mas preserva o ponto de partida.
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
+
+“Para os ajustes atuais: (2 + 14) mod 12 = 4. As voltas completas não alteram a posição final.”
+Aprofundamento com os valores do exemplo de estudo: 2 + 14 = 16. Retirando uma volta completa de 12, sobram 4. Escrevemos (2 + 14) mod 12 = 4. Calcular apenas 14 mod 12 = 2 dá o deslocamento restante, não a posição final. RoPE usa rotações em vetores com diferentes frequências; não reduz a posição de toda a sequência a um único resto.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
 
 “Como isso se relaciona com a IA?”
 O relógio explora posições e ciclos. É uma analogia limitada, não a implementação da posição em todo modelo.
@@ -2597,6 +2727,8 @@ RoPE usa rotações para incorporar posições em pares de componentes de querie
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Posição inicial 2; deslocamento 14; 12 posições numeradas de 0 a 11.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: A posição final é 4. Some primeiro a posição inicial e o deslocamento. A volta completa elimina 12 passos, mas preserva o ponto de partida.
@@ -2620,6 +2752,7 @@ Resposta de apoio: A posição final é 4. Some primeiro a posição inicial e o
 2. Reinicie e ative “R → P” nas dependências. Execute: o ciclo bloqueia o fluxo.
 3. Desative “R → P” e execute novamente.
 4. As letras estão explicadas abaixo dos botões. Não acrescente outras dependências até a turma entender o ciclo inicial.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2639,11 +2772,14 @@ Paralelismo: execução simultânea quando dependências e recursos permitem.
 
 ### Pergunta à turma
 
-O que acontece se pesquisar também depender de revisar?
+Com as dependências atuais, é possível concluir todas as tarefas?
+Alternativas: A: Sim, todas podem começar juntas; B: Sim, respeitando os grupos de dependências; C: Não, existe um ciclo de dependências
 
 ### Resposta esperada e como explicar
 
-Pesquisar primeiro; verificar e escrever podem estar liberados juntos; revisar depois. Adicionar a dependência de pesquisa em revisão produz um ciclo.
+Para a pergunta e os ajustes atuais: B — Sim, respeitando os grupos de dependências. Grupos liberados em ordem: P → V e E → R. No mesmo grupo, as tarefas podem começar juntas.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Pesquisar primeiro; verificar e escrever podem estar liberados juntos; revisar depois. Adicionar a dependência de pesquisa em revisão produz um ciclo.
 
 ### Se a turma perguntar
 
@@ -2674,12 +2810,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
+
 “Para preparar uma apresentação, primeiro pesquisamos. Depois podemos verificar as informações e escrever um rascunho. Só revisamos a versão final quando temos a verificação e o rascunho. Agora imaginem exigir a revisão pronta antes de começar a pesquisa: ninguém consegue começar.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Dependência significa que uma tarefa só começa depois de outra. Um grafo acíclico direcionado (DAG) não contém um caminho que volte ao ponto de partida. Isso permite ordenar as tarefas respeitando dependências. Tarefas sem dependência entre si podem estar prontas ao mesmo tempo, embora executá-las juntas também dependa de recursos. Um ciclo no modelo desta aula impede a ordem de execução.
@@ -2693,11 +2833,16 @@ Paralelismo: execução simultânea quando dependências e recursos permitem.
 
 #### 3. Seu palpite
 
-“Antes de executar: O que acontece se pesquisar também depender de revisar?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Pesquisar primeiro; verificar e escrever podem estar liberados juntos; revisar depois. Adicionar a dependência de pesquisa em revisão produz um ciclo.
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
+
+“Antes de executar: Com as dependências atuais, é possível concluir todas as tarefas?
+Alternativas: A: Sim, todas podem começar juntas; B: Sim, respeitando os grupos de dependências; C: Não, existe um ciclo de dependências” Espere um palpite e peça o motivo. Depois explique: B — Sim, respeitando os grupos de dependências. Grupos liberados em ordem: P → V e E → R. No mesmo grupo, as tarefas podem começar juntas.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie e clique “Executar próximo grupo de tarefas”: primeiro P, depois V e E, depois R.
@@ -2710,6 +2855,8 @@ Ao terminar, diga: Pesquisar primeiro; verificar e escrever podem estar liberado
 
 #### 5. E se mudar?
 
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 As relações iniciais são P→V, P→E, V→R e E→R. Assim, os grupos são [P], [V, E], [R]. Com R→P, P espera R, que espera V e E, que esperam P. Sem uma tarefa inicial liberada, não há ordenação topológica para todas as tarefas. V antes de E e E antes de V são duas ordens válidas no caso sem ciclo.
 
@@ -2717,13 +2864,16 @@ As relações iniciais são P→V, P→E, V→R e E→R. Assim, os grupos são [
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-As relações iniciais são P→V, P→E, V→R e E→R. Assim, os grupos são [P], [V, E], [R]. Com R→P, P espera R, que espera V e E, que esperam P. Sem uma tarefa inicial liberada, não há ordenação topológica para todas as tarefas. V antes de E e E antes de V são duas ordens válidas no caso sem ciclo.
-Conclua: Pesquisar primeiro; verificar e escrever podem estar liberados juntos; revisar depois. Adicionar a dependência de pesquisa em revisão produz um ciclo.
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
+
+“Para os ajustes atuais: Grupos liberados em ordem: P → V e E → R. No mesmo grupo, as tarefas podem começar juntas.”
+Aprofundamento com os valores do exemplo de estudo: As relações iniciais são P→V, P→E, V→R e E→R. Assim, os grupos são [P], [V, E], [R]. Com R→P, P espera R, que espera V e E, que esperam P. Sem uma tarefa inicial liberada, não há ordenação topológica para todas as tarefas. V antes de E e E antes de V são duas ordens válidas no caso sem ciclo.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
 
 “Como isso se relaciona com a IA?”
 Dependências ajudam a pensar em etapas. O fluxo de tarefas é um complemento à geração de texto.
@@ -2733,6 +2883,8 @@ Fluxos de agentes e pipelines organizam tarefas por dependências.
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: P = pesquisar; V = verificar; E = escrever; R = revisar. Cada seta indica uma tarefa que precisa terminar antes da outra.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Pesquisar primeiro; verificar e escrever podem estar liberados juntos; revisar depois. Adicionar a dependência de pesquisa em revisão produz um ciclo.
@@ -2757,6 +2909,7 @@ Resposta de apoio: Pesquisar primeiro; verificar e escrever podem estar liberado
 3. Pergunte onde colocar o quinto sem compartilhar. Clique numa gaveta e observe a colisão.
 4. Reinicie, ajuste para 4 objetos e coloque dois na gaveta 0: prova que n≤g não impede colisão.
 5. “Distribuir automaticamente” coloca um objeto por clique; repita ou use Auto-Play para completar.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2776,11 +2929,14 @@ Hash: função que transforma uma entrada em um código de um conjunto de saída
 
 ### Pergunta à turma
 
-Qual é o primeiro número de objetos que garante alguma colisão?
+Com 4 gavetas, qual é o primeiro número de objetos que garante alguma gaveta compartilhada?
+Alternativas: A: 4 objetos; B: 5 objetos; C: 6 objetos
 
 ### Resposta esperada e como explicar
 
-O quinto objeto garante alguma colisão com 4 gavetas. Com 4 ou menos, pode haver colisão se a distribuição repetir uma gaveta. Não confunda “não garantido” com “impossível”.
+Para a pergunta e os ajustes atuais: B — 5 objetos. Com 5 objetos em 4 gavetas, pelo menos dois ficam juntos. Com 4 ou menos, compartilhar é possível, mas não obrigatório.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): O quinto objeto garante alguma colisão com 4 gavetas. Com 4 ou menos, pode haver colisão se a distribuição repetir uma gaveta. Não confunda “não garantido” com “impossível”.
 
 ### Se a turma perguntar
 
@@ -2811,12 +2967,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
+
 “Temos 5 pessoas e apenas 4 cadeiras, e cada pessoa precisa escolher uma cadeira. Para que ninguém compartilhe, no máximo 4 pessoas podem sentar. Quando a quinta escolhe, alguma cadeira é compartilhada. Mudar a ordem das pessoas não cria uma quinta cadeira.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Se colocamos mais objetos que gavetas e cada objeto vai para exatamente uma gaveta, alguma gaveta precisa receber pelo menos dois. Essa é a forma básica do princípio das casas dos pombos. A conclusão independe da estratégia de distribuição. Quando há até tantos objetos quanto gavetas, compartilhar ainda é possível, mas não obrigatório.
@@ -2830,11 +2990,16 @@ Hash: função que transforma uma entrada em um código de um conjunto de saída
 
 #### 3. Seu palpite
 
-“Antes de executar: Qual é o primeiro número de objetos que garante alguma colisão?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: O quinto objeto garante alguma colisão com 4 gavetas. Com 4 ou menos, pode haver colisão se a distribuição repetir uma gaveta. Não confunda “não garantido” com “impossível”.
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
+
+“Antes de executar: Com 4 gavetas, qual é o primeiro número de objetos que garante alguma gaveta compartilhada?
+Alternativas: A: 4 objetos; B: 5 objetos; C: 6 objetos” Espere um palpite e peça o motivo. Depois explique: B — 5 objetos. Com 5 objetos em 4 gavetas, pelo menos dois ficam juntos. Com 4 ou menos, compartilhar é possível, mas não obrigatório.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie com “Gavetas disponíveis” = 4 e “Objetos para distribuir” = 5.
@@ -2848,6 +3013,8 @@ Ao terminar, diga: O quinto objeto garante alguma colisão com 4 gavetas. Com 4 
 
 #### 5. E se mudar?
 
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 Sem compartilhar, cada uma das 4 gavetas comportaria no máximo 1 objeto, totalizando no máximo 4. Como existem 5, a hipótese de não compartilhar é impossível. Com 10 objetos e 4 gavetas, alguma recebe ao menos 3: se todas tivessem no máximo 2, caberiam só 8.
 
@@ -2855,13 +3022,16 @@ Sem compartilhar, cada uma das 4 gavetas comportaria no máximo 1 objeto, totali
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-Sem compartilhar, cada uma das 4 gavetas comportaria no máximo 1 objeto, totalizando no máximo 4. Como existem 5, a hipótese de não compartilhar é impossível. Com 10 objetos e 4 gavetas, alguma recebe ao menos 3: se todas tivessem no máximo 2, caberiam só 8.
-Conclua: O quinto objeto garante alguma colisão com 4 gavetas. Com 4 ou menos, pode haver colisão se a distribuição repetir uma gaveta. Não confunda “não garantido” com “impossível”.
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
+
+“Para os ajustes atuais: Com 5 objetos em 4 gavetas, pelo menos dois ficam juntos. Com 4 ou menos, compartilhar é possível, mas não obrigatório.”
+Aprofundamento com os valores do exemplo de estudo: Sem compartilhar, cada uma das 4 gavetas comportaria no máximo 1 objeto, totalizando no máximo 4. Como existem 5, a hipótese de não compartilhar é impossível. Com 10 objetos e 4 gavetas, alguma recebe ao menos 3: se todas tivessem no máximo 2, caberiam só 8.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
 
 “Como isso se relaciona com a IA?”
 As gavetas ilustram capacidade limitada. O princípio das gavetas não descreve sozinho a memória de uma IA.
@@ -2871,6 +3041,8 @@ Mais entradas possíveis do que hashes disponíveis tornam colisões inevitávei
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: 5 objetos para distribuir em 4 gavetas. Cada objeto vai para exatamente uma gaveta.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: O quinto objeto garante alguma colisão com 4 gavetas. Com 4 ou menos, pode haver colisão se a distribuição repetir uma gaveta. Não confunda “não garantido” com “impossível”.
@@ -2894,6 +3066,7 @@ Resposta de apoio: O quinto objeto garante alguma colisão com 4 gavetas. Com 4 
 2. Clique “Escolher uma continuação” e veja o resultado individual.
 3. Clique “Repetir 100 escolhas” e compare probabilidades com contagens. O total inclui a escolha anterior; reinicie antes se quiser exatamente 100.
 4. Para comparar temperaturas com a mesma semente, reinicie, ajuste a temperatura e faça 100 escolhas; depois reinicie de novo, ajuste outro valor e repita.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -2913,11 +3086,14 @@ Softmax: pᵢ = exp(zᵢ/T) / soma de exp(zⱼ/T), com T positivo.
 
 ### Pergunta à turma
 
-Em 100 amostras, as frequências serão exatamente iguais às probabilidades?
+Em 100 escolhas, as frequências têm de ser exatamente iguais às probabilidades?
+Alternativas: A: Sim, exatamente; B: Não, a amostragem pode produzir diferenças; C: Sim, se a temperatura for maior
 
 ### Resposta esperada e como explicar
 
-Frequências não precisam coincidir exatamente com probabilidades em 100 escolhas. Temperatura maior distribui mais peso entre alternativas neste exemplo, sem certificar a qualidade da continuação.
+Para a pergunta e os ajustes atuais: B — Não, a amostragem pode produzir diferenças. Probabilidade descreve a chance de cada escolha. Frequência conta o que saiu; ela pode diferir em 100 amostras. A temperatura redistribui chances, sem obrigar igualdade.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Frequências não precisam coincidir exatamente com probabilidades em 100 escolhas. Temperatura maior distribui mais peso entre alternativas neste exemplo, sem certificar a qualidade da continuação.
 
 ### Se a turma perguntar
 
@@ -2948,12 +3124,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
+
 “Uma moeda equilibrada tem 50% de chance de cara em cada lançamento. Se lançarmos 10 vezes, não somos obrigados a obter exatamente 5 caras. Da mesma forma, as barras teóricas não são uma previsão exata das contagens numa amostra.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 A distribuição informa chances; as contagens registram resultados. Neste simulador, quatro pontuações fixas geram probabilidades por softmax. As escolhas usam um gerador pseudoaleatório com semente fixa ao reiniciar, tornando a demonstração reproduzível. Isso não representa dados de um modelo comercial. Alterar temperatura mantém o ranking das pontuações, mas muda quanto as probabilidades se concentram.
@@ -2967,11 +3147,16 @@ Softmax: pᵢ = exp(zᵢ/T) / soma de exp(zⱼ/T), com T positivo.
 
 #### 3. Seu palpite
 
-“Antes de executar: Em 100 amostras, as frequências serão exatamente iguais às probabilidades?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Frequências não precisam coincidir exatamente com probabilidades em 100 escolhas. Temperatura maior distribui mais peso entre alternativas neste exemplo, sem certificar a qualidade da continuação.
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
+
+“Antes de executar: Em 100 escolhas, as frequências têm de ser exatamente iguais às probabilidades?
+Alternativas: A: Sim, exatamente; B: Não, a amostragem pode produzir diferenças; C: Sim, se a temperatura for maior” Espere um palpite e peça o motivo. Depois explique: B — Não, a amostragem pode produzir diferenças. Probabilidade descreve a chance de cada escolha. Frequência conta o que saiu; ela pode diferir em 100 amostras. A temperatura redistribui chances, sem obrigar igualdade.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie e observe as probabilidades antes de escolher.
@@ -2984,6 +3169,8 @@ Ao terminar, diga: Frequências não precisam coincidir exatamente com probabili
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 Se uma opção tem probabilidade 0,4, esperamos em média 40 ocorrências em 100 escolhas, mas o resultado observado pode diferir. Para comparar, divida a contagem pelo total: 43 em 100 é 43%. Na softmax, dividir pontuações por T pequeno amplia diferenças relativas antes da normalização; T maior torna a distribuição menos concentrada.
 
@@ -2991,13 +3178,16 @@ Se uma opção tem probabilidade 0,4, esperamos em média 40 ocorrências em 100
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-Se uma opção tem probabilidade 0,4, esperamos em média 40 ocorrências em 100 escolhas, mas o resultado observado pode diferir. Para comparar, divida a contagem pelo total: 43 em 100 é 43%. Na softmax, dividir pontuações por T pequeno amplia diferenças relativas antes da normalização; T maior torna a distribuição menos concentrada.
-Conclua: Frequências não precisam coincidir exatamente com probabilidades em 100 escolhas. Temperatura maior distribui mais peso entre alternativas neste exemplo, sem certificar a qualidade da continuação.
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
+
+“Para os ajustes atuais: Probabilidade descreve a chance de cada escolha. Frequência conta o que saiu; ela pode diferir em 100 amostras. A temperatura redistribui chances, sem obrigar igualdade.”
+Aprofundamento com os valores do exemplo de estudo: Se uma opção tem probabilidade 0,4, esperamos em média 40 ocorrências em 100 escolhas, mas o resultado observado pode diferir. Para comparar, divida a contagem pelo total: 43 em 100 é 43%. Na softmax, dividir pontuações por T pequeno amplia diferenças relativas antes da normalização; T maior torna a distribuição menos concentrada.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
 
 “Como isso se relaciona com a IA?”
 Aqui a probabilidade é uma conexão direta: o experimento permite observar frequências em várias escolhas.
@@ -3007,6 +3197,8 @@ A geração pode amostrar o próximo token de uma distribuição discreta.
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Quatro continuações ilustrativas, temperatura 0.7. Compare as chances com as frequências observadas.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Frequências não precisam coincidir exatamente com probabilidades em 100 escolhas. Temperatura maior distribui mais peso entre alternativas neste exemplo, sem certificar a qualidade da continuação.
@@ -3030,6 +3222,7 @@ Resposta de apoio: Frequências não precisam coincidir exatamente com probabili
 2. Clique “receber”, depois “validar”, depois “enviar” e “concluir”. Observe cada estado.
 3. Para mostrar correção, reinicie e faça receber → rejeitar → corrigir → validar.
 4. Os botões indicam “permitido” ou “inválido” segundo o estado atual.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -3049,11 +3242,14 @@ Validação: cumprimento de condições programadas, não garantia universal de 
 
 ### Pergunta à turma
 
-O que deve acontecer se “enviar” chegar no estado inicial?
+No estado “inicial”, o que deve acontecer ao receber o evento “enviar”?
+Alternativas: A: Enviar a resposta e ir para respondido; B: Recusar o evento e manter o estado atual; C: Concluir todo o fluxo imediatamente
 
 ### Resposta esperada e como explicar
 
-Enviar no estado inicial é inválido e não deve avançar. A sequência receber → validar → enviar → concluir é permitida. O sucesso do fluxo só comprova que essas etapas foram respeitadas.
+Para a pergunta e os ajustes atuais: B — Recusar o evento e manter o estado atual. Enviar não é permitido no estado inicial. O fluxo registra a transição inválida e permanece onde estava.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Enviar no estado inicial é inválido e não deve avançar. A sequência receber → validar → enviar → concluir é permitida. O sucesso do fluxo só comprova que essas etapas foram respeitadas.
 
 ### Se a turma perguntar
 
@@ -3084,12 +3280,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
+
 “Uma encomenda não deve aparecer como entregue antes de ser recebida e despachada. O botão ‘entregar’ faz sentido em algumas etapas, mas não antes da criação do pedido. No assistente, queremos impedir enviar uma resposta antes da validação prevista no fluxo.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Uma máquina de estados descreve situações possíveis de um processo e quais eventos permitem passar entre elas. O mesmo evento pode ser válido numa situação e inválido em outra. Isso organiza o fluxo do software; não julga sozinho o significado ou a verdade da resposta. As regras deste simulador foram escritas explicitamente.
@@ -3103,11 +3303,16 @@ Validação: cumprimento de condições programadas, não garantia universal de 
 
 #### 3. Seu palpite
 
-“Antes de executar: O que deve acontecer se “enviar” chegar no estado inicial?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Enviar no estado inicial é inválido e não deve avançar. A sequência receber → validar → enviar → concluir é permitida. O sucesso do fluxo só comprova que essas etapas foram respeitadas.
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
+
+“Antes de executar: No estado “inicial”, o que deve acontecer ao receber o evento “enviar”?
+Alternativas: A: Enviar a resposta e ir para respondido; B: Recusar o evento e manter o estado atual; C: Concluir todo o fluxo imediatamente” Espere um palpite e peça o motivo. Depois explique: B — Recusar o evento e manter o estado atual. Enviar não é permitido no estado inicial. O fluxo registra a transição inválida e permanece onde estava.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie o experimento no estado inicial. Clique “enviar”: o evento é inválido e o estado não muda.
@@ -3120,6 +3325,8 @@ Ao terminar, diga: Enviar no estado inicial é inválido e não deve avançar. A
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 A função de transição usa o par (estado, evento). Neste simulador: inicial + receber = recebido; recebido + validar = validado; validado + enviar = respondido; respondido + concluir = finalizado. Não existe inicial + enviar, então a tentativa é rejeitada. “Corrigir” sai de revisão e volta a recebido, permitindo nova validação.
 
@@ -3127,13 +3334,16 @@ A função de transição usa o par (estado, evento). Neste simulador: inicial +
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-A função de transição usa o par (estado, evento). Neste simulador: inicial + receber = recebido; recebido + validar = validado; validado + enviar = respondido; respondido + concluir = finalizado. Não existe inicial + enviar, então a tentativa é rejeitada. “Corrigir” sai de revisão e volta a recebido, permitindo nova validação.
-Conclua: Enviar no estado inicial é inválido e não deve avançar. A sequência receber → validar → enviar → concluir é permitida. O sucesso do fluxo só comprova que essas etapas foram respeitadas.
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
+
+“Para os ajustes atuais: Enviar não é permitido no estado inicial. O fluxo registra a transição inválida e permanece onde estava.”
+Aprofundamento com os valores do exemplo de estudo: A função de transição usa o par (estado, evento). Neste simulador: inicial + receber = recebido; recebido + validar = validado; validado + enviar = respondido; respondido + concluir = finalizado. Não existe inicial + enviar, então a tentativa é rejeitada. “Corrigir” sai de revisão e volta a recebido, permitindo nova validação.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
 
 “Como isso se relaciona com a IA?”
 Estados e regras podem exigir revisão antes de enviar, mas não garantem sozinhos que o conteúdo seja verdadeiro.
@@ -3143,6 +3353,8 @@ Máquinas de estados controlam fluxos de atendimento e ferramentas.
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Estado atual: inicial. Compare um evento permitido com outro que não está liberado.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Enviar no estado inicial é inválido e não deve avançar. A sequência receber → validar → enviar → concluir é permitida. O sucesso do fluxo só comprova que essas etapas foram respeitadas.
@@ -3166,6 +3378,7 @@ Resposta de apoio: Enviar no estado inicial é inválido e não deve avançar. A
 2. Mude “Tamanho da entrada (n)” para 10: o fatorial chega a 3.628.800.
 3. Em 20, 2ⁿ chega a 1.048.576.
 4. Escolha uma “Família de crescimento” e use “Medir enumeração pequena”. A execução real é limitada; valores maiores não significam que todas as possibilidades foram visitadas.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -3187,11 +3400,14 @@ Estimativa: resultado baseado numa hipótese, diferente de medição.
 
 ### Pergunta à turma
 
-Qual família ultrapassa primeiro um milhão de possibilidades?
+Aumentando n de 1 em diante, qual destas famílias ultrapassa primeiro um milhão?
+Alternativas: A: n²; B: 2ⁿ; C: n!
 
 ### Resposta esperada e como explicar
 
-Entre as famílias mostradas e para n crescente positivo, o fatorial ultrapassa primeiro um milhão, em n=10. O exponencial 2ⁿ ultrapassa em n=20. Tamanho do espaço e tempo medido são coisas distintas.
+Para a pergunta e os ajustes atuais: C — n!. 10! = 3.628.800; 2²⁰ = 1.048.576; 1001² = 1.002.001. O fatorial passa primeiro. Isso compara contagens, não o tempo medido.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Entre as famílias mostradas e para n crescente positivo, o fatorial ultrapassa primeiro um milhão, em n=10. O exponencial 2ⁿ ultrapassa em n=20. Tamanho do espaço e tempo medido são coisas distintas.
 
 ### Se a turma perguntar
 
@@ -3222,12 +3438,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
+
 “Com 3 pessoas numa fila, há 3 escolhas para a primeira posição, 2 para a segunda e 1 para a última: 6 ordens. Com 4, são 4 × 3 × 2 × 1 = 24. Uma pessoa a mais já multiplicou a quantidade de ordens por 4.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 Funções de crescimento comparam como uma quantidade muda com o tamanho da entrada. n cresce em proporção direta; n² multiplica n por n; 2ⁿ duplica a cada unidade adicional de n; n! multiplica todos os inteiros de 1 a n. Uma contagem de possibilidades não determina sozinha o tempo real de um programa. Aqui há uma medição local pequena e estimativas maiores, que não são benchmarks de IA.
@@ -3243,11 +3463,16 @@ Estimativa: resultado baseado numa hipótese, diferente de medição.
 
 #### 3. Seu palpite
 
-“Antes de executar: Qual família ultrapassa primeiro um milhão de possibilidades?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Entre as famílias mostradas e para n crescente positivo, o fatorial ultrapassa primeiro um milhão, em n=10. O exponencial 2ⁿ ultrapassa em n=20. Tamanho do espaço e tempo medido são coisas distintas.
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
+
+“Antes de executar: Aumentando n de 1 em diante, qual destas famílias ultrapassa primeiro um milhão?
+Alternativas: A: n²; B: 2ⁿ; C: n!” Espere um palpite e peça o motivo. Depois explique: C — n!. 10! = 3.628.800; 2²⁰ = 1.048.576; 1001² = 1.002.001. O fatorial passa primeiro. Isso compara contagens, não o tempo medido.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie com n=8 e compare as quatro contagens no painel: 8, 64, 256 e 40.320.
@@ -3260,6 +3485,8 @@ Ao terminar, diga: Entre as famílias mostradas e para n crescente positivo, o f
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 8²=64; 2⁸=256; 8!=40.320. Com n=10, 10!=3.628.800, acima de um milhão; 2¹⁰=1.024. A família 2ⁿ cruza um milhão em n=20. Para n dobrado, n dobra, n² quadruplica e 2ⁿ é elevado ao quadrado do valor anterior. Não conclua que qualquer algoritmo precisa enumerar todas as possibilidades.
 
@@ -3267,13 +3494,16 @@ Ao terminar, diga: Entre as famílias mostradas e para n crescente positivo, o f
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-8²=64; 2⁸=256; 8!=40.320. Com n=10, 10!=3.628.800, acima de um milhão; 2¹⁰=1.024. A família 2ⁿ cruza um milhão em n=20. Para n dobrado, n dobra, n² quadruplica e 2ⁿ é elevado ao quadrado do valor anterior. Não conclua que qualquer algoritmo precisa enumerar todas as possibilidades.
-Conclua: Entre as famílias mostradas e para n crescente positivo, o fatorial ultrapassa primeiro um milhão, em n=10. O exponencial 2ⁿ ultrapassa em n=20. Tamanho do espaço e tempo medido são coisas distintas.
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
+
+“Para os ajustes atuais: 10! = 3.628.800; 2²⁰ = 1.048.576; 1001² = 1.002.001. O fatorial passa primeiro. Isso compara contagens, não o tempo medido.”
+Aprofundamento com os valores do exemplo de estudo: 8²=64; 2⁸=256; 8!=40.320. Com n=10, 10!=3.628.800, acima de um milhão; 2¹⁰=1.024. A família 2ⁿ cruza um milhão em n=20. Para n dobrado, n dobra, n² quadruplica e 2ⁿ é elevado ao quadrado do valor anterior. Não conclua que qualquer algoritmo precisa enumerar todas as possibilidades.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
 
 “Como isso se relaciona com a IA?”
 O crescimento de possibilidades ajuda a explicar por que planejamento e limites de execução importam.
@@ -3283,6 +3513,8 @@ Busca, planejamento e otimização precisam limitar ou explorar melhor seus espa
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Para n = 8: n = 8; n² = 64; 2ⁿ = 256; n! = 40.320.
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Entre as famílias mostradas e para n crescente positivo, o fatorial ultrapassa primeiro um milhão, em n=10. O exponencial 2ⁿ ultrapassa em n=20. Tamanho do espaço e tempo medido são coisas distintas.
@@ -3307,6 +3539,7 @@ Resposta de apoio: Entre as famílias mostradas e para n crescente positivo, o f
 3. Desmarque “Dependência circular” e execute: agora falta capacidade, que começa em 2.
 4. Ajuste “Capacidade para evidências” para 3 e execute: a missão conclui.
 5. Opcional: desmarque “Fonte alcançável” e execute para demonstrar a segunda verificação. Aguarde cada rodada terminar antes de alterar outra condição.
+Para voltar ao palpite depois de ajustar os controles, selecione a etapa “Seu palpite”. A pergunta, as alternativas e o gabarito acompanham os ajustes atuais.
 
 ### Entenda o assunto antes de apresentar
 
@@ -3326,11 +3559,14 @@ Primeiro bloqueio: primeira condição reprovada na sequência de verificações
 
 ### Pergunta à turma
 
-Qual condição vai bloquear a primeira tentativa?
+Com os ajustes atuais, onde a próxima execução da missão vai parar?
+Alternativas: A: Permissão; B: Fonte alcançável; C: Dependências sem ciclo; D: 3 evidências cabem no contexto; E: Nenhum bloqueio: conclui a missão
 
 ### Resposta esperada e como explicar
 
-Permissão é o primeiro bloqueio inicial. Depois aparecem ciclo e capacidade, nessa ordem, mantendo a fonte disponível. Concluir significa satisfazer as quatro condições programadas, não provar a veracidade de qualquer resposta real.
+Para a pergunta e os ajustes atuais: A — Permissão. A primeira condição não satisfeita é Permissão. A execução para nela, mesmo que também existam problemas posteriores.
+
+Roteiro de estudo com os valores de exemplo (reinicie antes de reproduzir): Permissão é o primeiro bloqueio inicial. Depois aparecem ciclo e capacidade, nessa ordem, mantendo a fonte disponível. Concluir significa satisfazer as quatro condições programadas, não provar a veracidade de qualquer resposta real.
 
 ### Se a turma perguntar
 
@@ -3361,12 +3597,16 @@ Ritmo sugerido: 45s na etapa 1, 45s na 2, 1min na 3, 2min na 4, 1min na 5, 1min 
 
 #### 1. A pergunta
 
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
+
 “Uma equipe precisa preparar uma resposta com documentos. Primeiro, tem autorização para consultar? Segundo, consegue alcançar a fonte? Terceiro, as tarefas conseguem começar sem esperar circularmente umas pelas outras? Quarto, cabem as três evidências necessárias? Ter uma equipe inteligente não faz essas condições desaparecerem.”
 “É essa situação que nosso experimento vai ajudar a explicar.”
 
 **Próxima ação:** Use “Próxima etapa” para Um exemplo. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 2. Um exemplo
+
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
 
 “Vamos traduzir o exemplo para os elementos do painel.”
 A missão combina quatro verificações: permissão, acesso à fonte, dependências sem ciclo e capacidade para três evidências. Ela para no primeiro bloqueio. Corrigir uma condição não corrige automaticamente as outras. Trata-se de um sistema programado para demonstrar coordenação, não de uma avaliação real da verdade de um texto.
@@ -3380,11 +3620,16 @@ Primeiro bloqueio: primeira condição reprovada na sequência de verificações
 
 #### 3. Seu palpite
 
-“Antes de executar: Qual condição vai bloquear a primeira tentativa?” Espere um palpite e peça o motivo. Se ninguém responder, releia o exemplo completo. Depois explique: Permissão é o primeiro bloqueio inicial. Depois aparecem ciclo e capacidade, nessa ordem, mantendo a fonte disponível. Concluir significa satisfazer as quatro condições programadas, não provar a veracidade de qualquer resposta real.
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
+
+“Antes de executar: Com os ajustes atuais, onde a próxima execução da missão vai parar?
+Alternativas: A: Permissão; B: Fonte alcançável; C: Dependências sem ciclo; D: 3 evidências cabem no contexto; E: Nenhum bloqueio: conclui a missão” Espere um palpite e peça o motivo. Depois explique: A — Permissão. A primeira condição não satisfeita é Permissão. A execução para nela, mesmo que também existam problemas posteriores.
 
 **Próxima ação:** Use “Próxima etapa” para Experimente. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 4. Experimente
+
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
 
 “Vamos conferir uma alteração por vez. Acompanhem o que muda e o que permanece.”
 1. Reinicie e clique “Executar missão”: para na permissão.
@@ -3398,6 +3643,8 @@ Ao terminar, diga: Permissão é o primeiro bloqueio inicial. Depois aparecem ci
 
 #### 5. E se mudar?
 
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
+
 “Agora vamos comparar com a segunda situação descrita na demonstração. Não mudem vários controles juntos: queremos saber qual mudança produziu o efeito.”
 Valores iniciais: autorização falsa, fonte disponível, ciclo verdadeiro e capacidade 2. A primeira execução não chega a avaliar todos os problemas porque para na autorização. Depois de corrigi-la, o ciclo aparece. Corrigido o ciclo, 2 ainda é menor que as 3 evidências exigidas. Com todas as condições verdadeiras, o fluxo conclui.
 
@@ -3405,13 +3652,16 @@ Valores iniciais: autorização falsa, fonte disponível, ciclo verdadeiro e cap
 
 #### 6. Por que acontece?
 
-“Vamos explicar por que o resultado aconteceu.”
-Valores iniciais: autorização falsa, fonte disponível, ciclo verdadeiro e capacidade 2. A primeira execução não chega a avaliar todos os problemas porque para na autorização. Depois de corrigi-la, o ciclo aparece. Corrigido o ciclo, 2 ainda é menor que as 3 evidências exigidas. Com todas as condições verdadeiras, o fluxo conclui.
-Conclua: Permissão é o primeiro bloqueio inicial. Depois aparecem ciclo e capacidade, nessa ordem, mantendo a fonte disponível. Concluir significa satisfazer as quatro condições programadas, não provar a veracidade de qualquer resposta real.
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
+
+“Para os ajustes atuais: A primeira condição não satisfeita é Permissão. A execução para nela, mesmo que também existam problemas posteriores.”
+Aprofundamento com os valores do exemplo de estudo: Valores iniciais: autorização falsa, fonte disponível, ciclo verdadeiro e capacidade 2. A primeira execução não chega a avaliar todos os problemas porque para na autorização. Depois de corrigi-la, o ciclo aparece. Corrigido o ciclo, 2 ainda é menor que as 3 evidências exigidas. Com todas as condições verdadeiras, o fluxo conclui.
 
 **Próxima ação:** Use “Próxima etapa” para Onde a IA entra. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 7. Onde a IA entra
+
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
 
 “Como isso se relaciona com a IA?”
 A missão original reúne regras, conexões, dependências e capacidade como aprofundamento opcional.
@@ -3421,6 +3671,8 @@ Sistemas de IA confiáveis combinam vários mecanismos verificáveis ao redor do
 **Próxima ação:** Use “Próxima etapa” para A próxima ideia. Para executar o experimento, use os controles específicos da seção Demonstração. Avançar a etapa não substitui clicar nos controles.
 
 #### 8. A próxima ideia
+
+Situação atual na projeção: Permissão: não satisfeita · Fonte alcançável: satisfeita · Dependências sem ciclo: não satisfeita · 3 evidências cabem no contexto: não satisfeita
 
 “Como vocês explicariam este resultado usando o exemplo inicial?”
 Resposta de apoio: Permissão é o primeiro bloqueio inicial. Depois aparecem ciclo e capacidade, nessa ordem, mantendo a fonte disponível. Concluir significa satisfazer as quatro condições programadas, não provar a veracidade de qualquer resposta real.
