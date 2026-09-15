@@ -24,45 +24,39 @@ async function phoneFor(page: Page, browser: Browser) {
   return { phone, context, id };
 }
 
-test('Senha definida na preparação libera o celular e revogação impede novo acesso', async ({ page, browser }) => {
+test('Link conecta sem senha e permite reconectar sem repetir comandos antigos', async ({ page, browser }) => {
   await start(page);
   const id = new URL(page.url()).searchParams.get('session')!;
   await page.goto('/setup?session=' + id);
-  await page.getByLabel('Definir senha do controle', { exact: true }).fill('teste');
-  await page.getByRole('button', { name: 'Salvar senha do controle', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('Senha salva');
+  await expect(page.locator('input[type="password"]')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Copiar link do controle', exact: true })).toBeVisible();
   const projection = await page.context().newPage();
   await projection.goto('/?session=' + id);
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   try {
     const phone = await context.newPage();
     await phone.goto('http://localhost:4184/control?session=' + id);
-    await phone.getByLabel('Senha do controle', { exact: true }).fill('incorreta');
-    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
-    await expect(phone.getByRole('alert')).toContainText('Senha inválida');
-    await phone.getByLabel('Senha do controle', { exact: true }).fill('teste');
-    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
     await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
+    await expect(phone.locator('input[type="password"]')).toHaveCount(0);
     await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
     await expect(projection.locator('[data-module="1"]')).toBeVisible();
     await page.getByRole('button', { name: 'Revogar controles remotos', exact: true }).click();
-    await expect(page.getByRole('status')).toContainText('acesso por senha foi desativado');
+    await expect(page.getByRole('status')).toContainText('desconectados');
     await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
-    await expect(phone.getByText('Controle revogado. Faça um novo pareamento.')).toBeVisible();
-    await expect(projection.locator('[data-module="1"]')).toBeVisible();
-    await phone.getByRole('button', { name: 'Voltar para entrar com senha' }).click();
-    await phone.getByLabel('Senha do controle', { exact: true }).fill('teste');
-    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
-    await expect(phone.getByRole('alert')).toContainText('Senha inválida');
-    await page.getByLabel('Definir senha do controle', { exact: true }).fill('Nova-senha-privada-2026');
-    await page.getByRole('button', { name: 'Salvar senha do controle', exact: true }).click();
-    await expect(page.getByRole('status')).toContainText('Senha salva');
-    await phone.getByLabel('Senha do controle', { exact: true }).fill('Nova-senha-privada-2026');
-    await phone.getByRole('button', { name: 'Entrar com senha', exact: true }).click();
+    await expect(phone.getByText('Controle desconectado. Conecte novamente.')).toBeVisible();
+    await phone.getByRole('button', { name: 'Reconectar controle', exact: true }).click();
     await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
-    await expect(phone.getByRole('heading', { name: 'Fábrica', exact: true })).toBeVisible();
     await expect(projection.locator('[data-module="1"]')).toBeVisible();
+    await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
+    await expect(projection.locator('[data-module="2"]')).toBeVisible();
   } finally { await context.close(); }
+});
+
+test('Preparação cria sessão sem campo de senha', async ({ page }) => {
+  await page.goto('/setup');
+  await page.getByRole('button', { name: 'Criar sessão', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Copiar link do controle', exact: true })).toBeVisible();
+  await expect(page.locator('input[type="password"]')).toHaveCount(0);
 });
 
 test('Encerramento revela a rede pelo celular, explora perguntas e conserva a cena após recarregar', async ({ page, browser }) => {
@@ -108,6 +102,7 @@ test('Navegação pelos 12 módulos, abertura, desafio e síntese sem erros', as
 
 test('Previsão vem antes do resultado; parâmetros alteram a fábrica; restaura após atualizar', async ({ page }) => {
   await start(page); await chooseModule(page, 1);
+  await page.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
   await expect(page.locator('.prediction-panel')).toBeVisible();
   await expect(page.locator('.formula-strip')).toHaveCount(0);
   await page.getByRole('button', { name: 'Testar a hipótese', exact: true }).click();
@@ -125,9 +120,9 @@ test('Celular controla, mantém notas privadas, destaca a projeção e reconecta
   await phone.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
   await expect(page.locator('[data-module="1"]')).toBeVisible();
   await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
-  await expect(phone.getByRole('heading', { name: 'Resposta esperada', exact: true })).toBeVisible();
+  await expect(phone.getByRole('heading', { name: 'Resposta esperada e como explicar', exact: true })).toBeVisible();
   await expect(page.getByText('Fala sugerida', { exact: true })).toHaveCount(0);
-  await expect(page.getByText('Resposta esperada', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('Resposta esperada e como explicar', { exact: true })).toHaveCount(0);
   await phone.getByRole('button', { name: 'Destaque', exact: true }).click();
   await phone.getByRole('button', { name: 'Área de destaque do projetor', exact: true }).click();
   await expect(page.locator('.projection-pointer')).toBeVisible();
@@ -135,10 +130,10 @@ test('Celular controla, mantém notas privadas, destaca a projeção e reconecta
   await page.getByRole('button', { name: 'Próximo módulo', exact: true }).click();
   await expect(page.locator('[data-module="2"]')).toBeVisible();
   await context.setOffline(false);
-  await expect(phone.getByRole('heading', { name: 'Labirinto', exact: true })).toBeVisible();
+  await expect(phone.getByRole('heading', { name: 'Significados', exact: true })).toBeVisible();
   await phone.reload();
   await expect(phone.getByText('Conectado', { exact: true })).toBeVisible();
-  await expect(phone.getByRole('heading', { name: 'Labirinto', exact: true })).toBeVisible();
+  await expect(phone.getByRole('heading', { name: 'Significados', exact: true })).toBeVisible();
   await context.close();
 });
 
@@ -151,6 +146,7 @@ test('Cliques rápidos são relativos ao estado autoritativo', async ({ page, br
 
 test('Auto-Play inicia, pausa, retoma e reinicia o labirinto', async ({ page }) => {
   await start(page); await chooseModule(page, 2);
+  await page.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
   await page.getByRole('button', { name: 'Iniciar Auto-Play', exact: true }).click();
   await expect(page.locator('.maze-cell.visited, .maze-cell.path')).not.toHaveCount(0);
   await page.getByRole('button', { name: 'Pausar Auto-Play', exact: true }).click();
@@ -184,19 +180,21 @@ test('QR usa endereço de rede; link público em outra sessão não revela notas
   await expect(setup.getByAltText('QR code temporário de controle do apresentador')).toBeVisible();
   await expect(page.locator('img[alt*="QR"]')).toHaveCount(0);
   const stranger = await browser.newContext(); const tab = await stranger.newPage();
-  await tab.goto('http://localhost:4184/control?session=' + new URL(page.url()).searchParams.get('session'));
-  await expect(tab.getByRole('heading', { name: 'Entre com a senha do controle.' })).toBeVisible();
+  await tab.goto('http://localhost:4184/?session=' + new URL(page.url()).searchParams.get('session'));
+  await expect(tab.locator('.connection-dot.online')).toBeVisible();
   await expect(tab.getByText('Fala sugerida', { exact: true })).toHaveCount(0);
   await stranger.close();
 });
 
 test('Lógica e missão respondem às decisões, sem depender de modelos externos', async ({ page }) => {
   await start(page); await chooseModule(page, 3);
+  await page.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
   await page.getByRole('button', { name: 'Testar a hipótese', exact: true }).click();
   await expect(page.getByText('Acesso negado', { exact: true })).toBeVisible();
   await page.getByRole('combobox', { name: 'Conector da regra' }).selectOption('or');
   await expect(page.getByText('Acesso permitido', { exact: true })).toBeVisible();
   await chooseModule(page, 12);
+  await page.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
   await page.getByRole('button', { name: 'Executar missão', exact: true }).click();
   await expect(page.locator('.mission-result')).toContainText('Bloqueio');
   await page.getByRole('checkbox', { name: 'Pedido autorizado', exact: true }).check();
@@ -235,7 +233,8 @@ test('Modo palco pode ser ativado pelo celular e encerrado pelo teclado', async 
   await expect(page.locator('.live-console')).toBeHidden();
   await page.locator('body').click({ position: { x: 3, y: 150 } });
   await page.keyboard.press('Escape');
-  await expect(page.locator('.live-console')).toBeVisible();
+  await expect(page.locator('.live-app.stage-mode')).toHaveCount(0);
+  await expect(page.locator('.ai-journey')).toBeVisible();
   await context.close();
 });
 
@@ -269,4 +268,76 @@ test('QR inválido oferece recuperação por código em vez de travar na conexã
   await expect(page.getByRole('alert')).toContainText('Pareamento inválido');
   await expect(page.getByLabel('Código de pareamento')).toBeEnabled();
   expect(new URL(page.url()).hash).toBe('');
+});
+
+test('Explicação de IA sincroniza exemplos, animação e aprofundamento pelo celular', async ({ page, browser }) => {
+  await start(page);
+  await chooseModule(page, 5);
+  const { phone, context } = await phoneFor(page, browser);
+  try {
+    await expect(page.locator('.ai-journey')).toBeVisible();
+    await expect(page.locator('.live-console')).toHaveCount(0);
+    await expect(page.locator('.attention-answer')).toContainText('Um lugar para sentar');
+    await phone.getByRole('button', { name: 'Banco da conta', exact: true }).click();
+    await expect(page.locator('.attention-answer')).toContainText('Uma instituição financeira');
+    await page.reload();
+    await expect(page.locator('.attention-answer')).toContainText('Uma instituição financeira');
+    await phone.getByLabel('Movimento reduzido', { exact: true }).check();
+    await expect(page.locator('.live-app')).toHaveClass(/reduce-motion/);
+    const active = await page.locator('.ai-journey').evaluate(el => el.getAnimations({ subtree: true }).filter(a => a.playState === 'running').length);
+    expect(active).toBe(0);
+    await phone.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
+    await expect(page.locator('.math-route-banner')).toBeVisible();
+    await expect(page.locator('.live-console')).toBeVisible();
+    await phone.getByRole('button', { name: 'Voltar à explicação de IA', exact: true }).click();
+    await expect(page.locator('.attention-answer')).toContainText('Uma instituição financeira');
+    await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
+    await expect(phone.locator('.private-notes')).toContainText('Uma palavra ganha sentido junto das outras');
+  } finally { await context.close(); }
+});
+
+test('Notas ensinam a demonstração e acompanham a rodada do quiz e a matemática', async ({ page, browser }) => {
+  await start(page);
+  const { phone, context } = await phoneFor(page, browser);
+  try {
+    await chooseModule(page, 13);
+    await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
+    await expect(phone.locator('[data-note="speech"]')).toContainText('Uma palavra sempre corresponde');
+    await page.getByRole('button', { name: 'Próxima rodada', exact: true }).click();
+    await expect(phone.locator('.notes-intro')).toContainText('pergunta 2 de 6');
+    await expect(phone.locator('[data-note="speech"]')).toContainText('O que o treinamento de uma rede neural ajusta?');
+    await expect(phone.locator('[data-note="expected"]')).toContainText('A — Os pesos');
+    await chooseModule(page, 1);
+    await phone.getByRole('button', { name: 'Abrir comandos da demonstração', exact: true }).click();
+    await phone.getByRole('button', { name: 'Explorar a matemática', exact: true }).click();
+    await phone.getByRole('button', { name: 'Notas privadas', exact: true }).click();
+    await expect(phone.locator('[data-note="speech"]')).toContainText('3 pães e 2 recheios');
+    await expect(phone.locator('[data-note="demonstration"]')).toContainText('Comprimento da sequência');
+    await phone.locator('[data-note="glossary"] summary').click();
+    await expect(phone.locator('[data-note="glossary"] p')).toBeVisible();
+    await expect(phone.locator('[data-note="glossary"]')).toContainText('n: quantidade de posições');
+    await chooseModule(page, 14);
+    await page.getByRole('button', { name: 'Conectar as ideias', exact: true }).click();
+    await page.getByRole('button', { name: 'Revelar a rede inteira', exact: true }).click();
+    await page.getByRole('button', { name: 'Fazer a rede acender', exact: true }).click();
+    await page.getByRole('button', { name: 'Como a IA ajuda no dia a dia?', exact: true }).click();
+    await expect(phone.locator('[data-note="speech"]')).toContainText('Como a IA ajuda no dia a dia?');
+    await page.getByRole('button', { name: 'Por que mais informação não basta?', exact: true }).click();
+    await expect(phone.locator('[data-note="speech"]')).toContainText('Por que mais informação não basta?');
+  } finally { await context.close(); }
+});
+
+test('Abertura anima o caminho e os 12 capítulos oferecem comparações visuais', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await start(page);
+  await expect(page.getByRole('heading', { name: 'O que acontece dentro de uma IA?' })).toBeVisible();
+  const signals = page.locator('.machine-network .neural-signal').first();
+  const before = await signals.evaluate(el => getComputedStyle(el).strokeDashoffset);
+  await expect.poll(() => signals.evaluate(el => getComputedStyle(el).strokeDashoffset)).not.toBe(before);
+  for (let module = 1; module <= 12; module++) {
+    await chooseModule(page, module);
+    await expect(page.locator('.ai-illustration')).toBeVisible();
+    await page.locator('.ai-example-controls button').nth(1).click();
+    await expect(page.locator('.ai-example-controls button').nth(1)).toHaveAttribute('aria-pressed', 'true');
+  }
 });

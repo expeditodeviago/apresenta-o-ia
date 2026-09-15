@@ -37,6 +37,5 @@ O projeto não está publicado. Para hospedar, use um servidor Node 24 com volum
 - `PORT`: porta do processo.
 - `PUBLIC_BASE_URL`: origem HTTPS pública, sem barra final.
 - `SYNAPSE_DATA_DIR`: diretório persistente e privado.
-- `SYNAPSE_ADMIN_KEY`: segredo administrativo, definido fora do código e nunca na projeção.
 
-Crie a sessão pela página `/setup` usando a credencial administrativa. No proxy, mantenha conexões SSE e desative o buffering em `/api/sessions/*/events`. Não exponha `.runtime/`, backups ou notas exportadas. Verifique autenticação, expiração, atualização e reconexão na infraestrutura real antes de anunciar uma URL pública.
+Crie a sessão pela página `/setup` sem senha. No proxy, mantenha conexões SSE e desative o buffering em `/api/sessions/*/events`. Não exponha `.runtime/`, backups ou notas exportadas. Verifique autenticação, expiração, atualização e reconexão na infraestrutura real antes de anunciar uma URL pública.

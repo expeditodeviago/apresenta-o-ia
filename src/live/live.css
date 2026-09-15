@@ -196,3 +196,15 @@ button, a { touch-action: manipulation; }
 .pairing-address { display: block; overflow-wrap: anywhere; line-height: 1.6; font-size: 16px; }
 .pairing-code { display: block; color: #d6fa87; font: 30px Consolas, monospace; letter-spacing: .1em; user-select: all; margin: 15px 0; }
 .pairing-qr img { width: min(320px, 100%); background: white; }
+
+/* Private reading guide: preserve numbered steps and keep study sections scannable. */
+.private-notes p { white-space: pre-line; overflow-wrap: anywhere; }
+.notes-intro { padding: 16px; margin-bottom: 24px; border: 1px solid #90c8dd33; border-radius: 10px; background: #91bff908; }
+.notes-intro strong, .notes-intro span { display: block; }
+.notes-intro strong { font-size: 19px; line-height: 1.4; color: #e4eefb; }
+.notes-intro span { margin: 8px 0 12px; color: #9ce3d2; font-size: 13px; }
+.private-notes .notes-intro p { font-size: 14px; line-height: 1.6; }
+.private-notes details { border-bottom: 1px solid #ffffff18; margin: 0 0 16px; padding: 0 0 12px; }
+.private-notes summary { cursor: pointer; padding: 10px 0; min-height: 44px; color: #d8c193; font-size: 14px; line-height: 1.5; font-weight: 600; }
+.private-notes details[open] p { padding: 8px 0; }
+.private-notes summary:focus-visible { outline: 2px solid #9ce3d2; outline-offset: 3px; }

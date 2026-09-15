@@ -1,6 +1,7 @@
 import { ArrowDownRight, ArrowRight, Orbit, Sparkles } from 'lucide-react';
 import type { Command } from '../../shared/engine';
 import { LESSONS } from '../../shared/curriculum';
+import { PromptToAnswer } from './AIJourney';
 
 type SceneProps = { send: (command: Command) => void; stage?: number };
 
@@ -44,33 +45,68 @@ export function SynapseOrb() {
 
 export function OpeningScene({ send, stage = 0 }: SceneProps) {
   const beats = [
-    null,
-    { label: 'UMA PERGUNTA PARA COMEÇAR', value: 'Mais opções.\nOu mais posições?', text: 'Uma senha tem 10 símbolos disponíveis em cada uma de 4 posições. O que aumenta mais as possibilidades: dobrar os símbolos ou dobrar as posições?', formula: 'A turma escolhe antes de calcular.' },
-    { label: 'O PONTO DE PARTIDA', value: '10.000', text: 'Dez opções em cada uma de quatro posições. A ordem importa e os símbolos podem se repetir.', formula: '10⁴ = 10 × 10 × 10 × 10' },
-    { label: 'DOBRAMOS AS OPÇÕES', value: '160.000', text: 'Agora são 20 símbolos disponíveis. Mantemos as quatro posições.', formula: '20⁴ · 16 vezes o total inicial' },
-    { label: 'DOBRAMOS AS POSIÇÕES', value: '100 milhões', text: 'Voltamos aos 10 símbolos e usamos oito posições. Uma pequena mudança cria um espaço enorme.', formula: '10⁸ · 10.000 vezes o total inicial' },
-    { label: 'A SURPRESA ESTÁ NO EXPOENTE', value: '625×', text: 'Neste exemplo, dobrar as posições produz 625 vezes mais sequências do que dobrar as opções.', formula: '100.000.000 ÷ 160.000 = 625' },
-    { label: 'É AQUI QUE A JORNADA COMEÇA', value: 'Como escolher\nnesse universo?', text: 'Vamos explorar busca, regras e restrições que tornam esse problema tratável.', formula: 'Prever → testar → explicar' },
-    { label: 'O ACORDO COM A TURMA', value: 'Você prevê.\nA gente testa.', text: 'Em cada experimento, escolha uma hipótese. Mude uma condição. Observe o que acontece.', formula: '12 experimentos. Uma ideia puxa a próxima.' },
-  ];
+  null,
+  {
+    "label": "A PERGUNTA QUE TODO MUNDO FAZ",
+    "value": "Ela pensa\ncomo a gente?",
+    "text": "Uma conversa pode parecer humana. Vamos olhar para o processo que produz essa impressão.",
+    "formula": "O foco: modelos de linguagem, como os usados em assistentes de texto."
+  },
+  {
+    "label": "ANTES DE VOCÊ DIGITAR",
+    "value": "Ela aprende\ncom exemplos.",
+    "text": "No treinamento, previsões são comparadas com exemplos. Os erros orientam ajustes na rede.",
+    "formula": "Treinamento → padrões aprendidos"
+  },
+  {
+    "label": "QUANDO A PERGUNTA CHEGA",
+    "value": "Palavras viram\nrepresentações.",
+    "text": "O texto é dividido em tokens. A rede trabalha com representações numéricas desses pedaços.",
+    "formula": "Pergunta → tokens → representações"
+  },
+  {
+    "label": "NENHUMA PALAVRA ESTÁ SOZINHA",
+    "value": "O contexto\nmuda tudo.",
+    "text": "“Banco” pode ser um assento ou uma instituição. As palavras ao redor ajudam a distinguir o sentido.",
+    "formula": "Troque o contexto. Observe a interpretação."
+  },
+  {
+    "label": "A RESPOSTA APARECE",
+    "value": "Uma escolha\npuxa a próxima.",
+    "text": "O modelo pode gerar texto um token de cada vez, usando o contexto e o que já produziu.",
+    "formula": "Calcular possibilidades → escolher → continuar"
+  },
+  {
+    "label": "UM LIMITE QUE PRECISAMOS ENTENDER",
+    "value": "Soar certo\nnão basta.",
+    "text": "Uma resposta pode ser fluente e estar errada. Fontes e conferência continuam fazendo parte do trabalho.",
+    "formula": "Uma explicação convincente precisa de evidência."
+  },
+  {
+    "label": "O CONVITE ESTÁ FEITO",
+    "value": "Veja. Troque.\nDescubra.",
+    "text": "Vamos acompanhar o caminho de uma pergunta e experimentar o que muda a resposta.",
+    "formula": "A matemática aparece como apoio, quando você quiser aprofundar."
+  }
+];
   const beat = beats[stage];
   return <section className="show-opening">
     <div className={'opening-copy ' + (beat ? 'opening-beat' : '')} key={stage}>
       {beat ? <><span className="show-kicker"><i />{beat.label}</span><h1>{beat.value}</h1><p>{beat.text}</p><div className="opening-formula">{beat.formula}</div><button className="launch-button" onClick={() => send(stage < 7 ? { type: 'advance', value: 1 } : { type: 'module', value: 1 })}>{stage < 7 ? 'Continuar a descoberta' : 'Entrar no experimento'}<ArrowRight size={21} /></button></> : <>
       <span className="show-kicker"><i /> UMA EXPEDIÇÃO PELA INTELIGÊNCIA ARTIFICIAL</span>
-      <h1>A IA não é<br />mágica.<br /><em>É matemática.</em></h1>
-      <p>Por trás de uma resposta, um universo de escolhas.<br className="desktop-break" /> Hoje, você entra nele.</p>
-      <button className="launch-button" onClick={() => send({ type: 'module', value: 1 })}>Entrar no experimento <ArrowRight size={21} /></button>
-      <div className="opening-meta"><span><strong>12</strong> experimentos</span><i /><span><strong>120</strong> minutos</span><i /><span>Você no controle</span></div>
-      <button className="opening-prologue" onClick={() => send({ type: 'stage', value: 1 })}>Antes de entrar, um desafio de 8 minutos <ArrowRight size={15} /></button>
+      <h1>O que acontece<br />dentro de<br /><em>uma IA?</em></h1>
+      <p>Você faz uma pergunta. Ela responde.<br className="desktop-break" /> Vamos descobrir o que existe entre esses dois momentos.</p>
+      <button className="launch-button" onClick={() => send({ type: 'module', value: 1 })}>Descobrir por dentro <ArrowRight size={21} /></button>
+      <div className="opening-meta"><span><strong>12</strong> descobertas</span><i /><span><strong>120</strong> minutos</span><i /><span>Você no controle</span></div>
+      <button className="opening-prologue" onClick={() => send({ type: 'stage', value: 1 })}>Começar pela pergunta: ela pensa como a gente? <ArrowRight size={15} /></button>
       </>}
     </div>
-    <SynapseOrb />
-    <div className="opening-baseline"><span>MATEMÁTICA DISCRETA <b>×</b> INTELIGÊNCIA ARTIFICIAL</span><span>ROLE A IDEIA. TESTE A HIPÓTESE. <ArrowDownRight size={16} /></span></div>
+    <PromptToAnswer />
+    <div className="opening-baseline"><span>APRENDER <b>→</b> CONECTAR <b>→</b> GERAR</span><span>UMA EXPLICAÇÃO PARA TODO MUNDO. <ArrowDownRight size={16} /></span></div>
     <nav className="show-chapters" aria-label="Atos da apresentação">
-      <button onClick={() => send({ type: 'module', value: 1 })}><span>ATO 01 <small>01 — 04</small></span><strong>Das peças às conexões</strong><p>Escolhas, caminhos e regras.</p><ArrowRight size={20} /></button>
-      <button onClick={() => send({ type: 'module', value: 5 })}><span>ATO 02 <small>05 — 08</small></span><strong>Quando a máquina decide</strong><p>Estratégias, posições e limites.</p><ArrowRight size={20} /></button>
-      <button onClick={() => send({ type: 'module', value: 9 })}><span>ATO 03 <small>09 — 12</small></span><strong>Do acaso à inteligência</strong><p>Probabilidade, estados e uma missão.</p><ArrowRight size={20} /></button>
+      <button onClick={() => send({ type: 'module', value: 1 })}><span>ATO 01 <small>01 — 04</small></span><strong>Como ela aprende</strong><p>Tokens, significados e redes neurais.</p><ArrowRight size={20} /></button>
+      <button onClick={() => send({ type: 'module', value: 5 })}><span>ATO 02 <small>05 — 08</small></span><strong>Como ela responde</strong><p>Atenção, contexto e geração de texto.</p><ArrowRight size={20} /></button>
+      <button onClick={() => send({ type: 'module', value: 9 })}><span>ATO 03 <small>09 — 12</small></span><strong>Como usar com critério</strong><p>Variação, erros, ferramentas e fontes.</p><ArrowRight size={20} /></button>
     </nav>
   </section>;
 }
@@ -78,7 +114,7 @@ export function OpeningScene({ send, stage = 0 }: SceneProps) {
 export function FinaleScene({ send }: SceneProps) {
   return <section className="show-finale">
     <div className="finale-banner"><img src="/images/synapse-network.png" alt="Peças e conexões matemáticas formando uma rede" /><div><span className="show-kicker"><Sparkles size={15} /> AS PEÇAS AGORA SE CONECTAM</span><h2>O próximo passo<br />é <em>sua ideia.</em></h2><p>Pergunte. Modele. Preveja. Teste. Explique.</p></div></div>
-    <div className="finale-connections">{LESSONS.slice(1, 13).map(lesson => <button key={lesson.id} onClick={() => send({ type: 'module', value: lesson.id })}><span>{String(lesson.id).padStart(2, '0')}</span><strong>{lesson.math}</strong><ArrowRight size={16} /></button>)}</div>
+    <div className="finale-connections">{LESSONS.slice(1, 13).map(lesson => <button key={lesson.id} onClick={() => send({ type: 'module', value: lesson.id })}><span>{String(lesson.id).padStart(2, '0')}</span><strong>{lesson.short}</strong><ArrowRight size={16} /></button>)}</div>
     <div className="finale-question"><Orbit size={22} /><p>Qual problema você passa a enxergar de outro jeito?</p></div>
   </section>;
 }

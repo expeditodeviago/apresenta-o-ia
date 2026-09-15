@@ -1,4 +1,5 @@
 import { AUDIENCE_COPY } from './audience.ts';
+import { AI_AUDIENCE_COPY } from './aiJourney.ts';
 export const STAGES = ['A pergunta', 'Um exemplo', 'Seu palpite', 'Experimente', 'E se mudar?', 'Por que acontece?', 'Onde a IA entra', 'A próxima ideia'];
 export const STAGE_SECONDS = [45, 45, 60, 120, 60, 60, 60, 30];
 export interface Lesson {
@@ -23,12 +24,66 @@ export const FORMAL_LESSONS: Lesson[] = [
   { id: 13, title: 'O desafio da turma', short: 'Desafio final', math: 'Prever antes de revelar', question: 'Qual decisão você defenderia agora?', example: 'Seis situações curtas. A turma vota levantando a mão.', prediction: 'Escolha A, B ou C antes de revelar cada explicação.', variant: 'Peça a alguém que votou diferente para defender a alternativa.', reveal: 'A resposta importa; o motivo que a sustenta importa mais.', application: 'Reconhecer limites e contraexemplos ajuda a avaliar sistemas de IA.', limit: 'Não usamos aparência de texto para alegar autoria humana ou artificial.', conclusion: 'A matemática torna decisões discutíveis, testáveis e corrigíveis.', color: '#c4b0ef', minutes: 10 },
   { id: 14, title: 'As peças agora se conectam', short: 'Síntese & perguntas', math: 'Da abstração ao sistema', question: 'Qual conceito mudou sua forma de olhar para a IA?', example: 'Escolhas → busca → regras → relações → estratégias → posições → dependências → limites → amostragem → estados.', prediction: 'Qual desses conceitos você usaria primeiro em seu próximo projeto?', variant: 'Escolha um problema da turma e identifique duas conexões matemáticas.', reveal: 'Não há uma única matemática da IA. Há mecanismos distintos com hipóteses e limites.', application: 'Engenharia de software combina modelos, algoritmos, dados e verificação.', limit: 'O mapeamento com a ementa do professor ainda precisa ser validado.', conclusion: 'Pergunte. Modele. Preveja. Teste. Explique.', color: '#7fdbc9', minutes: 6 },
 ];
-export const LESSONS: Lesson[] = FORMAL_LESSONS.map(lesson => ({ ...lesson, ...AUDIENCE_COPY[lesson.id] }));
+export const LESSONS: Lesson[] = FORMAL_LESSONS.map(lesson => ({ ...lesson, ...AUDIENCE_COPY[lesson.id], ...AI_AUDIENCE_COPY[lesson.id] }));
 export const QUIZ = [
-  { question: '3 símbolos em 4 posições, com repetição: quantas sequências?', options: ['12', '64', '81'], answer: 2, why: 'São quatro escolhas independentes com três opções: 3⁴ = 81.' },
-  { question: 'Num labirinto em que cada passo custa o mesmo, como encontrar a rota mais curta?', options: ['Explorar primeiro os lugares próximos', 'Seguir um corredor até o fim', 'Escolher qualquer caminho'], answer: 0, why: 'A busca em largura explora por distância. Aqui, cada passo tem o mesmo custo.' },
-  { question: 'Ana espera Bruno, Bruno espera Carla e Carla espera Ana. Alguém consegue começar?', options: ['Sim, Ana', 'Não, todos estão esperando', 'Sim, Carla'], answer: 1, why: 'A espera forma um círculo. Precisamos mudar pelo menos uma dependência para começar.' },
-  { question: 'Cinco celulares em quatro gavetas. O que vai acontecer?', options: ['Todos ficam juntos', 'Cada um fica sozinho', 'Alguma gaveta terá pelo menos dois'], answer: 2, why: 'Há mais celulares do que gavetas. Pelo menos uma precisa ser compartilhada.' },
-  { question: 'Todo gato é um animal. Então todo animal é um gato?', options: ['Sim', 'Não, a relação não vale ao contrário', 'Só se for pequeno'], answer: 1, why: 'Uma regra em um sentido não garante a regra inversa. Um cachorro é um animal e não é um gato.' },
-  { question: 'A IA escolhe uma continuação muito provável. Isso garante uma resposta verdadeira?', options: ['Não, ainda precisamos conferir', 'Sim', 'Sim, se repetir a resposta'], answer: 0, why: 'Uma frase pode soar natural e estar errada. A chance de escolher palavras não mede a verdade de uma afirmação.' },
+  {
+    "question": "Uma palavra sempre corresponde a um único token?",
+    "options": [
+      "Sim, em todos os modelos",
+      "Sim, se for em português",
+      "Não, ela pode ser dividida em pedaços"
+    ],
+    "answer": 2,
+    "why": "O recorte depende do tokenizador. Um token pode ser uma palavra, parte dela ou um sinal."
+  },
+  {
+    "question": "O que o treinamento de uma rede neural ajusta?",
+    "options": [
+      "Os pesos que influenciam os cálculos",
+      "Uma pessoa escondida atrás da tela",
+      "Uma resposta fixa para cada pergunta"
+    ],
+    "answer": 0,
+    "why": "Os erros orientam ajustes nos pesos. A rede aprende padrões distribuídos por muitos parâmetros."
+  },
+  {
+    "question": "“Banco da praça” e “banco da conta”: o que ajuda a distinguir o sentido?",
+    "options": [
+      "Só o número de letras",
+      "O contexto das outras palavras",
+      "A cor da tela"
+    ],
+    "answer": 1,
+    "why": "As representações e a atenção incorporam relações com outras partes do contexto."
+  },
+  {
+    "question": "Aumentar a temperatura garante uma resposta mais verdadeira?",
+    "options": [
+      "Sim, ela pesquisa mais",
+      "Sim, ela fica mais inteligente",
+      "Não, isso muda a distribuição das escolhas"
+    ],
+    "answer": 2,
+    "why": "Temperatura afeta a variação entre continuações. Não é uma medida de verdade."
+  },
+  {
+    "question": "Uma conversa longa está sempre inteira disponível para o modelo?",
+    "options": [
+      "Sim, sem nenhum limite",
+      "Não, há limites e o sistema pode selecionar ou resumir partes",
+      "Sim, se a aba continuar aberta"
+    ],
+    "answer": 1,
+    "why": "O contexto tem capacidade limitada. Memória salva e busca em arquivos são recursos adicionais do sistema."
+  },
+  {
+    "question": "A IA deu uma resposta convincente com uma citação. O que fazer?",
+    "options": [
+      "Abrir a fonte e conferir se ela sustenta a resposta",
+      "Confiar só porque há uma citação",
+      "Pedir para repetir a resposta"
+    ],
+    "answer": 0,
+    "why": "A resposta e a citação podem conter erros. Compare a afirmação com a fonte original."
+  }
 ];

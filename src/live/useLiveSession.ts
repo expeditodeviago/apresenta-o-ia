@@ -55,7 +55,7 @@ export function useLiveSession(control: boolean) {
           blocked.current = true;
           setConnection(response.status === 410 ? 'expired' : 'offline');
           if (response.status === 403) setCanControl(false);
-          setError(response.status === 410 ? 'Sessão expirada. Continue no computador; abra uma nova sessão para parear novamente.' : 'Controle revogado. Faça um novo pareamento.');
+          setError(response.status === 410 ? 'Sessão expirada. Continue no computador; abra uma nova sessão para parear novamente.' : 'Controle desconectado. Conecte novamente.');
           return;
         }
         if (!response.ok) {
@@ -128,7 +128,7 @@ export function useLiveSession(control: boolean) {
 
   useEffect(() => {
     if (connection === 'online' || control) return;
-    const timer = setInterval(() => { if (stateRef.current.autoplay || stateRef.current.running) apply(reduce(stateRef.current, { type: 'tick' })); }, 250);
+    const timer = setInterval(() => { if (stateRef.current.autoplay || stateRef.current.storyPlaying || stateRef.current.running) apply(reduce(stateRef.current, { type: 'tick' })); }, 250);
     return () => clearInterval(timer);
   }, [connection, apply, control]);
   return { state, send, sessionId, connection, serverOffset, error, canControl, clearError: () => setError('') };

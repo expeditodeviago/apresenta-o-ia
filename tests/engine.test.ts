@@ -122,3 +122,23 @@ test('Trocar estratégia preserva a vez e não ressuscita uma partida terminada'
   assert.equal(currentSim(state).values.stones, 0);
   assert.equal(currentSim(state).done, true);
 });
+
+test('A jornada de IA avança sem executar a matemática e cancela reprodução ao navegar', () => {
+  let state = reduce(initialState(0), { type: 'module', value: 3 }, 0);
+  state = reduce(state, { type: 'storyVariant', value: 1 }, 0);
+  state = reduce(state, { type: 'storyAutoplay', value: true }, 0);
+  state = reduce(state, { type: 'tick' }, 8000);
+  assert.equal(state.stage, 1);
+  assert.equal(currentSim(state).tick, 0);
+  assert.equal(currentSim(state).values.aiVariant, 1);
+  state = reduce(state, { type: 'mathMode', value: true }, 8001);
+  assert.equal(state.storyPlaying, false);
+  state = reduce(state, { type: 'module', value: 4 }, 8002);
+  assert.equal(state.mathMode, false);
+  assert.throws(() => reduce(state, { type: 'storyVariant', value: 9 }));
+  state = reduce(state, { type: 'stage', value: 6 }, 9000);
+  state = reduce(state, { type: 'storyAutoplay', value: true }, 9000);
+  state = reduce(state, { type: 'tick' }, 17000);
+  assert.equal(state.stage, 7);
+  assert.equal(state.storyPlaying, false);
+});

@@ -57,11 +57,17 @@ try {
       if (module < 13) {
         await command({ type: 'stage', value: 5 });
         await inspect('reveal-' + module + '-' + size.width, module === 3);
+        await command({ type: 'storyVariant', value: 1 });
+        await inspect('ai-alternative-' + module + '-' + size.width, true);
+        await command({ type: 'mathMode', value: true });
+        await inspect('math-' + module + '-' + size.width);
+        await command({ type: 'mathMode', value: false });
       }
     }
   }
   await page.setViewportSize({ width: 1280, height: 720 });
   await command({ type: 'module', value: 12 });
+  await command({ type: 'mathMode', value: true });
   for (const [key, value] of [['authorized', true], ['cyclic', false], ['capacity', 3]]) await command({ type: 'set', key, value });
   await command({ type: 'action', key: 'launch' });
   await page.getByText('Missão concluída: resposta com evidências e fluxo verificado.', { exact: true }).waitFor();

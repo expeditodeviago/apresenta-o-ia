@@ -1,6 +1,5 @@
 import http from 'node:http';
-import { randomBytes, createHash, timingSafeEqual, scrypt } from 'node:crypto';
-import { promisify } from 'node:util';
+import { randomBytes, createHash, timingSafeEqual } from 'node:crypto';
 import { readFile, writeFile, mkdir, rename, stat } from 'node:fs/promises';
 import { networkInterfaces } from 'node:os';
 import path from 'node:path';
@@ -12,14 +11,9 @@ import { getNotes } from './notes.ts';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT || 4173);
 const PUBLIC_BASE = (process.env.PUBLIC_BASE_URL || process.env.RENDER_EXTERNAL_URL || '').replace(/\/$/, '');
-const DEFAULT_CONTROL_PASSWORD = process.env.SYNAPSE_CONTROL_PASSWORD || '';
-if (DEFAULT_CONTROL_PASSWORD && (DEFAULT_CONTROL_PASSWORD.trim().length < 5 || DEFAULT_CONTROL_PASSWORD.length > 128)) throw Error('A senha inicial do controle deve ter de 5 a 128 caracteres.');
-if (PUBLIC_BASE && !process.env.SYNAPSE_ADMIN_KEY) throw Error('Configure SYNAPSE_ADMIN_KEY antes de iniciar a hospedagem pública.');
 const DATA = path.resolve(process.env.SYNAPSE_DATA_DIR || path.join(ROOT, '.runtime'));
 const TTL = 12 * 60 * 60 * 1000;
-type Session = { id: string; secretHash: string; expires: number; state: State; seen: string[]; controllers: string[]; password?: { salt: string; digest: string } };
-const derivePassword = promisify(scrypt);
-async function passwordDigest(password: string, salt: string) { return (await derivePassword(password, salt, 64) as Buffer).toString('hex'); }
+type Session = { id: string; secretHash: string; expires: number; state: State; seen: string[]; controllers: string[] };
 const sessions = new Map<string, Session>();
 const clients = new Map<string, Set<http.ServerResponse>>();
 const pairings = new Map<string, { session: string; expires: number }>();
@@ -31,7 +25,7 @@ const local = (req: http.IncomingMessage) => ['127.0.0.1', '::1', '::ffff:127.0.
 await mkdir(DATA, { recursive: true, mode: 0o700 });
 try {
   const saved: Session[] = JSON.parse(await readFile(path.join(DATA, 'sessions.json'), 'utf8'));
-  for (const session of saved) if (session.expires > Date.now()) { session.state.running = false; session.state.autoplay = false; session.state.clockAt = Date.now(); sessions.set(session.id, session); }
+  for (const session of saved) if (session.expires > Date.now()) { delete (session as Session & { password?: unknown }).password; session.state.running = false; session.state.autoplay = false; session.state.storyPlaying = false; session.state.clockAt = Date.now(); sessions.set(session.id, session); }
 } catch (error: any) { if (error.code !== 'ENOENT') console.error('Não foi possível restaurar sessões. O arquivo foi preservado.'); }
 let writeQueue = Promise.resolve();
 function persist() {
@@ -65,17 +59,13 @@ const server = http.createServer(async (req, res) => {
     const route = url.pathname;
     if (route.startsWith('/api/')) {
       if (req.method !== 'GET' && !allowMutation(req)) return json(res, 403, { error: 'Origem ou formato não autorizado.' });
+      if (route === '/api/info') return json(res, 200, { addresses: local(req) ? urls() : [], local: local(req) && !PUBLIC_BASE, publicBase: PUBLIC_BASE || null });
       if (route === '/api/health') return json(res, 200, { ok: true });
-      if (route === '/api/info') return json(res, 200, { addresses: local(req) ? urls() : [], local: local(req) && !PUBLIC_BASE, publicBase: PUBLIC_BASE || null, defaultPasswordConfigured: Boolean(DEFAULT_CONTROL_PASSWORD) });
       if (route === '/api/sessions' && req.method === 'POST') {
-        if (limited('admin:' + req.socket.remoteAddress, 20)) return json(res, 429, { error: 'Muitas tentativas. Aguarde um minuto.' });
-        const admin = req.headers.authorization?.replace(/^Bearer /, '') ?? '';
-        const trustedLocalHost = ['localhost', '127.0.0.1', '[::1]'].includes(new URL('http://' + req.headers.host).hostname);
-        if (!(local(req) && trustedLocalHost && !PUBLIC_BASE) && !(process.env.SYNAPSE_ADMIN_KEY && equals(hash(admin), hash(process.env.SYNAPSE_ADMIN_KEY)))) return json(res, 403, { error: 'Crie a sessão no computador do servidor ou use a credencial administrativa.' });
+        if (limited('create:' + req.socket.remoteAddress, 20)) return json(res, 429, { error: 'Muitas tentativas. Aguarde um minuto.' });
         if (sessions.size >= 30) return json(res, 429, { error: 'Limite de sessões ativas.' });
         const secret = token(), id = randomBytes(16).toString('hex');
         const session: Session = { id, secretHash: hash(secret), expires: Date.now() + TTL, state: initialState(), seen: [], controllers: [] };
-        if (DEFAULT_CONTROL_PASSWORD) { const salt = randomBytes(16).toString('hex'); session.password = { salt, digest: await passwordDigest(DEFAULT_CONTROL_PASSWORD, salt) }; }
         sessions.set(id, session); await persist(); return json(res, 201, { id, secret, expires: session.expires });
       }
       if (route === '/api/pair' && req.method === 'POST') {
@@ -93,16 +83,13 @@ const server = http.createServer(async (req, res) => {
         for (const [key, entry] of pairings) if (entry === pair) pairings.delete(key);
         const secret = token(); session.controllers.push(hash(secret)); await persist(); return json(res, 200, { id: session.id, secret });
       }
-      const match = /^\/api\/sessions\/([a-f0-9]{32})(?:\/(state|events|command|notes|pair|revoke|restore|password|login))?$/.exec(route);
+      const match = /^\/api\/sessions\/([a-f0-9]{32})(?:\/(state|events|command|notes|pair|revoke|restore|connect))?$/.exec(route);
       if (!match) return json(res, 404, { error: 'Rota não encontrada.' });
       const session = sessions.get(match[1]);
       if (!session || session.expires <= Date.now()) return json(res, 410, { error: 'Sessão encerrada ou expirada.' });
       const action = match[2] ?? 'state';
-      if (action === 'login' && req.method === 'POST') {
-        if (limited('login:' + req.socket.remoteAddress, 10) || limited('session-login:' + session.id, 20)) return json(res, 429, { error: 'Muitas tentativas. Aguarde um minuto.' });
-        const input = await body(req), configured = session.password;
-        if (!configured || typeof input.password !== 'string' || input.password.length > 128 || !equals(await passwordDigest(input.password, configured.salt), configured.digest) || session.password !== configured) return json(res, 403, { error: 'Senha inválida ou acesso por senha desativado.' });
-        if (session.expires <= Date.now()) return json(res, 410, { error: 'Sessão expirada.' });
+      if (action === 'connect' && req.method === 'POST') {
+        if (limited('connect:' + req.socket.remoteAddress, 60)) return json(res, 429, { error: 'Muitas conexões. Aguarde um minuto.' });
         const secret = token(); session.controllers.push(hash(secret)); await persist(); return json(res, 200, { id: session.id, secret });
       }
       if (action === 'state' && req.method === 'GET') return json(res, 200, { state: session.state, serverTime: Date.now(), expires: session.expires });
@@ -111,19 +98,9 @@ const server = http.createServer(async (req, res) => {
         res.write('retry: 1500\n\n'); const set = clients.get(session.id) ?? new Set(); set.add(res); clients.set(session.id, set); publish(session); req.on('close', () => set.delete(res)); return;
       }
       if (!authorized(req, session)) return json(res, 403, { error: 'Controle não autorizado.' });
-      if (action === 'password' && req.method === 'POST') {
-        if (!equals(hash(req.headers.authorization?.replace(/^Bearer /, '') ?? ''), session.secretHash)) return json(res, 403, { error: 'Somente o computador criador pode definir a senha.' });
-        const input = await body(req);
-        if (typeof input.password !== 'string' || input.password.trim().length < 5 || input.password.length > 128) return json(res, 400, { error: 'Use uma senha de 5 a 128 caracteres.' });
-        const salt = randomBytes(16).toString('hex');
-        session.password = { salt, digest: await passwordDigest(input.password, salt) };
-        session.controllers = [];
-        for (const [key, pair] of pairings) if (pair.session === session.id) pairings.delete(key);
-        await persist(); return json(res, 200, { ok: true });
-      }
-      if (action === 'notes' && req.method === 'GET') return json(res, 200, getNotes(session.state.module, session.state.stage));
+      if (action === 'notes' && req.method === 'GET') return json(res, 200, getNotes(session.state.module, session.state.stage, Boolean(session.state.mathMode), { quizIndex: session.state.sims[13]?.tick, variant: Number(session.state.sims[session.state.module]?.values.aiVariant || 0), networkQuestion: Number(session.state.sims[14]?.values.networkQuestion || 0) }));
       if (action === 'pair' && req.method === 'POST') { for (const [key, pair] of pairings) if (pair.session === session.id) pairings.delete(key); const pair = token(); let code: string; do { code = randomBytes(5).toString('hex').toUpperCase(); } while (pairings.has(hash(code))); const entry = { session: session.id, expires: Date.now() + 120_000 }; pairings.set(hash(pair), entry); pairings.set(hash(code), entry); return json(res, 200, { pair, code, expires: entry.expires, addresses: urls() }); }
-      if (action === 'revoke' && req.method === 'POST') { if (!equals(hash(req.headers.authorization?.replace(/^Bearer /, '') ?? ''), session.secretHash)) return json(res, 403, { error: 'Somente o computador criador pode revogar controles.' }); session.controllers = []; delete session.password; for (const [key, pair] of pairings) if (pair.session === session.id) pairings.delete(key); await persist(); return json(res, 200, { ok: true }); }
+      if (action === 'revoke' && req.method === 'POST') { if (!equals(hash(req.headers.authorization?.replace(/^Bearer /, '') ?? ''), session.secretHash)) return json(res, 403, { error: 'Somente o computador criador pode revogar controles.' }); session.controllers = []; for (const [key, pair] of pairings) if (pair.session === session.id) pairings.delete(key); await persist(); return json(res, 200, { ok: true }); }
       if (action === 'restore' && req.method === 'POST') {
         const input = await body(req);
         if (!equals(hash(req.headers.authorization?.replace(/^Bearer /, '') ?? ''), session.secretHash)) return json(res, 403, { error: 'Restauração permitida apenas ao computador criador.' });
@@ -155,7 +132,7 @@ let lastSaved = 0;
 setInterval(() => {
   for (const [id, session] of sessions) {
     if (session.expires <= Date.now()) { for (const res of clients.get(id) ?? []) { res.write('event: expired\ndata: {}\n\n'); res.end(); } clients.delete(id); sessions.delete(id); continue; }
-    if (session.state.running || session.state.autoplay) { session.state = reduce(session.state, { type: 'tick' }); publish(session); }
+    if (session.state.running || session.state.autoplay || session.state.storyPlaying) { session.state = reduce(session.state, { type: 'tick' }); publish(session); }
   }
   for (const [key, pair] of pairings) if (pair.expires < Date.now()) pairings.delete(key);
   for (const [key, attempt] of attempts) if (attempt.until < Date.now()) attempts.delete(key);
@@ -163,4 +140,4 @@ setInterval(() => {
 }, 250).unref();
 setInterval(() => { for (const set of clients.values()) for (const res of set) res.write(': heartbeat\n\n'); }, 15_000).unref();
 server.listen(PORT, '0.0.0.0', () => { console.log('SYNAPSE: http://localhost:' + PORT); for (const address of urls()) console.log('Rede local: ' + address); });
-for (const signal of ['SIGINT', 'SIGTERM'] as const) process.on(signal, async () => { for (const session of sessions.values()) { session.state = reduce(session.state, { type: 'clock', value: false }); session.state.autoplay = false; } await persist(); process.exit(0); });
+for (const signal of ['SIGINT', 'SIGTERM'] as const) process.on(signal, async () => { for (const session of sessions.values()) { session.state = reduce(session.state, { type: 'clock', value: false }); session.state.autoplay = false; session.state.storyPlaying = false; } await persist(); process.exit(0); });
